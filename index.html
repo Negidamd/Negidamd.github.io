@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Negida, MD, PhD | Translational & Clinical Research Scientist</title>
+    <meta name="description" content="Ahmed Negida - Translational and Clinical Research Scientist at Virginia Commonwealth University specializing in Parkinson's Disease, Lewy Body Dementia, Neuroimaging, Machine Learning, and Precision Medicine.">
+    <meta name="keywords" content="Ahmed Negida, Parkinson's Disease, Lewy Body Dementia, Neuroimaging, Precision Medicine, Machine Learning, Clinical Research, VCU">
+    <meta name="author" content="Ahmed Negida">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ahmed Negida, MD, PhD | Translational & Clinical Research Scientist">
+    <meta property="og:description" content="Precision medicine approaches to neurodegenerative diseases through multimodal biomarkers and advanced computational methods.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts - Clean, professional, familiar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f1f3f5;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --text-muted: #6c757d;
+            --accent: #0d6e6e;
+            --accent-light: #14b8a6;
+            --accent-dark: #064e4e;
+            --border: #dee2e6;
+            --border-light: #e9ecef;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --font-serif: Georgia, 'Times New Roman', serif;
+            --font-sans: 'Open Sans', Arial, Helvetica, sans-serif;
+            --max-width: 1100px;
+            --transition: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 2rem;
+        }
+
+        nav .logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: normal;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 0.875rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav .nav-links a:hover {
+            color: var(--accent);
+            background: var(--bg-secondary);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 7rem 2rem 4rem;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 240px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .hero-content .credentials {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero-content .affiliation {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-primary);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        /* Alternating light backgrounds */
+        section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        /* Research Vision Section */
+        .research-vision-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 900px;
+        }
+
+        .research-themes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .research-theme-card {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        section:nth-child(odd) .research-theme-card {
+            background: var(--bg-secondary);
+        }
+
+        .research-theme-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .research-theme-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: normal;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .research-theme-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .theme-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .theme-tag {
+            padding: 0.25rem 0.6rem;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .tool-card {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        section:nth-child(odd) .tool-card {
+            background: var(--bg-secondary);
+        }
+
+        .tool-card:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tool-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .tool-card .tool-meta {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .tool-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tool-tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tool-tag {
+            padding: 0.2rem 0.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .tool-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tool-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Education Section */
+        .timeline {
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            padding-left: 1.5rem;
+            padding-bottom: 2rem;
+            position: relative;
+            border-left: 2px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0.3rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: normal;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .timeline-item h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Teaching Section */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .teaching-main {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        section:nth-child(odd) .teaching-main {
+            background: var(--bg-secondary);
+        }
+
+        .teaching-main h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .academy-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .academy-stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+
+        .academy-stat .stat-number {
+            font-size: 1.75rem;
+        }
+
+        .academy-stat .stat-label {
+            font-size: 0.75rem;
+        }
+
+        .teaching-desc {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .teaching-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .teaching-card {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        section:nth-child(odd) .teaching-card {
+            background: var(--bg-secondary);
+        }
+
+        .teaching-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .teaching-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .mentorship-highlight {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .mentorship-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .mentorship-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Technical Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        section:nth-child(odd) .skill-category {
+            background: var(--bg-secondary);
+        }
+
+        .skill-category h3 {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: normal;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Publications Section */
+        .pub-highlights {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+        }
+
+        .pub-highlight-item {
+            text-align: center;
+        }
+
+        .pub-highlight-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .pub-highlight-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .pub-item {
+            background: var(--bg-primary);
+            border-radius: 4px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+        }
+
+        section:nth-child(odd) .pub-item {
+            background: var(--bg-secondary);
+        }
+
+        .pub-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+            line-height: 1.5;
+        }
+
+        .pub-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .pub-meta strong {
+            color: var(--text-primary);
+        }
+
+        .pub-meta a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .pub-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .pub-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        /* Global Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .impact-card {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+        }
+
+        section:nth-child(odd) .impact-card {
+            background: var(--bg-secondary);
+        }
+
+        .impact-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: normal;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .impact-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .impact-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .impact-stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .impact-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .service-card {
+            grid-column: 1 / -1;
+        }
+
+        .service-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Quick Links Section */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .link-card {
+            background: var(--bg-primary);
+            border-radius: 6px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        section:nth-child(odd) .link-card {
+            background: var(--bg-secondary);
+        }
+
+        .link-card:hover {
+            box-shadow: var(--shadow-sm);
+            border-color: var(--accent);
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .link-content h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .link-content p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: normal;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-links {
+                justify-content: center;
+            }
+
+            .research-themes {
+                grid-template-columns: 1fr;
+            }
+
+            .teaching-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pub-highlights {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">Ahmed <span>Negida</span></a>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#impact">Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="profile-photo">
+                <!-- Replace "photo.jpg" with your actual photo file name -->
+                <img src="photo.jpg" alt="Ahmed Negida" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>👤</div>'">
+            </div>
+            
+            <div class="hero-content">
+                <h1>Ahmed Negida</h1>
+                <div class="credentials">MD, PhD</div>
+                <p class="subtitle">Translational & Clinical Research Scientist</p>
+                <p class="affiliation">
+                    Postdoctoral Scholar<br>
+                    VCU Parkinson's & Movement Disorders Center<br>
+                    Department of Neurology, Virginia Commonwealth University
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">7,000+</div>
+                        <div class="stat-label">Citations</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">H-Index</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">35,000+</div>
+                        <div class="stat-label">Trainees</div>
+                    </div>
+                </div>
+                
+                <div class="hero-links">
+                    <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" class="btn btn-primary">Google Scholar</a>
+                    <a href="https://github.com/negidamd" target="_blank" class="btn btn-secondary">GitHub</a>
+                    <a href="mailto:ahmed.negida@vcuhealth.org" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Research Program</h2>
+                <p>Precision medicine for neurodegenerative diseases through biomarker integration and computational methods</p>
+            </div>
+
+            <p class="research-vision-text">
+                My research aims to improve care for patients with Parkinson's disease, Lewy body dementia, and Alzheimer's disease through precision medicine approaches. Disease-modifying trials often struggle because heterogeneous populations are treated as uniform entities. I work to address this challenge by integrating multimodal biomarkers—neuroimaging, EEG, fluid biomarkers—to help stratify patients into biologically meaningful subtypes.
+            </p>
+
+            <div class="research-themes">
+                <div class="research-theme-card">
+                    <div class="theme-number">Theme 1</div>
+                    <h3>Cognitive Fluctuations & Cholinergic Systems in Lewy Body Disease</h3>
+                    <p>Developing EEG-based biomarkers for cognitive fluctuations using NASA's Psychomotor Vigilance Test combined with resting-state and task-based EEG. Developed an MRI-based approach to subtype PD-MCI based on cholinergic nucleus 4 degeneration markers.</p>
+                    <div class="theme-tags">
+                        <span class="theme-tag">EEG-fMRI Integration</span>
+                        <span class="theme-tag">Neuromodulation</span>
+                        <span class="theme-tag">Cholinergic Targeting</span>
+                    </div>
+                </div>
+
+                <div class="research-theme-card">
+                    <div class="theme-number">Theme 2</div>
+                    <h3>Pathology-Driven Stratification (ATNM Framework)</h3>
+                    <p>Extended the Alzheimer's ATN framework to include Memory impairment (ATNM) and synuclein-vascular components (ATN-SV). Integrates α-synuclein quantification, plasma biomarkers, and MRI vascular measures for pathology classification.</p>
+                    <div class="theme-tags">
+                        <span class="theme-tag">Biomarker Integration</span>
+                        <span class="theme-tag">Trial Enrichment</span>
+                        <span class="theme-tag">Precision Therapeutics</span>
+                    </div>
+                </div>
+
+                <div class="research-theme-card">
+                    <div class="theme-number">Theme 3</div>
+                    <h3>Data-Driven PD Subtyping & Progression Modeling</h3>
+                    <p>Conducted comprehensive analysis of PD progression across clinical, pathological, and data-driven subtypes using 10-year PPMI data. Developed disease-duration-specific percentiles for prospective diffuse-malignant identification at diagnosis.</p>
+                    <div class="theme-tags">
+                        <span class="theme-tag">Machine Learning</span>
+                        <span class="theme-tag">Longitudinal Modeling</span>
+                        <span class="theme-tag">Clinical Translation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Tools Section -->
+    <section id="tools">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Research Tools & Software</h2>
+                <p>Open-source tools developed for clinical neuroscience research</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Vol-HD</h3>
+                    <div class="tool-meta">Movement Disorders, 2024</div>
+                    <p>Online calculator for predicting striatal volumes in Huntington's Disease patients using demographic and clinical variables, enabling pre-screening for clinical trials of intrastriatal gene therapies.</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Huntington's Disease</span>
+                        <span class="tool-tag">MRI Volumetrics</span>
+                        <span class="tool-tag">Clinical Trials</span>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://doi.org/10.1002/mds.29749" target="_blank" class="tool-link">Paper →</a>
+                        <a href="https://github.com/negidamd" target="_blank" class="tool-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>CNN-PD</h3>
+                    <div class="tool-meta">Deep Learning · Open Source</div>
+                    <p>Convolutional neural network for automated detection of Parkinson's Disease from healthy controls using structural T1-weighted MRI data with high cross-validated classification performance.</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Parkinson's Disease</span>
+                        <span class="tool-tag">Deep Learning</span>
+                        <span class="tool-tag">MRI Classification</span>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://github.com/negidamd" target="_blank" class="tool-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Negida-FE-Toolbox</h3>
+                    <div class="tool-meta">EEG Analysis · Open Source</div>
+                    <p>Feature extraction toolbox for extracting dominant frequency features from EEG signals in patients with neurodegenerative diseases. Enables biomarker development for cognitive fluctuations.</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">EEG Analysis</span>
+                        <span class="tool-tag">Feature Extraction</span>
+                        <span class="tool-tag">MATLAB</span>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://github.com/Negidamd/negida-fe-toolbox" target="_blank" class="tool-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>PD-MCI Ch4 Subtyping Tool</h3>
+                    <div class="tool-meta">Parkinsonism & Related Disorders, 2025</div>
+                    <p>Imaging-based subtype tool for PD-MCI using cholinergic nucleus 4 (NBM) gray matter density. Helps identify patients with cholinergic vulnerability markers for treatment selection.</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Parkinson's Disease</span>
+                        <span class="tool-tag">MCI Subtyping</span>
+                        <span class="tool-tag">Cholinergic System</span>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" class="tool-link">Paper →</a>
+                        <a href="https://ch4subtyping.negida.com" target="_blank" class="tool-link">Online Tool →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>PD Subtyping Tool</h3>
+                    <div class="tool-meta">npj Parkinson's Disease, 2025</div>
+                    <p>Interactive tool for clinical, pathological, and data-driven subtyping of Parkinson's Disease. Comprehensive framework integrating 10-year longitudinal data for precision medicine.</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Disease Subtyping</span>
+                        <span class="tool-tag">Precision Medicine</span>
+                        <span class="tool-tag">Progression Prediction</span>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40678221/" target="_blank" class="tool-link">Paper →</a>
+                        <a href="https://pdsubtyping.negida.com" target="_blank" class="tool-link">Online Tool →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Neuroimaging Pipelines</h3>
+                    <div class="tool-meta">End-to-End Workflows</div>
+                    <p>Comprehensive pipelines for structural, functional, and diffusion MRI analysis including VBM, cortical thickness, DTI-ALPS for glymphatic function, and multimodal integration.</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">SPM12/CAT12</span>
+                        <span class="tool-tag">FSL/FreeSurfer</span>
+                        <span class="tool-tag">MATLAB</span>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://github.com/negidamd" target="_blank" class="tool-link">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Education & Training</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">August 2025</div>
+                    <h3>IMPACT-AD Fellowship</h3>
+                    <h4>National Institute on Aging (NIA), NIH · San Diego, CA</h4>
+                    <p>Institute on Methods and Protocols for Advancement of Clinical Trials in ADRD. Advanced training in Alzheimer's and related dementias clinical trial design and methodology.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2023 – Present</div>
+                    <h3>Postdoctoral Scholar</h3>
+                    <h4>VCU Parkinson's & Movement Disorders Center · Richmond, VA</h4>
+                    <p>Research on cognitive fluctuations in Lewy Body Dementia, multimodal biomarker integration, and precision medicine. Mentors: Matthew J. Barrett, MD, MSc and Brian D. Berman, MD, MS.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2021 – March 2023</div>
+                    <h3>Research Fellow</h3>
+                    <h4>Harvard Medical School, Program in Global Surgery · Boston, MA</h4>
+                    <p>Assessed global neurological care delivery systems across 50+ countries. Quantified social determinants of neurological health disparities using advanced geospatial modeling.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2022</div>
+                    <h3>Ph.D. in Biomedical Sciences</h3>
+                    <h4>University of Portsmouth · United Kingdom</h4>
+                    <p>Dissertation: "The Hope and the Hype in Parkinson's Disease Treatments" — Meta-research, evidence synthesis, and critical appraisal of neuroprotective interventions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">March – September 2019</div>
+                    <h3>Research Fellow</h3>
+                    <h4>Bahçeşehir University, Department of Neurological Surgery · Istanbul, Turkey</h4>
+                    <p>Evaluated deep brain stimulation outcomes in Parkinson's and Huntington's disease patients using advanced statistical methods.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2018</div>
+                    <h3>M.B.B.Ch. in Medicine and Surgery</h3>
+                    <h4>Zagazig University · Egypt</h4>
+                    <p>Medical degree with honors (Very Good). Foundation in clinical medicine and early research experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section id="teaching">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Teaching & Mentorship</h2>
+                <p>Contributing to research education and training</p>
+            </div>
+
+            <div class="teaching-grid">
+                <div class="teaching-main">
+                    <h3>Negida Research Academy</h3>
+                    <p class="teaching-desc">
+                        Founded in 2015, Negida Research Academy is a global virtual training platform delivering comprehensive research education. The Academy conducts two structured cohort-based training camps annually, each training approximately 1,200 researchers over 8-12 weeks.
+                    </p>
+                    
+                    <div class="academy-stats">
+                        <div class="academy-stat">
+                            <div class="stat-number">35,000+</div>
+                            <div class="stat-label">Total Trainees</div>
+                        </div>
+                        <div class="academy-stat">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
+                        <div class="academy-stat">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Active Members</div>
+                        </div>
+                        <div class="academy-stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Mentees Published</div>
+                        </div>
+                    </div>
+
+                    <p class="teaching-desc">
+                        Comprehensive curricula covering research design, biostatistics, data analysis, systematic reviews, meta-analysis, scientific writing, and grant preparation. Multiple mentees have secured competitive fellowships at Harvard Medical School, Cleveland Clinic, Yale, and Duke University.
+                    </p>
+                    
+                    <a href="https://courses.negida.com" target="_blank" class="btn btn-primary">Visit Negida Academy →</a>
+                </div>
+
+                <div class="teaching-sidebar">
+                    <div class="teaching-card">
+                        <h4>Specialized Neuroimaging Course</h4>
+                        <p>Developed the first neuroimaging analysis course in Arabic for the Middle East region, teaching MRI preprocessing, VBM, and fMRI analysis using MATLAB/SPM12/CAT12.</p>
+                    </div>
+
+                    <div class="teaching-card">
+                        <h4>Courses Prepared to Teach</h4>
+                        <p>Computational Neuroscience · Machine Learning in Medicine · Clinical Research Methods · Translational Neurology · Scientific Writing · Biostatistics · Neuroimaging Analysis Workshops</p>
+                    </div>
+
+                    <div class="teaching-card">
+                        <h4>Selected Invited Lectures</h4>
+                        <p>"PD-MCI with MRI Evidence of Cholinergic Nucleus 4 Degeneration" (VCU, 2025) · "Using Advanced Data Models to Study Neurodegenerative Diseases" (VCU, 2024) · "Disease Modification in Neurodegeneration" (IBRO, Tunisia, 2022)</p>
+                        <div class="mentorship-highlight">
+                            <div class="mentorship-number">50+</div>
+                            <div class="mentorship-text">Junior researchers mentored to first-author publications</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Neuroimaging & EEG</h3>
+                    <ul class="skill-list">
+                        <li>Structural MRI: VBM, cortical thickness, subcortical volumetry</li>
+                        <li>Functional MRI: Resting-state connectivity, ICA, graph theory</li>
+                        <li>Diffusion MRI: DTI, tractography, ALPS-index</li>
+                        <li>EEG: Spectral power, connectivity, microstate analysis</li>
+                        <li>SPM12, CAT12, FSL, FreeSurfer, MRtrix</li>
+                        <li>EEGLAB, Brainstorm, Conn Toolbox</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Machine Learning & Statistics</h3>
+                    <ul class="skill-list">
+                        <li>Supervised: SVM, Random Forest, XGBoost</li>
+                        <li>Unsupervised: K-means, hierarchical clustering, PCA</li>
+                        <li>Deep Learning: CNNs for medical imaging</li>
+                        <li>Explainable AI: SHAP values, feature importance</li>
+                        <li>MATLAB, R, Stata, SPSS, JASP</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Clinical Research Methods</h3>
+                    <ul class="skill-list">
+                        <li>Large database analysis: PPMI, NACC, PDBP, ADNI, OASIS</li>
+                        <li>Systematic reviews & meta-analysis: GRADE methodology</li>
+                        <li>Study design: Cohort, case-control, clinical trials (I-III)</li>
+                        <li>Biostatistics: Survival analysis, mixed models, PSM</li>
+                        <li>Data harmonization, missing data imputation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Selected Publications</h2>
+            </div>
+
+            <div class="pub-highlights">
+                <div class="pub-highlight-item">
+                    <div class="pub-highlight-number">100+</div>
+                    <div class="pub-highlight-label">Publications</div>
+                </div>
+                <div class="pub-highlight-item">
+                    <div class="pub-highlight-number">7,000+</div>
+                    <div class="pub-highlight-label">Citations</div>
+                </div>
+                <div class="pub-highlight-item">
+                    <div class="pub-highlight-number">40+</div>
+                    <div class="pub-highlight-label">H-Index</div>
+                </div>
+                <div class="pub-highlight-item">
+                    <div class="pub-highlight-number">90+</div>
+                    <div class="pub-highlight-label">i10-Index</div>
+                </div>
+            </div>
+
+            <div class="pub-list">
+                <div class="pub-item">
+                    <h4>Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: A new subtype?</h4>
+                    <p class="pub-meta"><strong>Negida A</strong>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ · <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank">Parkinsonism & Related Disorders, 2025</a></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>Comparative analysis of progression milestones across PD clinical, pathological, and data-driven subtypes: 10-year follow-up</h4>
+                    <p class="pub-meta"><strong>Negida A</strong>, Mukhopadhyay N, Berman BD, et al. · <a href="https://pubmed.ncbi.nlm.nih.gov/40678221/" target="_blank">npj Parkinson's Disease, 2025</a></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>Cholinesterase inhibitors for patients with dementia: Patterns of prescribing and disparities in treatment</h4>
+                    <p class="pub-meta">Heo RJ, <strong>Negida A</strong>, Barrett MJ, et al. · <a href="https://doi.org/10.1177/13872877251411418" target="_blank">Journal of Alzheimer's Disease, 2026</a></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>Patterns and predictors of cholinesterase inhibitor use in dementia with Lewy bodies</h4>
+                    <p class="pub-meta">Heo RJ, <strong>Negida A</strong>, Wyman-Chick KA, et al. · <a href="https://doi.org/10.1002/trc2.70136" target="_blank">Alzheimer's & Dementia: TRCI, 2025</a></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>Optimizing screening for intrastriatal interventions in Huntington's disease using predictive models</h4>
+                    <p class="pub-meta">Barrett MJ, <strong>Negida A</strong>, Mukhopadhyay N, et al. · <a href="https://doi.org/10.1002/mds.29749" target="_blank">Movement Disorders, 2024</a></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>Statins and Parkinson's disease risk reduction and disease-modification: A meta-analysis of 4 million participants</h4>
+                    <p class="pub-meta">Mady A, Nabil Y, ... <strong>Negida A</strong> · <a href="https://doi.org/10.1111/cns.14888" target="_blank">CNS Neuroscience & Therapeutics, 2024</a></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>Caffeine: The forgotten potential for Parkinson's disease</h4>
+                    <p class="pub-meta"><strong>Negida A</strong>, Elfil M, Attia A, et al. · CNS & Neurological Disorders - Drug Targets, 2017 <span class="pub-badge">150+ Citations</span></p>
+                </div>
+
+                <div class="pub-item">
+                    <h4>C-Abl inhibition: A novel therapeutic target for Parkinson's disease</h4>
+                    <p class="pub-meta">Abushouk AI, <strong>Negida A</strong>, et al. · CNS & Neurological Disorders - Drug Targets, 2018 <span class="pub-badge">100+ Citations</span></p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" class="btn btn-primary">View All Publications →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Impact Section -->
+    <section id="impact">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Collaborative Networks & Service</h2>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>Global NeuroSurg Research Collaborative</h3>
+                    <p>Co-founded an international network of neurosurgeons, neurologists, and neuroscientists across 50+ countries. Contributed to the design and execution of GNS-1: a multicenter global traumatic brain injury study with 2,000+ patients across 20+ countries.</p>
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">500+</div>
+                            <div class="impact-stat-label">Collaborators</div>
+                        </div>
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">50+</div>
+                            <div class="impact-stat-label">Countries</div>
+                        </div>
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">2,000+</div>
+                            <div class="impact-stat-label">Patients in GNS-1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Honors & Recognition</h3>
+                    <p>IMPACT-AD Fellowship (NIA/NIH, 2025) · U.S. Permanent Residency via EB-2 National Interest Waiver in Biomedical Sciences · Sigma Xi Scientific Honor Society · Multiple international travel grants and awards from professional societies across USA, Europe, Singapore, Canada, and Korea.</p>
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">90+</div>
+                            <div class="impact-stat-label">i10-Index</div>
+                        </div>
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">150+</div>
+                            <div class="impact-stat-label">Verified Reviews</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card service-card">
+                    <h3>Professional Service</h3>
+                    <p><strong>Guidelines Committees:</strong> North American Neuromodulation Society · European Association of Neurosurgical Societies</p>
+                    <p><strong>Editorial Boards:</strong> Frontiers in Neurology (Dementia & Neurodegenerative Disease) · PLOS ONE · Current Neuropharmacology · Medicine</p>
+                    <p><strong>Memberships:</strong> International Parkinson's and Movement Disorder Society · American Academy of Neurology · International and North American Neuromodulation Societies · Sigma Xi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section id="links">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Quick Links</h2>
+            </div>
+
+            <div class="links-grid">
+                <a href="https://courses.negida.com" target="_blank" class="link-card">
+                    <div class="link-icon">🎓</div>
+                    <div class="link-content">
+                        <h3>Negida Academy</h3>
+                        <p>Research training courses</p>
+                    </div>
+                </a>
+
+                <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" class="link-card">
+                    <div class="link-icon">📊</div>
+                    <div class="link-content">
+                        <h3>Google Scholar</h3>
+                        <p>Publications & citations</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/negidamd" target="_blank" class="link-card">
+                    <div class="link-icon">💻</div>
+                    <div class="link-content">
+                        <h3>GitHub</h3>
+                        <p>Open-source tools & code</p>
+                    </div>
+                </a>
+
+                <a href="https://www.dataclinix.com" target="_blank" class="link-card">
+                    <div class="link-icon">🏢</div>
+                    <div class="link-content">
+                        <h3>DataCliNiX</h3>
+                        <p>Research consultancy</p>
+                    </div>
+                </a>
+
+                <a href="https://www.researchgate.net/profile/Ahmed-Negida-2" target="_blank" class="link-card">
+                    <div class="link-icon">🔗</div>
+                    <div class="link-content">
+                        <h3>ResearchGate</h3>
+                        <p>Research network</p>
+                    </div>
+                </a>
+
+                <a href="https://pdsubtyping.negida.com" target="_blank" class="link-card">
+                    <div class="link-icon">🎯</div>
+                    <div class="link-content">
+                        <h3>PD Subtyping Tool</h3>
+                        <p>Interactive disease subtyping</p>
+                    </div>
+                </a>
+
+                <a href="https://ch4subtyping.negida.com" target="_blank" class="link-card">
+                    <div class="link-icon">🔬</div>
+                    <div class="link-content">
+                        <h3>Ch4 Subtyping Tool</h3>
+                        <p>PD-MCI cholinergic subtyping</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Contact</h2>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Current Affiliation</h3>
+                    <p>Parkinson's and Movement Disorders Center<br>
+                    Department of Neurology<br>
+                    Virginia Commonwealth University<br>
+                    Richmond, VA, USA</p>
+
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <a href="mailto:ahmed.negida@vcuhealth.org">ahmed.negida@vcuhealth.org</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+1 (347) 251-3472</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <span>U.S. Permanent Resident (Green Card)</span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" class="social-link" title="Google Scholar">📊</a>
+                        <a href="https://github.com/negidamd" target="_blank" class="social-link" title="GitHub">💻</a>
+                        <a href="https://www.researchgate.net/profile/Ahmed-Negida-2" target="_blank" class="social-link" title="ResearchGate">📚</a>
+                        <a href="https://orcid.org/0000-0002-5765-4098" target="_blank" class="social-link" title="ORCID">🔗</a>
+                        <a href="https://twitter.com/AhmedNegida" target="_blank" class="social-link" title="Twitter/X">𝕏</a>
+                        <a href="https://linkedin.com/in/ahmednegida" target="_blank" class="social-link" title="LinkedIn">in</a>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Consultation Services</h3>
+                    <p>Through DataCliNiX, I offer research consultation services including study design, statistical analysis, neuroimaging analysis, systematic reviews, meta-analysis, medical writing, and clinical research training.</p>
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a href="https://courses.negida.com/offers/TNLAyUBJ" target="_blank" class="btn btn-primary">Book a Consultation</a>
+                        <a href="https://www.dataclinix.com" target="_blank" class="btn btn-secondary">DataCliNiX</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Ahmed Negida, MD, PhD · Translational & Clinical Research Scientist</p>
+        <p style="margin-top: 0.35rem;"><a href="https://vcuhealth.org" target="_blank">VCU Health</a> · Richmond, VA</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = 'white';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.borderBottom = '1px solid #dee2e6';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
