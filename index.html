@@ -12,6 +12,17 @@
     <meta property="og:title" content="Ahmed Negida, MD, PhD | Translational & Clinical Research Scientist">
     <meta property="og:description" content="Precision medicine approaches to neurodegenerative diseases through multimodal biomarkers and advanced computational methods.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://negidamd.github.io/">
+    <meta property="og:image" content="https://negidamd.github.io/photo.jpg">
+    <meta property="og:image:alt" content="Ahmed Negida, MD, PhD">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ahmed Negida, MD, PhD | Translational & Clinical Research Scientist">
+    <meta name="twitter:description" content="Precision medicine approaches to neurodegenerative diseases through multimodal biomarkers and advanced computational methods.">
+    <meta name="twitter:image" content="https://negidamd.github.io/photo.jpg">
+
+    <meta name="theme-color" content="#162e51">
 
     <!-- Fonts — Public Sans (USWDS / NIH official) + Merriweather (USWDS serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +38,35 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129504;</text></svg>">
+
+    <!-- JSON-LD structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ahmed Negida",
+      "jobTitle": "Translational & Clinical Research Scientist",
+      "honorificSuffix": "MD, PhD",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Virginia Commonwealth University",
+        "department": "Department of Neurology, Parkinson's and Movement Disorders Center"
+      },
+      "url": "https://negidamd.github.io/",
+      "image": "https://negidamd.github.io/photo.jpg",
+      "sameAs": [
+        "https://scholar.google.com/citations?user=HURlCI8AAAAJ",
+        "https://github.com/negidamd",
+        "https://www.researchgate.net/profile/Ahmed-Negida",
+        "https://orcid.org/0000-0002-8920-3305",
+        "https://linkedin.com/in/ahmednegida",
+        "https://twitter.com/negida_a"
+      ],
+      "email": "ahmed.said.negida@gmail.com",
+      "knowsAbout": ["Parkinson's disease", "Lewy body dementia", "Neuroimaging", "Precision medicine", "Machine learning", "Clinical research"],
+      "description": "Translational and clinical research scientist specializing in neurodegenerative diseases, multimodal biomarkers, and precision medicine."
+    }
+    </script>
 
     <style>
         :root {
@@ -61,6 +101,28 @@
 
         a { color: var(--accent); text-decoration: underline; }
         a:hover { color: var(--accent-dark); }
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-light);
+            outline-offset: 2px;
+        }
+        .skip-link {
+            position: absolute;
+            top: -3rem;
+            left: 1rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            z-index: 1001;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0.5rem;
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
 
         /* ===== Navigation (NIH-style dark header) ===== */
         nav {
@@ -209,6 +271,11 @@
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .fade-in { opacity: 1; transform: none; transition: none; }
+            .research-card:hover { transform: none; }
+        }
 
         /* ===== Research Cards ===== */
         .research-vision-text {
@@ -613,8 +680,9 @@
     </style>
 </head>
 <body>
+    <a href="#research" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main">
         <div class="nav-inner">
             <a href="#" class="logo">Ahmed <span>Negida</span></a>
             <ul class="nav-links">
@@ -649,7 +717,7 @@
     <section class="hero">
         <div class="hero-inner">
             <div class="profile-photo">
-                <img src="photo.jpg" alt="Ahmed Negida" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>&#128100;</div>'">
+                <img src="photo.jpg" alt="Ahmed Negida, MD, PhD" width="160" height="200" fetchpriority="high" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>&#128100;</div>'">
             </div>
 
             <div class="hero-content">
@@ -1537,9 +1605,14 @@
         if (metricsBar) metricsObserver.observe(metricsBar);
 
         function animateCounters() {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             document.querySelectorAll('.metric-number[data-target]').forEach(counter => {
                 const target = parseInt(counter.dataset.target);
                 const suffix = counter.dataset.suffix || '';
+                if (reduceMotion) {
+                    counter.textContent = target.toLocaleString() + suffix;
+                    return;
+                }
                 const duration = 2000;
                 const startTime = performance.now();
                 function update(currentTime) {
