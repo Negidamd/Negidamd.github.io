@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subtyping Parkinson's Disease | Ahmed Negida, MD, PhD</title>
-    <meta name="description" content="A research story: an ongoing program to subtype Parkinson's disease across cholinergic-imaging, clinical, pathological, and data-driven axes — from cholinergic (Ch4) imaging subtypes to disease-duration percentiles and an open interactive calculator.">
+    <meta name="description" content="An ongoing program to subtype Parkinson's disease across cholinergic-imaging, clinical, pathological, and data-driven axes — from cholinergic (Ch4) imaging subtypes to disease-duration percentiles and an open interactive calculator.">
     <meta name="author" content="Ahmed Negida">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Subtyping Parkinson's Disease — A Research Story">
+    <meta property="og:title" content="Subtyping Parkinson's Disease — A Research Program">
     <meta property="og:description" content="From cholinergic imaging subtypes to disease-duration percentiles and an open interactive calculator: an ongoing program to stratify Parkinson's disease for clinical trials.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://negidamd.github.io/pd-subtyping.html">
@@ -106,6 +106,27 @@
         }
         .dot { width: 11px; height: 11px; border-radius: 50%; }
         .dot.dm { background: var(--dm); } .dot.im { background: var(--im); } .dot.mmp { background: var(--mmp); }
+
+        /* ---------- Credibility strip ---------- */
+        .proofbar { background: #eef2f7; border-bottom: 1px solid var(--border); }
+        .proofbar-inner {
+            max-width: 900px; margin: 0 auto; padding: 0.85rem 1.5rem;
+            display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; align-items: center; justify-content: space-between;
+        }
+        .proof-journals { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+        .proof-label {
+            font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--text-muted); margin-right: 0.3rem;
+        }
+        .jchip {
+            font-size: 0.78rem; font-weight: 600; color: var(--accent-dark);
+            background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.22rem 0.65rem;
+        }
+        .proof-tools { display: flex; gap: 1rem; }
+        .proof-tools a { font-size: 0.82rem; font-weight: 700; text-decoration: none; color: var(--accent); white-space: nowrap; }
+        .proof-tools a:hover { text-decoration: underline; }
+        .proof-tools a.ch4 { color: #7A4FBF; }
+        @media (max-width: 700px) { .proofbar-inner { justify-content: flex-start; } }
 
         /* ---------- Layout ---------- */
         main { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
@@ -277,7 +298,7 @@
     <!-- Hero -->
     <header class="hero">
         <div class="hero-inner">
-            <div class="eyebrow">Research Story &middot; Parkinson's Disease</div>
+            <div class="eyebrow">Parkinson's Disease &middot; Precision Subtyping</div>
             <h1>One diagnosis, many diseases</h1>
             <p class="dek"><b>Two fronts in the effort to make Parkinson's subtyping usable for precision trials</b>: making the data-driven DM/IM/MMP framework deployable for real-time stratification, and establishing new imaging subtypes defined by cholinergic degeneration.</p>
             <div class="chips">
@@ -286,6 +307,23 @@
             </div>
         </div>
     </header>
+
+    <!-- Credibility + tools strip -->
+    <div class="proofbar">
+        <div class="proofbar-inner">
+            <div class="proof-journals">
+                <span class="proof-label">Peer-reviewed in</span>
+                <span class="jchip">npj Parkinson's Disease</span>
+                <span class="jchip">Mov Disord Clin Pract</span>
+                <span class="jchip">Genes</span>
+                <span class="jchip">Parkinsonism &amp; Related Disorders</span>
+            </div>
+            <div class="proof-tools">
+                <a href="#calculator">Data-driven calculator &darr;</a>
+                <a href="#ch4-calculator" class="ch4">Ch4 calculator &darr;</a>
+            </div>
+        </div>
+    </div>
 
     <main>
         <!-- Overview -->
