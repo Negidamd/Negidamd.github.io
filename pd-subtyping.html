@@ -133,6 +133,21 @@
             background: var(--accent-darker); color: #fff; font-weight: 800; font-size: 1.15rem;
             display: flex; align-items: center; justify-content: center; font-family: var(--font-serif);
         }
+        .chapter-num.ch4 { background: #7A4FBF; font-size: 1.3rem; }
+
+        /* Track divider header */
+        .track-head { padding: 3rem 0 0.5rem; }
+        .track-eyebrow {
+            display: inline-block; text-transform: uppercase; letter-spacing: 0.12em;
+            font-size: 0.76rem; font-weight: 800; color: #fff; background: var(--accent-darker);
+            padding: 0.3rem 0.8rem; border-radius: 5px; margin-bottom: 0.9rem;
+        }
+        .track-head.ch4 .track-eyebrow { background: #7A4FBF; }
+        .track-head h2 {
+            font-family: var(--font-serif); font-weight: 900; font-size: 1.75rem;
+            color: var(--accent-darker); margin: 0 0 0.5rem; letter-spacing: -0.01em;
+        }
+        .track-head p { color: var(--text-secondary); font-size: 1.05rem; margin: 0; max-width: 760px; }
         .chapter-meta { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 0.35rem; }
         .chapter-meta a { color: var(--accent); }
         .journal-tag {
@@ -232,11 +247,10 @@
         <div class="nav-inner">
             <a href="index.html" class="logo">Ahmed <span>Negida</span></a>
             <ul class="nav-links">
-                <li><a href="#origin">The origin</a></li>
-                <li><a href="#progression">Progression</a></li>
-                <li><a href="#genetics">Genetics</a></li>
-                <li><a href="#percentiles">Percentiles</a></li>
+                <li><a href="#data-driven">Data-driven framework</a></li>
                 <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#ch4">Ch4 subtype</a></li>
+                <li><a href="#cite">Papers</a></li>
                 <li><a href="index.html" class="home-link">&larr; Main site</a></li>
             </ul>
         </div>
@@ -247,12 +261,10 @@
         <div class="hero-inner">
             <div class="eyebrow">Research Story &middot; Parkinson's Disease</div>
             <h1>One diagnosis, many diseases</h1>
-            <p class="dek">A four-paper program to subtype Parkinson's disease along the axes that predict who progresses fastest &mdash; from a cholinergic imaging subtype to disease-duration percentiles and an open, interactive bedside calculator.</p>
+            <p class="dek">A first-author program on <b>two subtyping fronts</b>: making the data-driven DM/IM/MMP framework deployable for real-time clinical-trial stratification, and proposing a new imaging subtype defined by cholinergic (Ch4) degeneration.</p>
             <div class="chips">
-                <span class="chip"><span class="dot" style="background:#7A4FBF"></span>Cholinergic imaging &middot; Ch4</span>
-                <span class="chip"><span class="dot" style="background:#5B6B7A"></span>Clinical &middot; TD / PIGD</span>
-                <span class="chip"><span class="dot" style="background:#2A9D8F"></span>Pathological &middot; brain / body-first</span>
-                <span class="chip"><span class="dot" style="background:linear-gradient(135deg,#E63946 0 33%,#F5B82E 33% 66%,#2EB346 66% 100%)"></span>Data-driven &middot; DM / IM / MMP</span>
+                <span class="chip"><span class="dot" style="background:linear-gradient(135deg,#E63946 0 33%,#F5B82E 33% 66%,#2EB346 66% 100%)"></span>Data-driven framework &middot; DM / IM / MMP</span>
+                <span class="chip"><span class="dot" style="background:#7A4FBF"></span>Cholinergic imaging subtype &middot; Ch4</span>
             </div>
         </div>
     </header>
@@ -262,42 +274,25 @@
         <section class="section" id="overview">
             <h2 class="section-title">Why subtype Parkinson's disease?</h2>
             <p class="lede">Parkinson's disease is not one disease. Two patients with the same diagnosis can follow radically different courses &mdash; one stable for a decade, another in a wheelchair with dementia within five years. Trials that treat PD as a single entity dilute their strongest signals in slow progressors, and disease-modifying candidates keep failing.</p>
-            <p>My research program asks a deceptively simple clinical question: <em>which patients will progress fastest, and can we identify them prospectively &mdash; at the bedside, in real time?</em> The answer that has held up across four studies is that PD fractures along several biologically meaningful axes &mdash; a <strong>cholinergic imaging subtype</strong> (nucleus basalis / Ch4), the classic <strong>clinical</strong> motor split, the <strong>pathological</strong> brain-first / body-first model, and a <strong>data-driven</strong> diffuse-malignant / intermediate / mild-motor-predominant (DM/IM/MMP) classification. Head to head, the biologically grounded frameworks &mdash; especially the data-driven DM subtype &mdash; separate rapid from slow progressors far better than the clinical labels neurologists have used for decades.</p>
+            <p>My work pursues this on <strong>two independent fronts</strong>. The first takes the existing <strong>data-driven</strong> DM/IM/MMP framework (originally proposed by Fereshtehnejad and colleagues) and makes it clinically deployable: I show it predicts progression better than the clinical and pathological models it is benchmarked against, map its genetic architecture, and re-engineer its thresholds so it can be applied <em>prospectively</em>, mid-course, in real time &mdash; shipped as an open calculator. The second is a distinct line proposing an <strong>entirely new imaging subtype</strong>: PD&ndash;MCI with cholinergic nucleus 4 (Ch4) degeneration, a more malignant group defined not by clinical scores but by brain structure.</p>
             <div class="thesis">
-                <p><strong>The through-line.</strong> Start from a cholinergic imaging subtype at the bedside &rarr; prove data-driven subtypes progress fastest across a decade &rarr; map their genetic architecture &rarr; make the model usable prospectively with disease-duration percentiles &rarr; ship it as a free calculator anyone can use.</p>
+                <p><strong>Two research lines.</strong><br>
+                <b>1 &middot; Deploying the data-driven framework</b> &mdash; prove it predicts progression, explain its biology, and make it usable prospectively with disease-duration percentiles and a free calculator.<br>
+                <b>2 &middot; Proposing a novel imaging subtype</b> &mdash; define PD&ndash;MCI with cholinergic Ch4 degeneration as a distinct, faster-progressing group.</p>
             </div>
         </section>
 
-        <!-- Chapter 1 -->
-        <section class="section chapter" id="origin">
-            <div class="chapter-head">
-                <div class="chapter-num">1</div>
-                <div>
-                    <div class="chapter-meta">The origin &middot; a cholinergic imaging subtype
-                        <span class="journal-tag">Parkinsonism Relat Disord &middot; 2025</span></div>
-                    <h3>A new PD&ndash;MCI subtype defined by cholinergic nucleus 4 degeneration</h3>
-                </div>
-            </div>
-            <div class="prose">
-                <p>The program began at the intersection of imaging and cognition. Mild cognitive impairment (PD&ndash;MCI) is common and prognostically messy &mdash; some patients convert to dementia quickly, others never do. I hypothesized that the difference is anatomical: degeneration of the <b>nucleus basalis of Meynert (cholinergic nucleus 4, Ch4)</b>, the brain's principal source of cortical acetylcholine.</p>
-                <p>Using baseline MRI from 162 PD&ndash;MCI participants in the Parkinson's Progression Markers Initiative (PPMI), we measured Ch4 grey-matter density with voxel-based morphometry and probabilistic maps. Patients with low Ch4 density had worse motor and autonomic burden, poorer olfaction, and &mdash; critically &mdash; progressed to cognitive-decline milestones significantly faster. This became the discovery anchoring an independent research program: <b>PD&ndash;MCI with Ch4 degeneration behaves like a distinct, more malignant subtype.</b></p>
-            </div>
-            <figure class="fig">
-                <img src="assets/pd-subtyping/ch4_flow.png" alt="Study flow: from 4,269 PPMI participants to 162 PD-MCI patients classified by low vs normal Ch4 grey-matter density." loading="lazy">
-                <figcaption><b>Cohort construction.</b> From the PPMI clinical cohort, PD&ndash;MCI patients with usable T1-weighted MRI were classified by Ch4 grey-matter density into low (n = 40) and normal (n = 122) groups.
-                    <span class="src">Figure from Negida A, et al. Parkinsonism Relat Disord. 2025;141:108072. doi:10.1016/j.parkreldis.2025.108072</span></figcaption>
-            </figure>
-            <div class="stats">
-                <div class="stat"><div class="num">162</div><div class="lbl">PD&ndash;MCI participants with baseline MRI</div></div>
-                <div class="stat dm"><div class="num">40</div><div class="lbl">with low Ch4 grey-matter density (the severe group)</div></div>
-                <div class="stat"><div class="num"><i>P</i> = 0.0017</div><div class="lbl">log-rank, faster cognitive-milestone progression</div></div>
-            </div>
-        </section>
+        <!-- Track 1: deploying the data-driven framework -->
+        <div class="track-head" id="data-driven">
+            <span class="track-eyebrow">Research line 1 &middot; deploying the data-driven framework</span>
+            <h2>Making the DM/IM/MMP model work in real time</h2>
+            <p>The data-driven model of Fereshtehnejad and colleagues has prognostic value but wasn't ready for prospective use. Three papers close that gap &mdash; does it predict progression, what is its biology, and can it be applied at any disease duration?</p>
+        </div>
 
-        <!-- Chapter 2 -->
+        <!-- Line 1 · Paper 1 (milestones) -->
         <section class="section chapter" id="progression">
             <div class="chapter-head">
-                <div class="chapter-num">2</div>
+                <div class="chapter-num">1</div>
                 <div>
                     <div class="chapter-meta">The test &middot; do subtypes really progress differently?
                         <span class="journal-tag">npj Parkinson's Disease &middot; 2026</span></div>
@@ -323,7 +318,7 @@
         <!-- Chapter 3 -->
         <section class="section chapter" id="genetics">
             <div class="chapter-head">
-                <div class="chapter-num">3</div>
+                <div class="chapter-num">2</div>
                 <div>
                     <div class="chapter-meta">The mechanism &middot; what drives the subtypes?
                         <span class="journal-tag">Genes (Basel) &middot; 2026</span></div>
@@ -349,7 +344,7 @@
         <!-- Chapter 4 -->
         <section class="section chapter" id="percentiles">
             <div class="chapter-head">
-                <div class="chapter-num">4</div>
+                <div class="chapter-num">3</div>
                 <div>
                     <div class="chapter-meta">The translation &middot; making it usable prospectively
                         <span class="journal-tag">Mov Disord Clin Pract &middot; 2026</span></div>
@@ -407,8 +402,8 @@
         <!-- Calculator payoff -->
         <section class="section payoff" id="calculator" style="margin:0 -1.5rem; padding-left:1.5rem; padding-right:1.5rem;">
             <div style="max-width:900px; margin:0 auto;">
-                <h2 class="section-title">Try it: the interactive calculator</h2>
-                <p class="lede">Everything above ships as a free, self-contained web tool. Enter a patient's disease duration and seven routine scores; it returns the subtype, a motor composite z-score, and a channel-by-channel percentile breakdown against same-disease-year peers. No data leaves your browser.</p>
+                <h2 class="section-title">The payoff: an interactive calculator</h2>
+                <p class="lede">The disease-duration percentile model ships as a free, self-contained web tool &mdash; the deployable end of research line 1. Enter a patient's disease duration and seven routine scores; it returns the data-driven subtype, a motor composite z-score, and a channel-by-channel percentile breakdown against same-disease-year peers. No data leaves your browser.</p>
                 <div class="calc-frame-wrap">
                     <iframe src="https://negidamd.github.io/data-driven-pd-subtype-calculator/"
                             title="Data-Driven PD Subtype Calculator" loading="lazy"></iframe>
@@ -420,15 +415,51 @@
             </div>
         </section>
 
+        <!-- Track 2: novel imaging subtype -->
+        <div class="track-head ch4" id="ch4">
+            <span class="track-eyebrow">Research line 2 &middot; a new imaging subtype</span>
+            <h2>A subtype that lives in the brain, not on a clinical scale</h2>
+            <p>Running in parallel to the data-driven work, this separate line asks a different question: can brain structure itself define a PD subtype that the standard clinical, pathological, and data-driven schemes all miss?</p>
+        </div>
+
+        <section class="section chapter" id="ch4-subtype">
+            <div class="chapter-head">
+                <div class="chapter-num ch4">&#129504;</div>
+                <div>
+                    <div class="chapter-meta">A novel imaging subtype &middot; cholinergic nucleus 4
+                        <span class="journal-tag">Parkinsonism Relat Disord &middot; 2025</span></div>
+                    <h3>A new PD&ndash;MCI subtype defined by cholinergic nucleus 4 degeneration</h3>
+                </div>
+            </div>
+            <div class="prose">
+                <p>Mild cognitive impairment in PD (PD&ndash;MCI) is prognostically messy &mdash; some patients convert to dementia quickly, others never do &mdash; and the clinical, pathological, and data-driven frameworks don't capture which is which. I proposed a different axis entirely: an <b>imaging-defined</b> subtype based on degeneration of the <b>nucleus basalis of Meynert (cholinergic nucleus 4, Ch4)</b>, the brain's principal source of cortical acetylcholine.</p>
+                <p>Using baseline MRI from 162 PD&ndash;MCI participants in PPMI, we measured Ch4 grey-matter density with voxel-based morphometry and probabilistic maps. Patients with low Ch4 density had worse motor and autonomic burden, poorer olfaction, and &mdash; critically &mdash; progressed to cognitive-decline milestones significantly faster. The proposal: <b>PD&ndash;MCI with Ch4 degeneration is a distinct, more malignant subtype</b> &mdash; a candidate for enriching trials of cholinergic therapies.</p>
+            </div>
+            <figure class="fig">
+                <img src="assets/pd-subtyping/ch4_flow.png" alt="Study flow: from 4,269 PPMI participants to 162 PD-MCI patients classified by low vs normal Ch4 grey-matter density." loading="lazy">
+                <figcaption><b>Cohort construction.</b> From the PPMI clinical cohort, PD&ndash;MCI patients with usable T1-weighted MRI were classified by Ch4 grey-matter density into low (n = 40) and normal (n = 122) groups.
+                    <span class="src">Figure from Negida A, et al. Parkinsonism Relat Disord. 2025;141:108072. doi:10.1016/j.parkreldis.2025.108072</span></figcaption>
+            </figure>
+            <div class="stats">
+                <div class="stat" style="border-top-color:#7A4FBF"><div class="num">162</div><div class="lbl">PD&ndash;MCI participants with baseline MRI</div></div>
+                <div class="stat" style="border-top-color:#7A4FBF"><div class="num">40</div><div class="lbl">with low Ch4 grey-matter density (the severe group)</div></div>
+                <div class="stat" style="border-top-color:#7A4FBF"><div class="num"><i>P</i> = 0.0017</div><div class="lbl">log-rank, faster cognitive-milestone progression</div></div>
+            </div>
+        </section>
+
         <!-- Cite -->
         <section class="section" id="cite">
             <h2 class="section-title">The four papers</h2>
             <p>Peer-reviewed, first-authored, and openly citable. Each links to its published record.</p>
+            <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin:1.25rem 0 0;">Line 1 &middot; data-driven framework</p>
             <ol class="cite-list">
-                <li><b>Negida A</b>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ. Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: a new subtype? <i>Parkinsonism Relat Disord</i>. 2025;141:108072. <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener">doi:10.1016/j.parkreldis.2025.108072</a></li>
                 <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Barrett MJ. Comparative analysis of progression milestones across Parkinson's disease clinical, pathological, and data-driven subtypes: a 10-year follow-up. <i>npj Parkinsons Dis</i>. 2026. <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener">doi:10.1038/s41531-026-01430-8</a></li>
                 <li><b>Negida A</b>, Abouelmagd ME, Hamed BM, et al. Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes. <i>Genes (Basel)</i>. 2026;17(4):449. <a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener">doi:10.3390/genes17040449</a></li>
                 <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Fereshtehnejad SM, Barrett MJ. Disease-duration&ndash;specific percentiles for prospective subtyping of Parkinson's disease: a PPMI-based study. <i>Mov Disord Clin Pract</i>. 2026. <a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener">doi:10.1002/mdc3.70740</a></li>
+            </ol>
+            <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#7A4FBF; margin:1.75rem 0 0;">Line 2 &middot; novel imaging subtype</p>
+            <ol class="cite-list" start="4" style="counter-reset:c 3">
+                <li><b>Negida A</b>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ. Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: a new subtype? <i>Parkinsonism Relat Disord</i>. 2025;141:108072. <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener">doi:10.1016/j.parkreldis.2025.108072</a></li>
             </ol>
         </section>
     </main>
