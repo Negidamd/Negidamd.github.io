@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subtyping Parkinson's Disease | Ahmed Negida, MD, PhD</title>
-    <meta name="description" content="A research story: how a four-paper program subtypes Parkinson's disease across cholinergic-imaging, clinical, pathological, and data-driven axes — from a Ch4 imaging subtype to disease-duration percentiles and an open interactive calculator.">
+    <meta name="description" content="A research story: an ongoing program to subtype Parkinson's disease across cholinergic-imaging, clinical, pathological, and data-driven axes — from cholinergic (Ch4) imaging subtypes to disease-duration percentiles and an open interactive calculator.">
     <meta name="author" content="Ahmed Negida">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Subtyping Parkinson's Disease — A Research Story">
-    <meta property="og:description" content="From a cholinergic imaging subtype to disease-duration percentiles and an open interactive calculator: a four-paper program to stratify Parkinson's disease for clinical trials.">
+    <meta property="og:description" content="From cholinergic imaging subtypes to disease-duration percentiles and an open interactive calculator: an ongoing program to stratify Parkinson's disease for clinical trials.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://negidamd.github.io/pd-subtyping.html">
     <meta property="og:image" content="https://negidamd.github.io/assets/pd-subtyping/pct_survival.png">
@@ -225,6 +225,24 @@
         }
         .cite-list b { color: var(--text-primary); }
 
+        /* Two-column publication cards */
+        .cite-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; align-items: start; }
+        @media (max-width: 720px) { .cite-cards { grid-template-columns: 1fr; } }
+        .cite-card {
+            border: 1px solid var(--border); border-top: 4px solid var(--accent);
+            border-radius: 10px; padding: 1.3rem 1.4rem; background: var(--bg-lighter);
+        }
+        .cite-card.l2 { border-top-color: #7A4FBF; }
+        .cite-card-label {
+            font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--accent-dark); margin-bottom: 0.9rem;
+        }
+        .cite-card.l2 .cite-card-label { color: #7A4FBF; }
+        .reflist { list-style: none; margin: 0; padding: 0; }
+        .reflist li { font-size: 0.9rem; color: var(--text-secondary); padding: 0.75rem 0; border-bottom: 1px solid var(--border); line-height: 1.55; }
+        .reflist li:last-child { border-bottom: none; padding-bottom: 0; }
+        .reflist b { color: var(--text-primary); }
+
         /* ---------- Footer ---------- */
         footer {
             background: var(--accent-darker); color: rgba(255,255,255,0.85);
@@ -249,7 +267,7 @@
             <ul class="nav-links">
                 <li><a href="#data-driven">Data-driven framework</a></li>
                 <li><a href="#calculator">Calculator</a></li>
-                <li><a href="#ch4">Ch4 subtype</a></li>
+                <li><a href="#ch4">Imaging subtypes</a></li>
                 <li><a href="#cite">Papers</a></li>
                 <li><a href="index.html" class="home-link">&larr; Main site</a></li>
             </ul>
@@ -261,10 +279,10 @@
         <div class="hero-inner">
             <div class="eyebrow">Research Story &middot; Parkinson's Disease</div>
             <h1>One diagnosis, many diseases</h1>
-            <p class="dek"><b>Two fronts in the effort to make Parkinson's subtyping usable for precision trials</b>: making the data-driven DM/IM/MMP framework deployable for real-time stratification, and establishing a new imaging subtype defined by cholinergic (Ch4) degeneration.</p>
+            <p class="dek"><b>Two fronts in the effort to make Parkinson's subtyping usable for precision trials</b>: making the data-driven DM/IM/MMP framework deployable for real-time stratification, and establishing new imaging subtypes defined by cholinergic degeneration.</p>
             <div class="chips">
                 <span class="chip"><span class="dot" style="background:linear-gradient(135deg,#E63946 0 33%,#F5B82E 33% 66%,#2EB346 66% 100%)"></span>Data-driven framework &middot; DM / IM / MMP</span>
-                <span class="chip"><span class="dot" style="background:#7A4FBF"></span>Cholinergic imaging subtype &middot; Ch4</span>
+                <span class="chip"><span class="dot" style="background:#7A4FBF"></span>Cholinergic imaging subtypes</span>
             </div>
         </div>
     </header>
@@ -274,11 +292,11 @@
         <section class="section" id="overview">
             <h2 class="section-title">Why subtype Parkinson's disease?</h2>
             <p class="lede">Parkinson's disease is not one disease. Two patients with the same diagnosis can follow radically different courses &mdash; one stable for a decade, another in a wheelchair with dementia within five years. Trials that treat PD as a single entity dilute their strongest signals in slow progressors, and disease-modifying candidates keep failing.</p>
-            <p>The effort advances on <strong>two independent fronts</strong>. The first takes the existing <strong>data-driven</strong> DM/IM/MMP framework (originally proposed by Fereshtehnejad and colleagues) and makes it clinically deployable &mdash; establishing that it predicts progression better than the clinical and pathological models it is benchmarked against, mapping its genetic architecture, and re-engineering its thresholds so it can be applied <em>prospectively</em>, mid-course, in real time, then shipped as an open calculator. The second is a distinct line establishing an <strong>entirely new imaging subtype</strong>: PD&ndash;MCI with cholinergic nucleus 4 (Ch4) degeneration &mdash; a more malignant group defined not by clinical scores but by brain structure.</p>
+            <p>The effort advances on <strong>two independent fronts</strong>. The first takes the existing <strong>data-driven</strong> DM/IM/MMP framework (originally proposed by Fereshtehnejad and colleagues) and makes it clinically deployable &mdash; establishing that it predicts progression better than the clinical and pathological models it is benchmarked against, mapping its genetic architecture, and re-engineering its thresholds so it can be applied <em>prospectively</em>, mid-course, in real time, then shipped as an open calculator. The second is a distinct line establishing <strong>new imaging subtypes defined by cholinergic degeneration</strong> &mdash; beginning with PD&ndash;MCI marked by nucleus basalis (Ch4) atrophy, a more malignant group defined not by clinical scores but by brain structure, with further cholinergic subtypes under active study.</p>
             <div class="thesis">
                 <p><strong>Two research lines.</strong><br>
                 <b>1 &middot; Deploying the data-driven framework</b> &mdash; prove it predicts progression, explain its biology, and make it usable prospectively with disease-duration percentiles and a free calculator.<br>
-                <b>2 &middot; Proposing a novel imaging subtype</b> &mdash; define PD&ndash;MCI with cholinergic Ch4 degeneration as a distinct, faster-progressing group.</p>
+                <b>2 &middot; Proposing novel imaging subtypes</b> &mdash; cholinergic-degeneration&ndash;based subtypes, beginning with PD&ndash;MCI marked by Ch4 atrophy as a distinct, faster-progressing group.</p>
             </div>
         </section>
 
@@ -286,7 +304,7 @@
         <div class="track-head" id="data-driven">
             <span class="track-eyebrow">Research line 1 &middot; deploying the data-driven framework</span>
             <h2>Making the DM/IM/MMP model work in real time</h2>
-            <p>The data-driven model of Fereshtehnejad and colleagues has prognostic value but wasn't ready for prospective use. Three papers close that gap &mdash; does it predict progression, what is its biology, and can it be applied at any disease duration?</p>
+            <p>The data-driven model of Fereshtehnejad and colleagues has prognostic value but wasn't ready for prospective use. A line of studies closes that gap &mdash; does it predict progression, what is its biology, and can it be applied at any disease duration?</p>
         </div>
 
         <!-- Line 1 · Paper 1 (milestones) -->
@@ -417,9 +435,9 @@
 
         <!-- Track 2: novel imaging subtype -->
         <div class="track-head ch4" id="ch4">
-            <span class="track-eyebrow">Research line 2 &middot; a new imaging subtype</span>
-            <h2>A subtype that lives in the brain, not on a clinical scale</h2>
-            <p>Running in parallel to the data-driven work, this separate line asks a different question: can brain structure itself define a PD subtype that the standard clinical, pathological, and data-driven schemes all miss?</p>
+            <span class="track-eyebrow">Research line 2 &middot; novel PD imaging subtypes</span>
+            <h2>Subtypes that live in the brain, not on a clinical scale</h2>
+            <p>Running in parallel to the data-driven work, this separate line asks a different question: can brain structure itself define PD subtypes that the standard clinical, pathological, and data-driven schemes all miss? The cholinergic system is the first target &mdash; with more subtypes under active study.</p>
         </div>
 
         <section class="section chapter" id="ch4-subtype">
@@ -432,7 +450,7 @@
                 </div>
             </div>
             <div class="prose">
-                <p>Mild cognitive impairment in PD (PD&ndash;MCI) is prognostically messy &mdash; some patients convert to dementia quickly, others never do &mdash; and the clinical, pathological, and data-driven frameworks don't capture which is which. This line proposes a different axis entirely: an <b>imaging-defined</b> subtype based on degeneration of the <b>nucleus basalis of Meynert (cholinergic nucleus 4, Ch4)</b>, the brain's principal source of cortical acetylcholine.</p>
+                <p>Mild cognitive impairment in PD (PD&ndash;MCI) is prognostically messy &mdash; some patients convert to dementia quickly, others never do &mdash; and the clinical, pathological, and data-driven frameworks don't capture which is which. This line proposes a different axis entirely: <b>imaging-defined</b> subtypes based on cholinergic degeneration &mdash; beginning with the <b>nucleus basalis of Meynert (cholinergic nucleus 4, Ch4)</b>, the brain's principal source of cortical acetylcholine.</p>
                 <p>In baseline MRI from 162 PD&ndash;MCI participants in PPMI, Ch4 grey-matter density was measured with voxel-based morphometry and probabilistic maps. Patients with low Ch4 density had worse motor and autonomic burden, poorer olfaction, and &mdash; critically &mdash; progressed to cognitive-decline milestones significantly faster. The proposal: <b>PD&ndash;MCI with Ch4 degeneration is a distinct, more malignant subtype</b> &mdash; a candidate for enriching trials of cholinergic therapies.</p>
             </div>
             <figure class="fig">
@@ -449,18 +467,24 @@
 
         <!-- Cite -->
         <section class="section" id="cite">
-            <h2 class="section-title">The four papers</h2>
-            <p>Peer-reviewed and openly citable. Each links to its published record.</p>
-            <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin:1.25rem 0 0;">Line 1 &middot; data-driven framework</p>
-            <ol class="cite-list">
-                <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Barrett MJ. Comparative analysis of progression milestones across Parkinson's disease clinical, pathological, and data-driven subtypes: a 10-year follow-up. <i>npj Parkinsons Dis</i>. 2026. <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener">doi:10.1038/s41531-026-01430-8</a></li>
-                <li><b>Negida A</b>, Abouelmagd ME, Hamed BM, et al. Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes. <i>Genes (Basel)</i>. 2026;17(4):449. <a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener">doi:10.3390/genes17040449</a></li>
-                <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Fereshtehnejad SM, Barrett MJ. Disease-duration&ndash;specific percentiles for prospective subtyping of Parkinson's disease: a PPMI-based study. <i>Mov Disord Clin Pract</i>. 2026. <a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener">doi:10.1002/mdc3.70740</a></li>
-            </ol>
-            <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#7A4FBF; margin:1.75rem 0 0;">Line 2 &middot; novel imaging subtype</p>
-            <ol class="cite-list" start="4" style="counter-reset:c 3">
-                <li><b>Negida A</b>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ. Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: a new subtype? <i>Parkinsonism Relat Disord</i>. 2025;141:108072. <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener">doi:10.1016/j.parkreldis.2025.108072</a></li>
-            </ol>
+            <h2 class="section-title">Publications</h2>
+            <p>Peer-reviewed and openly citable, grouped by research line. Each links to its published record; the program is ongoing and this list continues to grow.</p>
+            <div class="cite-cards">
+                <div class="cite-card l1">
+                    <div class="cite-card-label">Line 1 &middot; Data-driven framework</div>
+                    <ul class="reflist">
+                        <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Barrett MJ. Comparative analysis of progression milestones across Parkinson's disease clinical, pathological, and data-driven subtypes: a 10-year follow-up. <i>npj Parkinsons Dis</i>. 2026. <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener">doi:10.1038/s41531-026-01430-8</a></li>
+                        <li><b>Negida A</b>, Abouelmagd ME, Hamed BM, et al. Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes. <i>Genes (Basel)</i>. 2026;17(4):449. <a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener">doi:10.3390/genes17040449</a></li>
+                        <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Fereshtehnejad SM, Barrett MJ. Disease-duration&ndash;specific percentiles for prospective subtyping of Parkinson's disease: a PPMI-based study. <i>Mov Disord Clin Pract</i>. 2026. <a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener">doi:10.1002/mdc3.70740</a></li>
+                    </ul>
+                </div>
+                <div class="cite-card l2">
+                    <div class="cite-card-label">Line 2 &middot; Novel PD imaging subtypes</div>
+                    <ul class="reflist">
+                        <li><b>Negida A</b>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ. Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: a new subtype? <i>Parkinsonism Relat Disord</i>. 2025;141:108072. <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener">doi:10.1016/j.parkreldis.2025.108072</a></li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
