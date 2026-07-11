@@ -261,7 +261,7 @@
         <div class="hero-inner">
             <div class="eyebrow">Research Story &middot; Parkinson's Disease</div>
             <h1>One diagnosis, many diseases</h1>
-            <p class="dek">A first-author program on <b>two subtyping fronts</b>: making the data-driven DM/IM/MMP framework deployable for real-time clinical-trial stratification, and proposing a new imaging subtype defined by cholinergic (Ch4) degeneration.</p>
+            <p class="dek"><b>Two fronts in the effort to make Parkinson's subtyping usable for precision trials</b>: making the data-driven DM/IM/MMP framework deployable for real-time stratification, and establishing a new imaging subtype defined by cholinergic (Ch4) degeneration.</p>
             <div class="chips">
                 <span class="chip"><span class="dot" style="background:linear-gradient(135deg,#E63946 0 33%,#F5B82E 33% 66%,#2EB346 66% 100%)"></span>Data-driven framework &middot; DM / IM / MMP</span>
                 <span class="chip"><span class="dot" style="background:#7A4FBF"></span>Cholinergic imaging subtype &middot; Ch4</span>
@@ -274,7 +274,7 @@
         <section class="section" id="overview">
             <h2 class="section-title">Why subtype Parkinson's disease?</h2>
             <p class="lede">Parkinson's disease is not one disease. Two patients with the same diagnosis can follow radically different courses &mdash; one stable for a decade, another in a wheelchair with dementia within five years. Trials that treat PD as a single entity dilute their strongest signals in slow progressors, and disease-modifying candidates keep failing.</p>
-            <p>My work pursues this on <strong>two independent fronts</strong>. The first takes the existing <strong>data-driven</strong> DM/IM/MMP framework (originally proposed by Fereshtehnejad and colleagues) and makes it clinically deployable: I show it predicts progression better than the clinical and pathological models it is benchmarked against, map its genetic architecture, and re-engineer its thresholds so it can be applied <em>prospectively</em>, mid-course, in real time &mdash; shipped as an open calculator. The second is a distinct line proposing an <strong>entirely new imaging subtype</strong>: PD&ndash;MCI with cholinergic nucleus 4 (Ch4) degeneration, a more malignant group defined not by clinical scores but by brain structure.</p>
+            <p>The effort advances on <strong>two independent fronts</strong>. The first takes the existing <strong>data-driven</strong> DM/IM/MMP framework (originally proposed by Fereshtehnejad and colleagues) and makes it clinically deployable &mdash; establishing that it predicts progression better than the clinical and pathological models it is benchmarked against, mapping its genetic architecture, and re-engineering its thresholds so it can be applied <em>prospectively</em>, mid-course, in real time, then shipped as an open calculator. The second is a distinct line establishing an <strong>entirely new imaging subtype</strong>: PD&ndash;MCI with cholinergic nucleus 4 (Ch4) degeneration &mdash; a more malignant group defined not by clinical scores but by brain structure.</p>
             <div class="thesis">
                 <p><strong>Two research lines.</strong><br>
                 <b>1 &middot; Deploying the data-driven framework</b> &mdash; prove it predicts progression, explain its biology, and make it usable prospectively with disease-duration percentiles and a free calculator.<br>
@@ -300,7 +300,7 @@
                 </div>
             </div>
             <div class="prose">
-                <p>If subtyping is going to matter for trials, one framework has to actually beat the others at flagging rapid progressors. So I put three head-to-head over ten years of PPMI follow-up: the classic <b>clinical</b> motor split (tremor-dominant vs. postural-instability/gait-difficulty vs. indeterminate), the <b>pathological</b> brain-first vs. body-first model, and the <b>data-driven</b> DM/IM/MMP model &mdash; scored against 25 predefined milestones spanning six functional domains.</p>
+                <p>If subtyping is going to matter for trials, one framework has to actually beat the others at flagging rapid progressors. So all three were put head-to-head over ten years of PPMI follow-up: the classic <b>clinical</b> motor split (tremor-dominant vs. postural-instability/gait-difficulty vs. indeterminate), the <b>pathological</b> brain-first vs. body-first model, and the <b>data-driven</b> DM/IM/MMP model &mdash; scored against 25 predefined milestones spanning six functional domains.</p>
                 <p>The data-driven model won. Diffuse-malignant patients reached the most milestones and carried the highest hazard of progression after adjustment for age. The clinical payoff is concrete: trial simulations showed that <b>enrolling DM patients could cut required sample sizes by roughly half</b> at standard trial durations versus unstratified cohorts &mdash; a direct lever on the feasibility of disease-modification trials.</p>
             </div>
             <figure class="fig">
@@ -326,7 +326,7 @@
                 </div>
             </div>
             <div class="prose">
-                <p>A subtype worth stratifying on should have biology behind it, not just statistics. Across 1,390 PPMI patients genotyped for seven PD-associated genes, I asked which subtyping frameworks map onto genetic architecture. The clinical tremor/gait split showed <b>no</b> genetic signal that survived multiple-comparison correction. The biologically grounded frameworks did: <b>LRRK2</b> variants were strongly enriched among &alpha;-synuclein seed-amplification&ndash;negative patients (Cram&eacute;r's V = 0.25), and <b>GBA1</b> variants tracked the body-first and diffuse-malignant subtypes.</p>
+                <p>A subtype worth stratifying on should have biology behind it, not just statistics. Across 1,390 PPMI patients genotyped for seven PD-associated genes, the question was which subtyping frameworks map onto genetic architecture. The clinical tremor/gait split showed <b>no</b> genetic signal that survived multiple-comparison correction. The biologically grounded frameworks did: <b>LRRK2</b> variants were strongly enriched among &alpha;-synuclein seed-amplification&ndash;negative patients (Cram&eacute;r's V = 0.25), and <b>GBA1</b> variants tracked the body-first and diffuse-malignant subtypes.</p>
                 <p>The message: the data-driven and pathological subtypes carve PD along lines that genetics recognizes &mdash; the clinical motor labels largely do not.</p>
             </div>
             <figure class="fig">
@@ -353,7 +353,7 @@
             </div>
             <div class="prose">
                 <p>The original data-driven model had a practical flaw: it used <b>fixed baseline thresholds</b>. That works if you have a drug-naive patient at diagnosis &mdash; but it cannot classify the patient sitting in clinic three years in, whose scores have already drifted with the disease. To subtype prospectively, the yardstick has to move with disease duration.</p>
-                <p>So I rebuilt the thresholds year by year. Using 1,030 de novo idiopathic PD patients from the April-2026 PPMI freeze, I computed <b>within-disease-year percentiles</b> for each motor and non-motor scale, so a patient is compared against peers <em>at the same disease duration</em>. The result is a stable, prospective classifier: subtype prevalence held steady across years, and the survival separation was decisive &mdash; DM patients progressed three times faster than MMP.</p>
+                <p>So the thresholds were rebuilt year by year. Across 1,030 de novo idiopathic PD patients from the April-2026 PPMI freeze, <b>within-disease-year percentiles</b> were computed for each motor and non-motor scale, so a patient is compared against peers <em>at the same disease duration</em>. The result is a stable, prospective classifier: subtype prevalence held steady across years, and the survival separation was decisive &mdash; DM patients progressed three times faster than MMP.</p>
             </div>
 
             <div class="subtype-legend">
@@ -432,8 +432,8 @@
                 </div>
             </div>
             <div class="prose">
-                <p>Mild cognitive impairment in PD (PD&ndash;MCI) is prognostically messy &mdash; some patients convert to dementia quickly, others never do &mdash; and the clinical, pathological, and data-driven frameworks don't capture which is which. I proposed a different axis entirely: an <b>imaging-defined</b> subtype based on degeneration of the <b>nucleus basalis of Meynert (cholinergic nucleus 4, Ch4)</b>, the brain's principal source of cortical acetylcholine.</p>
-                <p>Using baseline MRI from 162 PD&ndash;MCI participants in PPMI, we measured Ch4 grey-matter density with voxel-based morphometry and probabilistic maps. Patients with low Ch4 density had worse motor and autonomic burden, poorer olfaction, and &mdash; critically &mdash; progressed to cognitive-decline milestones significantly faster. The proposal: <b>PD&ndash;MCI with Ch4 degeneration is a distinct, more malignant subtype</b> &mdash; a candidate for enriching trials of cholinergic therapies.</p>
+                <p>Mild cognitive impairment in PD (PD&ndash;MCI) is prognostically messy &mdash; some patients convert to dementia quickly, others never do &mdash; and the clinical, pathological, and data-driven frameworks don't capture which is which. This line proposes a different axis entirely: an <b>imaging-defined</b> subtype based on degeneration of the <b>nucleus basalis of Meynert (cholinergic nucleus 4, Ch4)</b>, the brain's principal source of cortical acetylcholine.</p>
+                <p>In baseline MRI from 162 PD&ndash;MCI participants in PPMI, Ch4 grey-matter density was measured with voxel-based morphometry and probabilistic maps. Patients with low Ch4 density had worse motor and autonomic burden, poorer olfaction, and &mdash; critically &mdash; progressed to cognitive-decline milestones significantly faster. The proposal: <b>PD&ndash;MCI with Ch4 degeneration is a distinct, more malignant subtype</b> &mdash; a candidate for enriching trials of cholinergic therapies.</p>
             </div>
             <figure class="fig">
                 <img src="assets/pd-subtyping/ch4_flow.png" alt="Study flow: from 4,269 PPMI participants to 162 PD-MCI patients classified by low vs normal Ch4 grey-matter density." loading="lazy">
@@ -450,7 +450,7 @@
         <!-- Cite -->
         <section class="section" id="cite">
             <h2 class="section-title">The four papers</h2>
-            <p>Peer-reviewed, first-authored, and openly citable. Each links to its published record.</p>
+            <p>Peer-reviewed and openly citable. Each links to its published record.</p>
             <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin:1.25rem 0 0;">Line 1 &middot; data-driven framework</p>
             <ol class="cite-list">
                 <li><b>Negida A</b>, Mukhopadhyay N, Berman BD, Barrett MJ. Comparative analysis of progression milestones across Parkinson's disease clinical, pathological, and data-driven subtypes: a 10-year follow-up. <i>npj Parkinsons Dis</i>. 2026. <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener">doi:10.1038/s41531-026-01430-8</a></li>
