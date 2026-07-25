@@ -44,6 +44,13 @@
   .chartblock{margin:16px 0 8px}
   .chartblock h3{margin:0 0 2px;font-size:15px;font-weight:700}
   .chartblock .cap{font-size:12.5px;color:var(--muted);margin:0 0 8px}
+  .pipeline{margin-top:20px;border-left:4px solid var(--accent)}
+  .pipeline .cap{font-size:13px;color:var(--muted);margin:2px 0 4px}
+  .steps{margin:12px 0 4px;padding-left:22px}
+  .steps li{margin:0 0 10px;font-size:13.5px;color:#243b53;line-height:1.55}
+  .steps li b{color:var(--ink)}
+  .steps .tag{display:inline-block;background:#eef4fb;border:1px solid #d6e6f6;border-radius:6px;
+        padding:0 6px;font-size:12px;font-weight:600;color:var(--accent2)}
   .hint{font-size:11.5px;color:var(--muted);margin-top:5px}
   .warnmsg{font-size:12px;color:var(--warn);margin-top:8px;display:none}
   /* results */
@@ -87,10 +94,9 @@
   <div class="disclaimer">
     <b>Research and educational use only.</b> This is a demonstration of a published normative model. It is
     <b>not a medical device</b>, is not validated for clinical use, and must not be used for diagnosis or patient
-    management. A valid W-score requires Ch4 gray-matter volume measured with the <b>same pipeline as the study</b>
-    (CAT12 under SPM; JulichBrain maximum-probability map at 50%; partial-volume gray-matter volume in mL; TIV from
-    CAT12). The model was calibrated by cross-validation and has not yet been externally validated. All values are
-    computed locally &mdash; no data is transmitted or stored.
+    management. A valid W-score requires Ch4 gray-matter volume measured with the <b>same imaging pipeline as the
+    study</b> (see <b>Required imaging pipeline</b> below). The model was calibrated by cross-validation and has not
+    yet been externally validated. All values are computed locally &mdash; no data is transmitted or stored.
   </div>
 
   <div class="grid">
@@ -139,6 +145,31 @@
       </div>
 
     </div>
+  </div>
+
+  <div class="card pipeline">
+    <h2>Required imaging pipeline for a valid W-score</h2>
+    <p class="cap">The W-score is only meaningful if Ch4 gray-matter volume is measured <b>exactly as in the
+       study</b>. A value from a different atlas, threshold, or software package is not comparable and will give a
+       misleading result.</p>
+    <ol class="steps">
+      <li><b>Segmentation.</b> Segment the T1-weighted volumetric scan with <span class="tag">CAT12 v12.9
+          (r2577)</span> running under <span class="tag">SPM25</span> (MATLAB R2023b), using the default
+          preprocessing pipeline <b>including surface estimation</b>.</li>
+      <li><b>Ch4 localization.</b> Localize Ch4 with the histology-derived <b>JulichBrain magnocellular
+          basal-forebrain probabilistic atlas</b>, using its <b>maximum-probability map at a 50%
+          tissue-assignment probability threshold</b>.</li>
+      <li><b>Gray-matter volume.</b> Within the Ch4 region, compute gray-matter volume by <b>partial-volume
+          integration of the CAT12 gray-matter tissue-probability map</b> &mdash; each voxel contributes in
+          proportion to its estimated gray-matter content, not counted as all-or-nothing &mdash; reported in
+          <b>millilitres (mL)</b>. This is the value entered above.</li>
+      <li><b>Head size.</b> Take <b>total intracranial volume (TIV)</b> from the CAT12 subject measures, in mL.</li>
+      <li><b>Acquisition site.</b> The model carried a site random intercept; for a scan from a site not in the
+          training sample this intercept is set to zero &mdash; the calculator already does this, so no site input
+          is needed.</li>
+    </ol>
+    <p class="cap" style="margin-top:8px">Atlas: Zaborszky et al., <i>NeuroImage</i> 2008 (JulichBrain
+       magnocellular basal-forebrain maps). Full details are in the study Methods.</p>
   </div>
 
   <footer>
