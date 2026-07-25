@@ -40,6 +40,10 @@
   .seg button{flex:1;padding:11px;border:1.5px solid var(--line);background:#fbfcfe;border-radius:10px;
         font-size:15px;font-weight:600;cursor:pointer;color:var(--muted);transition:all .15s}
   .seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  input[type=range].slider{width:100%;margin:9px 0 2px;height:6px;cursor:pointer;accent-color:var(--accent)}
+  .chartblock{margin:16px 0 8px}
+  .chartblock h3{margin:0 0 2px;font-size:15px;font-weight:700}
+  .chartblock .cap{font-size:12.5px;color:var(--muted);margin:0 0 8px}
   .hint{font-size:11.5px;color:var(--muted);margin-top:5px}
   .warnmsg{font-size:12px;color:var(--warn);margin-top:8px;display:none}
   /* results */
@@ -95,6 +99,7 @@
       <h2>Patient input</h2>
       <label>Age <span class="unit">(years)</span></label>
       <input id="age" type="number" value="72" min="30" max="110" step="1">
+      <input id="ageR" type="range" class="slider" min="40" max="95" step="1" value="72" aria-label="Age slider">
       <label>Sex</label>
       <div class="seg" id="sex">
         <button data-v="F" class="on">Female</button>
@@ -102,8 +107,10 @@
       </div>
       <label>Total intracranial volume, TIV <span class="unit">(mL)</span></label>
       <input id="tiv" type="number" value="1450" min="900" max="2100" step="1">
+      <input id="tivR" type="range" class="slider" min="1100" max="1900" step="5" value="1450" aria-label="TIV slider">
       <label>Observed Ch4 gray-matter volume <span class="unit">(mL)</span></label>
       <input id="ch4" type="number" value="0.215" min="0" max="0.6" step="0.001">
+      <input id="ch4R" type="range" class="slider" min="0.05" max="0.40" step="0.005" value="0.215" aria-label="Ch4 volume slider">
       <div class="hint">Ch4 GMV is typically ~0.10&ndash;0.38 mL. Must be measured with the study pipeline.</div>
       <div class="warnmsg" id="warn"></div>
     </div>
@@ -117,19 +124,18 @@
           <span class="badge" id="badge">&mdash;</span>
         </div>
         <p class="subline" id="subline"></p>
+        <div class="chartblock">
+          <h3>Position in the healthy reference distribution</h3>
+          <p class="cap">The bell curve is the calibrated normal reference (W ~ standard normal in controls). The
+             shaded tail is the atrophy zone (W &le; &minus;1.645, the 5th centile). The patient&rsquo;s value is marked.</p>
+          <svg id="bell" viewBox="0 0 520 230" role="img" aria-label="Normative distribution"></svg>
+        </div>
         <div class="stats">
           <div class="stat"><div class="k">Predicted Ch4</div><div class="v" id="pred">&mdash;</div></div>
           <div class="stat"><div class="k">Percentile</div><div class="v" id="pct">&mdash;</div></div>
           <div class="stat"><div class="k">Deviation</div><div class="v" id="dev">&mdash;</div></div>
         </div>
         <div class="interp" id="interp"></div>
-      </div>
-
-      <div class="card chartcard">
-        <h3>Position in the healthy reference distribution</h3>
-        <p class="cap">The bell curve is the calibrated normal reference (W ~ standard normal in controls). The
-           shaded tail is the atrophy zone (W &le; &minus;1.645, the 5th centile). The patient&rsquo;s value is marked.</p>
-        <svg id="bell" viewBox="0 0 520 230" role="img" aria-label="Normative distribution"></svg>
       </div>
 
     </div>
@@ -145,8 +151,6 @@
     <p><b>Citation.</b> Negida A. <i>A Normative Modeling Study of Cholinergic Nucleus 4 Atrophy Across the Lewy
        Body and Alzheimer Disease Spectra.</i> (in preparation). &nbsp;
        ORCID 0000-0001-5363-6369 &middot; <a href="https://negidamd.github.io/">negidamd.github.io</a></p>
-    <p>Group means, SDs, and atrophy prevalences are from the study&rsquo;s published tables. Representative dots
-       are simulated from those summaries for visualization only and do not represent real individuals.</p>
   </footer>
 </div>
 
@@ -160,18 +164,6 @@ const sigma=age=>S.k*Math.exp(S.intercept+S.age*age);
 const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
 function Phi(x){const t=1/(1+0.2316419*Math.abs(x));const d=0.3989422804014327*Math.exp(-x*x/2);
   let p=d*t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429))));return x>0?1-p:p;}
-
-/* ---------- study group summaries (published) ---------- */
-const GROUPS=[
-  {k:"Control",mean:0.00,sd:1.05,prev:5.4, n:6311,c:"#7f7f7f"},
-  {k:"PD",     mean:-0.36,sd:1.28,prev:13.2,n:637, c:"#9ecae1"},
-  {k:"PD-MCI", mean:-0.79,sd:1.44,prev:23.8,n:143, c:"#4292c6"},
-  {k:"PDD",    mean:-1.48,sd:1.78,prev:47.2,n:36,  c:"#08519c"},
-  {k:"MCI-LB", mean:-0.90,sd:1.41,prev:27.3,n:77,  c:"#fdae6b"},
-  {k:"DLB",    mean:-2.00,sd:1.40,prev:61.1,n:157, c:"#d94801"},
-  {k:"MCI-AD", mean:-0.68,sd:1.35,prev:24.1,n:2398,c:"#f7a8c4"},
-  {k:"AD",     mean:-1.69,sd:1.39,prev:52.8,n:1507,c:"#ae017e"}
-];
 
 const SVGNS="http://www.w3.org/2000/svg";
 const el=(t,a)=>{const e=document.createElementNS(SVGNS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
@@ -237,7 +229,6 @@ function calc(){
   document.getElementById("pct").textContent=pct.toFixed(1)+"th";
   document.getElementById("dev").textContent=(w>=0?"+":"")+w.toFixed(2)+" SD";
   // interpretation
-  let near=GROUPS.map(g=>({k:g.k,d:Math.abs(g.mean-w)})).sort((a,b)=>a.d-b.d).slice(0,2).map(o=>o.k);
   const emp=w<=CUT_EMP;
   document.getElementById("interp").innerHTML=
     "This Ch4 volume sits at about the <b>"+pct.toFixed(0)+"th percentile</b> of the healthy reference "+
@@ -245,14 +236,17 @@ function calc(){
     pct.toFixed(0)+"% of healthy adults have a smaller Ch4")+"). "+
     (atr?"It meets the a priori atrophy definition":"It does not meet the a priori atrophy definition")+
     " (empirical cut W ≤ −1.687: "+(emp?"also met":"not met")+"). "+
-    "Its deviation most resembles the <b>"+near.join("</b> and <b>")+"</b> group"+(near.length>1?"s":"")+
-    " in this study. This is a research estimate, not a diagnosis.";
+    "This is a research estimate of deviation from the normative reference, not a diagnosis.";
   drawBell(w);
 }
 document.querySelectorAll("#sex button").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll("#sex button").forEach(x=>x.classList.remove("on"));
   b.classList.add("on");male=b.dataset.v==="M";calc();}));
-["age","tiv","ch4"].forEach(id=>document.getElementById(id).addEventListener("input",calc));
+[["age","ageR"],["tiv","tivR"],["ch4","ch4R"]].forEach(([n,r])=>{
+  const N=document.getElementById(n), R=document.getElementById(r);
+  N.addEventListener("input",()=>{if(N.value!=="")R.value=N.value;calc();});
+  R.addEventListener("input",()=>{N.value=R.value;calc();});
+});
 // legend
 calc();
 </script>
