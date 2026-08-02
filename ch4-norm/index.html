@@ -176,9 +176,9 @@
     <p><b>Model.</b> Two-stage location&ndash;scale normative model of Ch4 gray-matter volume fitted in 6,311
        cognitively healthy adults. Location: <code>predicted = 0.1378 + 0.000604&middot;age &minus; 1.219&times;10&#8315;&#8309;&middot;age&sup2;
        + 0.00271&middot;[male] + 9.544&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
-       <code>&sigma;(age) = 1.887 &middot; exp(&minus;4.8134 + 0.006070&middot;age)</code>.
-       W = (observed &minus; predicted) / &sigma;(age). For a scanner site not in the training sample, the site
-       random intercept is set to zero (as here). Coefficients are Supplementary Table S1 of the study.</p>
+       <code>&sigma;(age, sex) = 1.887 &middot; exp(&minus;4.8355 + 0.0057&middot;age + 0.1415&middot;[male])</code>.
+       W = (observed &minus; predicted) / &sigma;(age, sex). For a scanner site not in the training sample, the site
+       random intercept is set to zero (as here). Coefficients are Supplementary Table S4 of the study.</p>
     <p><b>Citation.</b> Negida A. <i>A Normative Modeling Study of Cholinergic Nucleus 4 Atrophy Across the Lewy
        Body and Alzheimer Disease Spectra.</i> (in preparation). &nbsp;
        ORCID 0000-0001-5363-6369 &middot; <a href="https://negidamd.github.io/">negidamd.github.io</a></p>
@@ -186,12 +186,12 @@
 </div>
 
 <script>
-/* ---------- normative model (Supplementary Table S1) ---------- */
+/* ---------- normative model (Supplementary Table S4) ---------- */
 const B={intercept:0.137759,age:0.000604042,age2:-1.21905e-5,male:0.00271315,tiv:9.54409e-5};
-const S={intercept:-4.8134,age:0.0060695,k:1.887};
-const CUT=-1.645, CUT_EMP=-1.687;
+const S={intercept:-4.835460,age:0.00565558,male:0.141522,k:1.887};
+const CUT=-1.645, CUT_EMP=-1.681;
 const predict=(age,male,tiv)=>B.intercept+B.age*age+B.age2*age*age+B.male*(male?1:0)+B.tiv*tiv;
-const sigma=age=>S.k*Math.exp(S.intercept+S.age*age);
+const sigma=(age,male)=>S.k*Math.exp(S.intercept+S.age*age+S.male*(male?1:0));
 const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
 function Phi(x){const t=1/(1+0.2316419*Math.abs(x));const d=0.3989422804014327*Math.exp(-x*x/2);
   let p=d*t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429))));return x>0?1-p:p;}
@@ -247,7 +247,7 @@ function calc(){
   if(ch4<=0||ch4>0.6)msgs.push("Ch4 volume looks out of range; check units are mL.");
   warn.style.display=msgs.length?"block":"none";warn.textContent=msgs.join(" ");
   if(!(age>0&&tiv>0&&ch4>0)){return;}
-  const pred=predict(age,male,tiv), sig=sigma(age), w=(ch4-pred)/sig, pct=Phi(w)*100;
+  const pred=predict(age,male,tiv), sig=sigma(age,male), w=(ch4-pred)/sig, pct=Phi(w)*100;
   document.getElementById("wval").textContent=(w>=0?"+":"")+w.toFixed(2);
   const atr=w<=CUT;
   const badge=document.getElementById("badge");
@@ -266,7 +266,7 @@ function calc(){
     "distribution (i.e., "+(pct<50?(100-pct).toFixed(0)+"% of healthy adults have a larger Ch4":
     pct.toFixed(0)+"% of healthy adults have a smaller Ch4")+"). "+
     (atr?"It meets the a priori atrophy definition":"It does not meet the a priori atrophy definition")+
-    " (empirical cut W ≤ −1.687: "+(emp?"also met":"not met")+"). "+
+    " (empirical cut W ≤ −1.681: "+(emp?"also met":"not met")+"). "+
     "This is a research estimate of deviation from the normative reference, not a diagnosis.";
   drawBell(w);
 }
