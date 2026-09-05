@@ -1034,7 +1034,16 @@
                 </div>
             </div>
 
-            <div class="tool-entry">
+                        <div class="tool-entry">
+                <h3>Negida-DTI-ALPS</h3>
+                <div class="tool-meta">Diffusion MRI &middot; Open Source</div>
+                <p>DTI-ALPS pipeline for quantifying perivascular (glymphatic) diffusivity, using ANTs SyN nonlinear registration in place of the FSL-FLIRT tensor registration of the standard alps.sh toolbox, with T1-mediated boundary-based registration for improved anatomical alignment.</p>
+                <div class="tool-links-inline">
+                    <a href="https://github.com/Negidamd/Negida-DTI-ALPS" target="_blank">GitHub &rarr;</a>
+                </div>
+            </div>
+
+<div class="tool-entry">
                 <h3>Negida-FE-Toolbox</h3>
                 <div class="tool-meta">EEG Analysis &middot; Open Source</div>
                 <p>MATLAB toolbox for dominant frequency-based EEG feature extraction. Designed for EEG research in Alzheimer's disease, Lewy body dementia, and Parkinson's disease; automated spectral analysis and biomarker extraction.</p>
@@ -1061,7 +1070,16 @@
                 <h2>Selected Publications</h2>
             </div>
 
-            <p class="pub-stats">
+                        <h3 class="subsection-title" style="margin-top: 0;">Featured</h3>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-title">Traumatic brain injury outcomes across human development index strata in 29 countries</div>
+                    <div class="pub-authors">Nugent JG, Tan H, Stedelin B, et al.; <strong>Negida A</strong>, Raslan AM; on behalf of the GNS-I Collaborators &middot; <a href="https://doi.org/10.1038/s41591-026-04600-6" target="_blank"><strong>Nature Medicine</strong>, 2026</a></div>
+                    <div class="pub-authors">Role: Co-Principal Investigator, Steering Committee and Writing Group. Flagship prospective cohort study of the Global NeuroSurg Research Collaborative, which I co-founded.</div>
+                </div>
+            </div>
+
+<p class="pub-stats">
                 <strong>150+</strong> peer-reviewed publications &nbsp;&middot;&nbsp;
                 <strong>8,500+</strong> citations &nbsp;&middot;&nbsp;
                 <strong>44</strong> H-index &nbsp;&middot;&nbsp;
@@ -1083,10 +1101,7 @@
             <h3 class="subsection-title" style="margin-top: 1rem;">Neurodegenerative Disease Research (Selected)</h3>
 
             <div class="pub-list">
-                <div class="pub-entry">
-                    <div class="pub-title">Traumatic brain injury outcomes across human development index strata in 29 countries</div>
-                    <div class="pub-authors">Nugent JG, Tan H, Stedelin B, et al.; <strong>Negida A</strong>, Raslan AM; on behalf of the GNS-I Collaborators &middot; <a href="https://doi.org/10.1038/s41591-026-04600-6" target="_blank">Nature Medicine, 2026</a> &middot; Role: Co-Principal Investigator; Steering Committee; Writing Group</div>
-                </div>
+                
                 <div class="pub-entry">
                     <div class="pub-title">Resting-state EEG features of cognitive fluctuations across the Lewy body disease spectrum</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Lageman SK, Ono K, Ahsan MM, Mukhopadhyay N, Barrett MJ &middot; <a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank">Alzheimer's Research &amp; Therapy, 2026</a></div>
@@ -1717,9 +1732,8 @@
                 attributionControl: false
             });
 
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            L.tileLayer('https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap &copy; CARTO',
-                subdomains: 'abcd',
                 maxZoom: 19
             }).addTo(map);
 
