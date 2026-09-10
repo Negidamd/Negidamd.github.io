@@ -173,12 +173,16 @@
   </div>
 
   <footer>
-    <p><b>Model.</b> Two-stage location&ndash;scale normative model of Ch4 gray-matter volume fitted in 6,311
-       cognitively healthy adults. Location: <code>predicted = 0.1378 + 0.000604&middot;age &minus; 1.219&times;10&#8315;&#8309;&middot;age&sup2;
-       + 0.00271&middot;[male] + 9.544&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
-       <code>&sigma;(age, sex) = 1.887 &middot; exp(&minus;4.8355 + 0.0057&middot;age + 0.1415&middot;[male])</code>.
+    <p><b>Model.</b> Two-stage location&ndash;scale normative model of Ch4 gray-matter volume fitted in 5,404
+       control participants across 111 acquisition sites. Location: <code>predicted = 0.13459 + 0.00069266&middot;age &minus; 1.2890&times;10&#8315;&#8309;&middot;age&sup2;
+       + 0.0033057&middot;[male] + 9.5741&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
+       <code>&sigma;(age, sex) = 1.88736 &middot; exp(&minus;4.83222 + 0.0057138&middot;age + 0.13718&middot;[male])</code>.
        W = (observed &minus; predicted) / &sigma;(age, sex). For a scanner site not in the training sample, the site
-       random intercept is set to zero (as here). Coefficients are Supplementary Table S4 of the study.</p>
+       random intercept is set to zero (as here) and the denominator is not widened to acknowledge that, so a
+       W-score computed for a scanner that contributed no reference participants should be treated as
+       provisional until that centre&rsquo;s own control participants have been scored. Holding out entire sites in
+       the study moved the proportion below the threshold from 5.68% to 6.79%. Coefficients are Supplementary
+       Table S3 of the study.</p>
     <p><b>Citation.</b> Negida A. <i>A Normative Modeling Study of Cholinergic Nucleus 4 Atrophy Across the Lewy
        Body and Alzheimer Disease Spectra.</i> (in preparation). &nbsp;
        ORCID 0000-0001-5363-6369 &middot; <a href="https://negidamd.github.io/">negidamd.github.io</a></p>
@@ -186,10 +190,12 @@
 </div>
 
 <script>
-/* ---------- normative model (Supplementary Table S4) ---------- */
-const B={intercept:0.137759,age:0.000604042,age2:-1.21905e-5,male:0.00271315,tiv:9.54409e-5};
-const S={intercept:-4.835460,age:0.00565558,male:0.141522,k:1.887};
-const CUT=-1.645, CUT_EMP=-1.681;
+/* ---------- normative model (Supplementary Table S3) ----------
+   Primary reference: 5,404 controls across 111 sites. Updated 2026-09-10 to the model the
+   manuscript reports; the previous constants came from the all-controls sensitivity fit. */
+const B={intercept:0.13459051781969886,age:0.0006926576246945933,age2:-1.2889678689308419e-05,male:0.003305694478622345,tiv:9.574148229852802e-05};
+const S={intercept:-4.832222903228632,age:0.005713845105341663,male:0.13717691627505577,k:1.8873645212254033};
+const CUT=-1.645, CUT_EMP=-1.682;
 const predict=(age,male,tiv)=>B.intercept+B.age*age+B.age2*age*age+B.male*(male?1:0)+B.tiv*tiv;
 const sigma=(age,male)=>S.k*Math.exp(S.intercept+S.age*age+S.male*(male?1:0));
 const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
