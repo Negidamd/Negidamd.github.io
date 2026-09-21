@@ -85,7 +85,7 @@
     <h1>Cholinergic Nucleus 4 (Ch4) Normative Calculator</h1>
     <p>Convert an individual&rsquo;s Ch4 gray-matter volume into a normative <b>W-score</b> &mdash; how far it
        deviates from the volume expected in cognitively healthy adults of the same age, sex, and head size &mdash;
-       and see where the individual falls within the healthy reference distribution.</p>
+       and see where the individual falls within the clinically normal reference distribution.</p>
     <span class="pill">Research demonstrator &middot; runs entirely in your browser</span>
   </div>
 </header>
@@ -131,7 +131,7 @@
         </div>
         <p class="subline" id="subline"></p>
         <div class="chartblock">
-          <h3>Position in the healthy reference distribution</h3>
+          <h3>Position in the clinically normal reference distribution</h3>
           <p class="cap">The bell curve is the calibrated normal reference (W ~ standard normal in controls). The
              shaded tail is the atrophy zone (W &le; &minus;1.645, the 5th centile). The patient&rsquo;s value is marked.</p>
           <svg id="bell" viewBox="0 0 520 230" role="img" aria-label="Normative distribution"></svg>
@@ -173,15 +173,15 @@
   </div>
 
   <footer>
-    <p><b>Model.</b> Two-stage location&ndash;scale normative model of Ch4 gray-matter volume fitted in 5,404
-       control participants across 111 acquisition sites. Location: <code>predicted = 0.13459 + 0.00069266&middot;age &minus; 1.2890&times;10&#8315;&#8309;&middot;age&sup2;
-       + 0.0033057&middot;[male] + 9.5741&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
-       <code>&sigma;(age, sex) = 1.88736 &middot; exp(&minus;4.83222 + 0.0057138&middot;age + 0.13718&middot;[male])</code>.
+    <p><b>Model.</b> Two-stage location&ndash;scale normative model of Ch4 gray-matter volume fitted in 5,501
+       clinically normal participants across 132 acquisition sites. Location: <code>predicted = 0.14003 + 0.00055134&middot;age &minus; 1.1901&times;10&#8315;&#8309;&middot;age&sup2;
+       + 0.0034489&middot;[male] + 9.5088&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
+       <code>&sigma;(age, sex) = 1.88736 &middot; exp(&minus;4.83628 + 0.0058407&middot;age + 0.11684&middot;[male])</code>.
        W = (observed &minus; predicted) / &sigma;(age, sex). For a scanner site not in the training sample, the site
        random intercept is set to zero (as here) and the denominator is not widened to acknowledge that, so a
        W-score computed for a scanner that contributed no reference participants should be treated as
-       provisional until that centre&rsquo;s own control participants have been scored. Holding out entire sites in
-       the study moved the proportion below the threshold from 5.68% to 6.79%. Coefficients are Supplementary
+       provisional until that centre&rsquo;s own clinically normal participants have been scored. Holding out entire sites in
+       the study moved the proportion below the threshold from 5.56% to 6.54%. Coefficients are Supplementary
        Table S3 of the study.</p>
     <p><b>Citation.</b> Negida A. <i>A Normative Modeling Study of Cholinergic Nucleus 4 Atrophy Across the Lewy
        Body and Alzheimer Disease Spectra.</i> (in preparation). &nbsp;
@@ -191,11 +191,11 @@
 
 <script>
 /* ---------- normative model (Supplementary Table S3) ----------
-   Primary reference: 5,404 controls across 111 sites. Updated 2026-09-10 to the model the
-   manuscript reports; the previous constants came from the all-controls sensitivity fit. */
-const B={intercept:0.13459051781969886,age:0.0006926576246945933,age2:-1.2889678689308419e-05,male:0.003305694478622345,tiv:9.574148229852802e-05};
-const S={intercept:-4.832222903228632,age:0.005713845105341663,male:0.13717691627505577,k:1.8873645212254033};
-const CUT=-1.645, CUT_EMP=-1.682;
+   Primary reference: 5,501 clinically normal participants across 132 sites.
+   Updated 2026-09-21 to the model the manuscript reports. */
+const B={intercept:0.14003468063658878,age:0.0005513403559363696,age2:-1.1900742081843423e-05,male:0.0034488528573570027,tiv:9.508770448846125e-05};
+const S={intercept:-4.836283042885091,age:0.005840745941096881,male:0.11683931880396142,k:1.8873645212254033};
+const CUT=-1.645, CUT_EMP=-1.684;
 const predict=(age,male,tiv)=>B.intercept+B.age*age+B.age2*age*age+B.male*(male?1:0)+B.tiv*tiv;
 const sigma=(age,male)=>S.k*Math.exp(S.intercept+S.age*age+S.male*(male?1:0));
 const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
@@ -268,9 +268,9 @@ function calc(){
   // interpretation
   const emp=w<=CUT_EMP;
   document.getElementById("interp").innerHTML=
-    "This Ch4 volume sits at about the <b>"+pct.toFixed(0)+"th percentile</b> of the healthy reference "+
-    "distribution (i.e., "+(pct<50?(100-pct).toFixed(0)+"% of healthy adults have a larger Ch4":
-    pct.toFixed(0)+"% of healthy adults have a smaller Ch4")+"). "+
+    "This Ch4 volume sits at about the <b>"+pct.toFixed(0)+"th percentile</b> of the clinically normal reference "+
+    "distribution (i.e., "+(pct<50?(100-pct).toFixed(0)+"% of cognitively healthy adults have a larger Ch4":
+    pct.toFixed(0)+"% of cognitively healthy adults have a smaller Ch4")+"). "+
     (atr?"It meets the a priori atrophy definition":"It does not meet the a priori atrophy definition")+
     " (empirical cut W ≤ −1.681: "+(emp?"also met":"not met")+"). "+
     "This is a research estimate of deviation from the normative reference, not a diagnosis.";
