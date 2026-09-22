@@ -13,14 +13,14 @@
     <meta property="og:description" content="Multimodal MRI and EEG biomarkers of cholinergic degeneration for patient stratification in Parkinson's disease and ADRD.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://negidamd.github.io/">
-    <meta property="og:image" content="https://negidamd.github.io/photo.jpg">
+    <meta property="og:image" content="https://negidamd.github.io/headshot.jpg">
     <meta property="og:image:alt" content="Ahmed Negida, MD, PhD">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ahmed Negida, MD, PhD | Translational Research Scientist &middot; Multimodal Neuroimaging Biomarkers in Neurodegeneration">
     <meta name="twitter:description" content="Multimodal MRI and EEG biomarkers of cholinergic degeneration for patient stratification in Parkinson's disease and ADRD.">
-    <meta name="twitter:image" content="https://negidamd.github.io/photo.jpg">
+    <meta name="twitter:image" content="https://negidamd.github.io/headshot.jpg">
 
     <meta name="theme-color" content="#162e51">
 
@@ -50,7 +50,7 @@
         "department": "Department of Neurology, Parkinson's and Movement Disorders Center"
       },
       "url": "https://negidamd.github.io/",
-      "image": "https://negidamd.github.io/photo.jpg",
+      "image": "https://negidamd.github.io/headshot.jpg",
       "sameAs": [
         "https://scholar.google.com/citations?user=HURlCI8AAAAJ",
         "https://github.com/negidamd",
@@ -809,6 +809,52 @@
             font-size: .72rem; padding: .3rem .55rem; border-radius: 6px; transform: translate(14px, 14px); opacity: 0; transition: opacity .15s ease; white-space: nowrap; font-variant-numeric: tabular-nums; }
         .ch4x-tip.on { opacity: 1; }
 
+
+        .nav-links a { white-space: nowrap; }
+        /* ---------- Featured Work ---------- */
+        .fw-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+        .fw-item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 1rem; align-items: start;
+            border: 1px solid var(--border-light); border-radius: 12px; padding: .85rem; background: #fff;
+            transition: transform .3s var(--ease-out), box-shadow .3s ease, border-color .3s ease; }
+        .fw-item:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(22,46,81,.12); border-color: var(--accent-light); }
+        .fw-media { all: unset; box-sizing: border-box; display: block; cursor: zoom-in; border-radius: 8px; overflow: hidden; background: #fff;
+            border: 1px solid var(--border-light); aspect-ratio: 4 / 3; position: relative; }
+        .fw-media img { width: 100%; height: 100%; object-fit: contain; display: block; filter: grayscale(.35) saturate(.85); transform: scale(1);
+            transition: filter .5s ease, transform .7s var(--ease-out); }
+        .fw-item:hover .fw-media img, .fw-media:focus-visible img { filter: none; transform: scale(1.05); }
+        .fw-media img.fw-true-color { filter: none; }
+        .fw-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .fw-media::after { content: '\2922'; position: absolute; right: .4rem; bottom: .35rem; width: 1.6rem; height: 1.6rem; display: grid; place-items: center;
+            border-radius: 50%; background: rgba(22,46,81,.85); color: #fff; font-size: .8rem; opacity: 0; transform: scale(.7); transition: all .3s var(--ease-out); }
+        .fw-item:hover .fw-media::after { opacity: 1; transform: scale(1); }
+        .fw-status { display: inline-block; font-size: .64rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; padding: .18rem .55rem; border-radius: 999px; margin-bottom: .4rem; }
+        .fw-status.is-published { background: #e7f4ea; color: #1B7837; }
+        .fw-status.is-pending { background: #fff1d6; color: #9a5a00; }
+        .fw-status.is-ongoing { background: #e8f0fb; color: var(--accent-dark); }
+        .fw-text h3 { font-family: var(--font-serif); font-size: .95rem; line-height: 1.35; color: var(--accent-darker); margin-bottom: .35rem; }
+        .fw-text p { font-size: .8rem; line-height: 1.6; color: var(--text-secondary); }
+        .fw-ref { margin-top: .4rem; }
+        .fw-ref a { font-weight: 600; font-size: .8rem; }
+        .fw-lic { font-size: .66rem; color: var(--text-muted); margin-left: .35rem; }
+        .fw-lightbox { border: none; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: visible; }
+        .fw-lightbox::backdrop { background: rgba(6,11,22,.82); backdrop-filter: blur(3px); }
+        .fw-lightbox[open] { animation: fwIn .35s var(--ease-out); }
+        @keyframes fwIn { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+        .fw-lightbox img { display: block; max-width: 100%; max-height: 82vh; background: #fff; border-radius: 10px; margin: 0 auto; }
+        .fw-caption { color: #e8edf5; text-align: center; font-size: .85rem; margin-top: .6rem; }
+        .fw-close { all: unset; position: absolute; top: -.9rem; right: -.9rem; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #fff; color: #162e51;
+            display: grid; place-items: center; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+        .fw-close:focus-visible { outline: 2px solid var(--heat-2); }
+        .conf-photos { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
+        .conf-photo { margin: 0; border-radius: 10px; overflow: hidden; position: relative; background: #000; }
+        .conf-photo img { width: 100%; height: 260px; object-fit: cover; display: block; filter: grayscale(.6); transition: filter .6s ease, transform .9s var(--ease-out); }
+        .conf-photo:hover img { filter: none; transform: scale(1.05); }
+        .conf-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: .9rem .8rem .55rem; font-size: .75rem; font-weight: 600; color: #fff;
+            background: linear-gradient(transparent, rgba(0,0,0,.7)); }
+        @media (hover: none) { .fw-media img, .conf-photo img { filter: none; } }
+        @media (max-width: 900px) { .fw-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 560px) { .fw-item { grid-template-columns: 1fr; } .conf-photos { grid-template-columns: 1fr; } .conf-photo img { height: 210px; } }
+        @media (prefers-reduced-motion: reduce) { .fw-item:hover, .fw-lightbox[open] { transform: none; animation: none; } .fw-media img, .conf-photo img { transition: none; } }
         @media (hover: none) { .research-card-img img { filter: none; } .research-card-img::after { opacity: .4; } }
         @media (max-width: 900px) {
             .ch4x-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, .8fr); }
@@ -840,19 +886,20 @@
             <a href="#" class="logo">Ahmed <span>Negida</span></a>
             <ul class="nav-links">
                 <li><a href="#research">Research</a></li>
+                <li><a href="#featured-work">Featured Work</a></li>
                 <li><a href="#appointments">Career</a></li>
                 <li><a href="#grants">Grants</a></li>
-                <li><a href="#resources">Data Access</a></li>
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#service">Service</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="nav-dropdown">
                     <a href="#">More &#9662;</a>
                     <div class="nav-dropdown-menu">
                         <a href="pd-subtyping.html">&#11088; PD Subtyping Story</a>
+                        <a href="#resources">Data Access</a>
                         <a href="#presentations">Lectures &amp; Presentations</a>
+                        <a href="#service">Professional Service</a>
                         <a href="#consulting">Pharma Consulting</a>
                         <a href="#leadership">Global Leadership</a>
                         <a href="#honors">Honors &amp; Awards</a>
@@ -872,7 +919,7 @@
     <section class="hero">
         <div class="hero-inner">
             <div class="profile-photo">
-                <img src="photo.jpg" alt="Ahmed Negida, MD, PhD" width="160" height="200" fetchpriority="high" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>&#128100;</div>'">
+                <img src="headshot.jpg" alt="Ahmed Negida, MD, PhD" width="160" height="200" fetchpriority="high" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>&#128100;</div>'">
             </div>
 
             <div class="hero-content">
@@ -1021,6 +1068,83 @@
             </div>
         </div>
     </section>
+
+    <!-- Featured Work -->
+    <section id="featured-work" class="fade-in">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <p>Figures from published papers, manuscripts pending publication, and ongoing analyses. Click any figure to enlarge.</p>
+            </div>
+
+            <div class="fw-grid">
+                <article class="fw-item">
+                    <button type="button" class="fw-media" data-full="assets/featured/ch4_fc_maps.jpg" aria-label="Enlarge: Ch4 functional connectivity maps">
+                        <img src="assets/featured/ch4_fc_maps_tile.jpg" alt="Axial slices showing positive (red-yellow) and negative (blue) resting-state connectivity of the Ch4 seed" loading="lazy">
+                    </button>
+                    <div class="fw-text">
+                        <span class="fw-status is-ongoing">Ongoing Work</span>
+                        <h3>Ch4 functional connectivity maps</h3>
+                        <p>Whole-cohort resting-state connectivity of the nucleus basalis of Meynert seed (n = 97, FDR q &lt; 0.05) on the MNI152 template: positive coupling with insular, cingulate, and subcortical regions and anticorrelation with occipital cortex.</p>
+                    </div>
+                </article>
+
+                <article class="fw-item">
+                    <button type="button" class="fw-media" data-full="assets/featured/ch4_gmd_fw.jpg" aria-label="Enlarge: Ch4 gray matter and free water">
+                        <img src="assets/featured/ch4_gmd_fw.jpg" alt="Raincloud plots of Ch4 and Ch1-3 gray-matter density and free-water fraction across HC, PD-NC, PD-MCI, and PDD" loading="lazy">
+                    </button>
+                    <div class="fw-text">
+                        <span class="fw-status is-pending">Pending Publication</span>
+                        <h3>Ch4 atrophy and free water across PD cognitive stages</h3>
+                        <p>Basal forebrain gray-matter density and diffusion free water in controls, PD with normal cognition, PD-MCI, and PDD. Ch4 measures together discriminated PDD (AUC 0.93).</p>
+                        <p class="fw-ref"><a href="https://doi.org/10.64898/2026.06.08.26355183" target="_blank">medRxiv preprint, 2026 &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="fw-item">
+                    <button type="button" class="fw-media" data-full="assets/featured/ch4_red_mni.jpg" aria-label="Enlarge: Ch4 on the MNI152 template">
+                        <img class="fw-true-color" src="assets/featured/ch4_red_mni_tile.jpg" alt="Coronal and axial MNI152 slices with the nucleus basalis of Meynert highlighted in red" loading="lazy">
+                    </button>
+                    <div class="fw-text">
+                        <span class="fw-status is-published">Published</span>
+                        <h3>A PD-MCI subtype with MRI evidence of Ch4 degeneration</h3>
+                        <p>Ch4 integrity quantified from standard T1-weighted MRI with probabilistic cytoarchitectonic maps defines a subtype of PD mild cognitive impairment; the method is released as an open research tool.</p>
+                        <p class="fw-ref"><a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank"><em>Parkinsonism &amp; Related Disorders</em>, 2025 &rarr;</a></p>
+                        <p class="fw-lic" style="margin-left:0;">Illustration: Julich-Brain Ch4 on the MNI152 template (not a figure from the article).</p>
+                    </div>
+                </article>
+
+                <article class="fw-item">
+                    <button type="button" class="fw-media" data-full="assets/featured/genes_subtypes.jpg" aria-label="Enlarge: genetic associations of PD subtypes">
+                        <img src="assets/featured/genes_subtypes.jpg" alt="Heatmap of gene-variant association strength across four PD subtyping schemes" loading="lazy">
+                    </button>
+                    <div class="fw-text">
+                        <span class="fw-status is-published">Published</span>
+                        <h3>Genetic associations of PD subtypes</h3>
+                        <p><i>LRRK2</i> dominates seed-amplification status, while <i>GBA1</i> marks the data-driven diffuse-malignant subtype.</p>
+                        <p class="fw-ref"><a href="https://doi.org/10.3390/genes17040449" target="_blank"><em>Genes</em> (Basel), 2026 &rarr;</a> <span class="fw-lic">CC BY 4.0</span></p>
+                    </div>
+                </article>
+                <article class="fw-item">
+                    <button type="button" class="fw-media" data-full="assets/featured/percentiles_forest.jpg" aria-label="Enlarge: hazard ratios by PD subtype">
+                        <img src="assets/featured/percentiles_forest.jpg" alt="Forest plot of adjusted hazard ratios for diffuse-malignant and intermediate versus mild motor-predominant PD" loading="lazy">
+                    </button>
+                    <div class="fw-text">
+                        <span class="fw-status is-published">Published</span>
+                        <h3>Prospective subtyping with disease-duration&ndash;specific percentiles</h3>
+                        <p>In PPMI (N = 1,030), the diffuse-malignant subtype carried an adjusted hazard ratio of 3.03 (95% CI 2.30&ndash;3.97) for progression versus mild motor-predominant PD.</p>
+                        <p class="fw-ref"><a href="https://doi.org/10.1002/mdc3.70740" target="_blank"><em>Mov Disord Clin Pract</em>, 2026 &rarr;</a> <span class="fw-lic">CC BY-NC-ND 4.0</span></p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <dialog class="fw-lightbox" id="fw-lightbox" aria-label="Enlarged figure">
+        <button type="button" class="fw-close" aria-label="Close">&times;</button>
+        <img alt="">
+        <p class="fw-caption"></p>
+    </dialog>
 
     <!-- Career: Appointments & Education (Merged) -->
     <section id="appointments" class="fade-in">
@@ -1415,6 +1539,17 @@
         <div class="section-inner">
             <div class="section-header">
                 <h2>Invited Lectures & Conference Presentations</h2>
+            </div>
+
+            <div class="conf-photos">
+                <figure class="conf-photo">
+                    <img src="assets/photos/aan-2025-oral.jpg" alt="Ahmed Negida delivering an oral presentation at the AAN 2025 Annual Meeting" loading="lazy">
+                    <figcaption>Oral presentation &middot; AAN Annual Meeting 2025</figcaption>
+                </figure>
+                <figure class="conf-photo">
+                    <img src="assets/photos/mds-2024-poster.jpg" alt="Ahmed Negida presenting a poster on PD-MCI Ch4 subtyping at the MDS Congress 2024" loading="lazy">
+                    <figcaption>Poster &middot; MDS International Congress 2024</figcaption>
+                </figure>
             </div>
 
             <h3 class="subsection-title">Invited Lectures (Selected)</h3>
@@ -2119,7 +2254,7 @@
                 upd();
             }
             if (reduce || !('IntersectionObserver' in window)) return;
-            const sel = '.research-card, .timeline-item, .tool-entry, .pub-entry, .grant-entry, .lecture-entry, .presentation-entry, .award-entry, .consulting-entry, .leadership-entry, .skill-group, .service-block, .teaching-block, .links-list-item';
+            const sel = '.research-card, .fw-item, .conf-photo, .timeline-item, .tool-entry, .pub-entry, .grant-entry, .lecture-entry, .presentation-entry, .award-entry, .consulting-entry, .leadership-entry, .skill-group, .service-block, .teaching-block, .links-list-item';
             const els = document.querySelectorAll(sel);
             els.forEach(el => el.classList.add('reveal'));
             const io = new IntersectionObserver(entries => {
@@ -2145,6 +2280,8 @@
             };
             addEventListener('scroll', () => { if (!pend) { pend = true; setTimeout(sweep, 150); } }, { passive: true });
             addEventListener('load', sweep);
+            addEventListener('hashchange', () => setTimeout(sweep, 50));
+            [0, 300, 1200].forEach(t => setTimeout(sweep, t));
         })();
 
         // ===== Interactive Ch4 explorer (MNI152NLin2009cAsym + Julich-Brain Ch4) =====
@@ -2372,6 +2509,21 @@
                 }), { threshold: 0.25 }).observe(root);
                 addEventListener('resize', kick);
             }
+        })();
+
+        // ===== Featured Work lightbox =====
+        (function featuredLightbox() {
+            const dlg = document.getElementById('fw-lightbox');
+            if (!dlg || typeof dlg.showModal !== 'function') return;
+            const img = dlg.querySelector('img'), cap = dlg.querySelector('.fw-caption');
+            document.querySelectorAll('.fw-media').forEach(btn => btn.addEventListener('click', () => {
+                const item = btn.closest('.fw-item');
+                img.src = btn.dataset.full; img.alt = btn.querySelector('img').alt;
+                cap.textContent = item.querySelector('h3').textContent + ' \u00b7 ' + item.querySelector('.fw-status').textContent;
+                dlg.showModal();
+            }));
+            dlg.querySelector('.fw-close').addEventListener('click', () => dlg.close());
+            dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
         })();
     </script>
 </body>
