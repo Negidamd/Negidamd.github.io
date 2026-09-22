@@ -174,9 +174,9 @@
 
   <footer>
     <p><b>Model.</b> Two-stage location&ndash;scale normative model of Ch4 gray-matter volume fitted in 5,501
-       clinically normal participants across 132 acquisition sites. Location: <code>predicted = 0.14003 + 0.00055134&middot;age &minus; 1.1901&times;10&#8315;&#8309;&middot;age&sup2;
-       + 0.0034489&middot;[male] + 9.5088&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
-       <code>&sigma;(age, sex) = 1.88736 &middot; exp(&minus;4.83628 + 0.0058407&middot;age + 0.11684&middot;[male])</code>.
+       clinically normal participants across 132 acquisition sites. Location: <code>predicted = 0.13987 + 0.00055331&middot;age &minus; 1.1925&times;10&#8315;&#8309;&middot;age&sup2;
+       + 0.0034362&middot;[male] + 9.5170&times;10&#8315;&#8309;&middot;TIV</code>. Scale:
+       <code>&sigma;(age, sex) = 1.88736 &middot; exp(&minus;4.85588 + 0.0060783&middot;age + 0.12570&middot;[male])</code>.
        W = (observed &minus; predicted) / &sigma;(age, sex). For a scanner site not in the training sample, the site
        random intercept is set to zero (as here) and the denominator is not widened to acknowledge that, so a
        W-score computed for a scanner that contributed no reference participants should be treated as
@@ -192,10 +192,11 @@
 <script>
 /* ---------- normative model (Supplementary Table S3) ----------
    Primary reference: 5,501 clinically normal participants across 132 sites.
-   Updated 2026-09-21 to the model the manuscript reports. */
-const B={intercept:0.14003468063658878,age:0.0005513403559363696,age2:-1.1900742081843423e-05,male:0.0034488528573570027,tiv:9.508770448846125e-05};
-const S={intercept:-4.836283042885091,age:0.005840745941096881,male:0.11683931880396142,k:1.8873645212254033};
-const CUT=-1.645, CUT_EMP=-1.684;
+   Updated 2026-09-22 to the refitted model the manuscript reports (the earlier fit had not reached
+   the REML optimum; see the study's decision log, D-075). */
+const B={intercept:0.13987225699185307,age:0.0005533136779620059,age2:-1.192518199354653e-05,male:0.00343622838139071,tiv:9.516993462830892e-05};
+const S={intercept:-4.855876215776495,age:0.006078275871057767,male:0.12569706477190162,k:1.8873645212254033};
+const CUT=-1.645, CUT_EMP=-1.691;
 const predict=(age,male,tiv)=>B.intercept+B.age*age+B.age2*age*age+B.male*(male?1:0)+B.tiv*tiv;
 const sigma=(age,male)=>S.k*Math.exp(S.intercept+S.age*age+S.male*(male?1:0));
 const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
