@@ -1,13 +1,16 @@
 """Build the interactive Ch4 explorer assets for negidamd.github.io.
 
-Background : CAT12 MNI152NLin2009cAsym T1 template (1 mm, skull-stripped).
+Background : CAT12 MNI152NLin2009cAsym T1 template (1 mm, Template_T1), masked with CAT12 brainmask
+             (CSF-inclusive, so ventricles and cisterns stay visible), cropped to the brain bounding box.
 Ch4        : Julich-Brain / SPM Anatomy Toolbox probabilistic map of Ch 4 (basal forebrain),
              MNI152NLin2009cAsym 1 mm (EBRAINS, Zaborszky et al. 2008, NeuroImage 42:1127).
 Ch1-3      : Julich-Brain v3 maximum probability map, label "Ch 123 (Basal Forebrain)" (grayvalue 79).
-Both atlases are on the 193x229x193 2009c grid; the CAT12 template grid is offset by (23, 23, 1) voxels.
-CSF removal: the template T1 was segmented with FSL FAST (fast -t 1 -n 3); Ch4 voxels whose CSF partial-volume
-estimate is > 0.5 (CSF-dominant) or that lie outside the skull-stripped template are set to 0.
-Cached PVE: scripts/fast_template/Template_T1_masked_pve_csf.nii.gz
+Template_T1 and both atlases share the 193x229x193 2009c grid.
+CSF removal: the brain-masked (CSF-inclusive) template was segmented with FSL FAST (fast -t 1 -n 3);
+Ch4 voxels whose CSF partial-volume estimate is > 0.5 or that lie outside the brain mask are set to 0.
+NOTE: FAST must NOT be run on Template_T1_masked - CAT12 already zeroed CSF there, so FAST's darkest
+class becomes dark gray matter (this removed Ch4 core voxels in an earlier build).
+Cached PVE: scripts/fast_template/Template_T1_brain_withCSF_pve_csf.nii.gz
 
 Outputs (assets/ch4-explorer/):
   coronal_t1.jpg     5x5 sprite of T1 coronal slices (2.5x upsampled)
@@ -20,6 +23,7 @@ import json, os
 import numpy as np, nibabel as nib
 from scipy import ndimage
 from PIL import Image
+from nibabel.processing import resample_from_to
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -29,20 +33,25 @@ MPM = A + "hbp-d000001_jubrain-cytoatlas_pub-MPM-collections-26/MPM/"
 OUT = os.path.join(os.path.dirname(__file__), "..", "assets", "ch4-explorer")
 UP = 2.5
 
-t_img = nib.load(CAT + "Template_T1_masked.nii.gz")
-T = t_img.get_fdata().astype(np.float32)
+full = nib.load(CAT + "Template_T1.nii.gz")
 c_img = nib.load(A + "BF_Atlas_Resources/masks/JuBrain_wholeCh4_prob_MNI152NLin2009cAsym_1mm.nii.gz")
-off = np.round(np.linalg.inv(c_img.affine) @ t_img.affine[:, 3])[:3].astype(int)   # (23, 23, 1)
+assert np.allclose(full.affine, c_img.affine)
+BM = resample_from_to(nib.load(CAT + "brainmask.nii.gz"), full, order=1).get_fdata() > 0.5
+nz = np.argwhere(BM); lo_, hi_ = nz.min(0) - 2, nz.max(0) + 3
+crop = tuple(slice(max(0, a), b) for a, b in zip(lo_, hi_))
+T = np.where(BM, full.get_fdata(), 0)[crop].astype(np.float32)
+BMc = BM[crop]
+aff = full.affine.copy(); aff[:3, 3] = full.affine[:3, :3] @ np.array([c.start for c in crop]) + full.affine[:3, 3]
+t_img = nib.Nifti1Image(T, aff)
 sx, sy, sz = T.shape
-crop = tuple(slice(o, o + n) for o, n in zip(off, T.shape))
 CH4 = c_img.get_fdata()[crop].astype(np.float32)
 mpm = sum(nib.load(MPM + f).get_fdata()[crop] for f in os.listdir(MPM)
           if f.endswith(".nii.gz") and "MPMAtlas" in f and f.count("_") > 3 and not f.startswith("._"))
 # l and r files hold disjoint voxels, so summing them keeps the label values
 CH123 = (np.isin(mpm, [79])).astype(np.float32)
 assert CH4.shape == T.shape
-PVE_CSF = nib.load(os.path.join(os.path.dirname(__file__), "fast_template", "Template_T1_masked_pve_csf.nii.gz")).get_fdata()
-csf_mask = (PVE_CSF > 0.5) | (T <= 0.02 * T.max())
+PVE_CSF = nib.load(os.path.join(os.path.dirname(__file__), "fast_template", "Template_T1_brain_withCSF_pve_csf.nii.gz")).get_fdata()[crop]
+csf_mask = (PVE_CSF > 0.5) | ~BMc
 n_before = int((CH4 > 0).sum())
 CH4[csf_mask] = 0
 print("CSF removal: Ch4 voxels", n_before, "->", int((CH4 > 0).sum()))
@@ -50,7 +59,7 @@ print("CSF removal: Ch4 voxels", n_before, "->", int((CH4 > 0).sum()))
 lo, hi = np.percentile(T[T > 0], [0.5, 99.7])
 T8 = np.clip((T - lo) / (hi - lo), 0, 1) ** 0.9
 PMAX = float(CH4.max())
-print("offset", off, "Ch4 max", PMAX, "Ch123 vox", int(CH123.sum()))
+print("crop", [(c.start, c.stop) for c in crop], "Ch4 max", PMAX, "Ch123 vox", int(CH123.sum()))
 
 def world(i, j, k):
     return (t_img.affine @ np.array([i, j, k, 1.0]))[:3]
