@@ -5,6 +5,9 @@ Ch4        : Julich-Brain / SPM Anatomy Toolbox probabilistic map of Ch 4 (basal
              MNI152NLin2009cAsym 1 mm (EBRAINS, Zaborszky et al. 2008, NeuroImage 42:1127).
 Ch1-3      : Julich-Brain v3 maximum probability map, label "Ch 123 (Basal Forebrain)" (grayvalue 79).
 Both atlases are on the 193x229x193 2009c grid; the CAT12 template grid is offset by (23, 23, 1) voxels.
+CSF removal: the template T1 was segmented with FSL FAST (fast -t 1 -n 3); Ch4 voxels whose CSF partial-volume
+estimate is > 0.5 (CSF-dominant) or that lie outside the skull-stripped template are set to 0.
+Cached PVE: scripts/fast_template/Template_T1_masked_pve_csf.nii.gz
 
 Outputs (assets/ch4-explorer/):
   coronal_t1.jpg     5x5 sprite of T1 coronal slices (2.5x upsampled)
@@ -38,6 +41,11 @@ mpm = sum(nib.load(MPM + f).get_fdata()[crop] for f in os.listdir(MPM)
 # l and r files hold disjoint voxels, so summing them keeps the label values
 CH123 = (np.isin(mpm, [79])).astype(np.float32)
 assert CH4.shape == T.shape
+PVE_CSF = nib.load(os.path.join(os.path.dirname(__file__), "fast_template", "Template_T1_masked_pve_csf.nii.gz")).get_fdata()
+csf_mask = (PVE_CSF > 0.5) | (T <= 0.02 * T.max())
+n_before = int((CH4 > 0).sum())
+CH4[csf_mask] = 0
+print("CSF removal: Ch4 voxels", n_before, "->", int((CH4 > 0).sum()))
 
 lo, hi = np.percentile(T[T > 0], [0.5, 99.7])
 T8 = np.clip((T - lo) / (hi - lo), 0, 1) ** 0.9
