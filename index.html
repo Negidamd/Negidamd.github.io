@@ -811,6 +811,14 @@
 
 
         .nav-links a { white-space: nowrap; }
+        .hero-content .affiliation { margin-bottom: .55rem; }
+        .coe-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+        .coe { display: inline-flex; align-items: center; gap: .4rem; font-size: .74rem; font-weight: 600; color: var(--accent-dark); text-decoration: none;
+            background: var(--bg-lighter); border: 1px solid var(--border-light); border-radius: 999px; padding: .22rem .7rem;
+            transition: background .25s ease, color .25s ease, transform .25s var(--ease-out), border-color .25s ease; }
+        .coe:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
+        .coe-dot { width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, #fed976, #e31a1c); flex: none; }
+        @media (max-width: 768px) { .coe-row { justify-content: center; } }
         /* ---------- Featured Work ---------- */
         .fw-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
         .fw-item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 1rem; align-items: start;
@@ -873,6 +881,8 @@
             .ch4x { padding: 1.1rem 1rem .9rem; border-radius: 10px; }
             .ch4x-grid { grid-template-columns: 1fr; }
             .ch4x-side { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .ch4x-end { display: none; }
+            .ch4x-controls { gap: .5rem; }
         }
         @media (prefers-reduced-motion: reduce) {
             .hero-content > *, .profile-photo { animation: none; }
@@ -940,6 +950,10 @@
                     VCU Parkinson's & Movement Disorders Center<br>
                     Department of Neurology, Virginia Commonwealth University
                 </p>
+                <div class="coe-row" aria-label="Center designations">
+                    <a class="coe" href="https://parkinsons.vcu.edu/patient-resources-and-support-/centers-of-excellence/" target="_blank"><span class="coe-dot"></span>Parkinson's Foundation Center of Excellence</a>
+                    <a class="coe" href="https://parkinsons.vcu.edu/news/news-posts/pmdc-named-a-lewy-body-dementia-association-research-center-of-excellence.html" target="_blank"><span class="coe-dot"></span>LBDA Research Center of Excellence</a>
+                </div>
 
                 <p class="professional-summary">
                     I develop multimodal MRI and EEG biomarkers to stratify patients with Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) for therapeutic trials and to monitor disease progression. My work centers on the nucleus basalis of Meynert (Ch4), the main source of cholinergic input to the cortex: I built a multimodal imaging signature of Ch4 degeneration that combines T1-weighted and diffusion (free-water) MRI with probabilistic cytoarchitectonic maps, and used it to identify a subtype of PD mild cognitive impairment defined by MRI evidence of Ch4 degeneration. I hold approved data use agreements for ten multisite imaging and biomarker cohorts (more than 35,000 MRIs, including ADNI, NACC, PPMI, PDBP, and AMP-PD) and have released nine open-source or web-deployed research tools. Previously a Research Fellow at Harvard Medical School (2021&ndash;2023); 2025 IMPACT-AD Fellow (NIA / Alzheimer's Association); co-principal investigator of the GNS-I international traumatic brain injury study (<em>Nature Medicine</em>, 2026); founder of Negida Research Academy (35,000+ trainees in 20+ countries).
