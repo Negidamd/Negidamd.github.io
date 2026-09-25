@@ -103,18 +103,18 @@
     <!-- INPUTS -->
     <div class="card">
       <h2>Patient input</h2>
-      <label>Age <span class="unit">(years)</span></label>
+      <label for="age">Age <span class="unit">(years)</span></label>
       <input id="age" type="number" value="72" min="30" max="110" step="1">
       <input id="ageR" type="range" class="slider" min="40" max="95" step="1" value="72" aria-label="Age slider">
-      <label>Sex</label>
-      <div class="seg" id="sex">
-        <button data-v="F" class="on">Female</button>
-        <button data-v="M">Male</button>
+      <label id="sexLbl">Sex</label>
+      <div class="seg" id="sex" role="group" aria-labelledby="sexLbl">
+        <button type="button" data-v="F" class="on" aria-pressed="true">Female</button>
+        <button type="button" data-v="M" aria-pressed="false">Male</button>
       </div>
-      <label>Total intracranial volume, TIV <span class="unit">(mL)</span></label>
+      <label for="tiv">Total intracranial volume, TIV <span class="unit">(mL)</span></label>
       <input id="tiv" type="number" value="1450" min="900" max="2100" step="1">
       <input id="tivR" type="range" class="slider" min="1100" max="1900" step="5" value="1450" aria-label="TIV slider">
-      <label>Observed Ch4 gray-matter volume <span class="unit">(mL)</span></label>
+      <label for="ch4">Observed Ch4 gray-matter volume <span class="unit">(mL)</span></label>
       <input id="ch4" type="number" value="0.215" min="0" max="0.6" step="0.001">
       <input id="ch4R" type="range" class="slider" min="0.05" max="0.40" step="0.005" value="0.215" aria-label="Ch4 volume slider">
       <div class="hint">Ch4 GMV is typically ~0.10&ndash;0.38 mL. Must be measured with the study pipeline.</div>
@@ -202,6 +202,8 @@ const sigma=(age,male)=>S.k*Math.exp(S.intercept+S.age*age+S.male*(male?1:0));
 const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
 function Phi(x){const t=1/(1+0.2316419*Math.abs(x));const d=0.3989422804014327*Math.exp(-x*x/2);
   let p=d*t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429))));return x>0?1-p:p;}
+const ordinal=n=>{const s=n%100>=11&&n%100<=13?"th":({1:"st",2:"nd",3:"rd"})[n%10]||"th";return n+s;};
+const fmtW=w=>w.toFixed(3).replace("-","−");
 
 const SVGNS="http://www.w3.org/2000/svg";
 const el=(t,a)=>{const e=document.createElementNS(SVGNS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
@@ -264,22 +266,25 @@ function calc(){
     atr?"At or below the a priori 5th-centile cut (W ≤ −1.645)."
        :"Above the a priori atrophy cut (W ≤ −1.645).";
   document.getElementById("pred").textContent=pred.toFixed(3)+" mL";
-  document.getElementById("pct").textContent=pct.toFixed(1)+"th";
+  document.getElementById("pct").textContent=pct<0.1?"<0.1":pct>99.9?">99.9":pct.toFixed(1);
   document.getElementById("dev").textContent=(w>=0?"+":"")+w.toFixed(2)+" SD";
-  // interpretation
-  const emp=w<=CUT_EMP;
+  // interpretation (below 1 or above 99, rounding would claim "0th" / "100% of adults")
+  const emp=w<=CUT_EMP, p0=Math.round(pct);
+  const where=pct<1?"below the <b>1st percentile</b>":pct>=99.5?"above the <b>99th percentile</b>":"at about the <b>"+ordinal(p0)+" percentile</b>";
+  const share=pct<1?"more than 99% of cognitively healthy adults have a larger Ch4":
+    pct>=99.5?"more than 99% of cognitively healthy adults have a smaller Ch4":
+    pct<50?(100-p0)+"% of cognitively healthy adults have a larger Ch4":p0+"% of cognitively healthy adults have a smaller Ch4";
   document.getElementById("interp").innerHTML=
-    "This Ch4 volume sits at about the <b>"+pct.toFixed(0)+"th percentile</b> of the clinically normal reference "+
-    "distribution (i.e., "+(pct<50?(100-pct).toFixed(0)+"% of cognitively healthy adults have a larger Ch4":
-    pct.toFixed(0)+"% of cognitively healthy adults have a smaller Ch4")+"). "+
+    "This Ch4 volume sits "+where+" of the clinically normal reference "+
+    "distribution (i.e., "+share+"). "+
     (atr?"It meets the a priori atrophy definition":"It does not meet the a priori atrophy definition")+
-    " (empirical cut W ≤ −1.681: "+(emp?"also met":"not met")+"). "+
+    " (empirical cut W ≤ "+fmtW(CUT_EMP)+": "+(emp?"also met":"not met")+"). "+
     "This is a research estimate of deviation from the normative reference, not a diagnosis.";
   drawBell(w);
 }
 document.querySelectorAll("#sex button").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll("#sex button").forEach(x=>x.classList.remove("on"));
-  b.classList.add("on");male=b.dataset.v==="M";calc();}));
+  document.querySelectorAll("#sex button").forEach(x=>{x.classList.remove("on");x.setAttribute("aria-pressed","false");});
+  b.classList.add("on");b.setAttribute("aria-pressed","true");male=b.dataset.v==="M";calc();}));
 [["age","ageR"],["tiv","tivR"],["ch4","ch4R"]].forEach(([n,r])=>{
   const N=document.getElementById(n), R=document.getElementById(r);
   N.addEventListener("input",()=>{if(N.value!=="")R.value=N.value;calc();});
