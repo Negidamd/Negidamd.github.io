@@ -880,27 +880,11 @@
         .pubx-chip:hover { border-color: var(--accent-light); }
         .pubx-chip.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
         .pubx-chip:disabled { opacity: .45; cursor: default; }
-        .pubx-chip:focus-visible, .pubx-col:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .pubx-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
         .pubx-chip .n { font-weight: 500; opacity: .75; margin-left: .3rem; font-variant-numeric: tabular-nums; }
-        .pubx-years-row { align-items: flex-end; }
-        .pubx-years { position: relative; flex: 1 1 300px; min-width: 0; padding-top: 1.9rem; }
-        .pubx-chart { display: flex; align-items: flex-end; overflow-x: auto; }
-        .pubx-col { flex: 1 0 24px; max-width: 56px; display: flex; flex-direction: column; align-items: center; background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
-        .pubx-col:disabled { cursor: default; }
-        .pubx-barwrap { height: 56px; width: 100%; display: flex; align-items: flex-end; justify-content: center; border-bottom: 1px solid var(--border); }
-        .pubx-bar { width: 18px; border-radius: 4px 4px 0 0; background: var(--accent); transition: height .35s var(--ease-out), background-color .2s ease, opacity .2s ease; }
-        .pubx-col:hover .pubx-bar, .pubx-col:focus-visible .pubx-bar { background: var(--accent-dark); }
-        .pubx-chart.has-sel .pubx-col:not(.is-sel) .pubx-bar { opacity: .35; }
-        .pubx-col.is-sel .pubx-bar { background: var(--accent-darker); opacity: 1; }
-        .pubx-yr { font-size: .68rem; color: var(--text-muted); margin-top: .3rem; font-variant-numeric: tabular-nums; }
-        .pubx-col.is-sel .pubx-yr { color: var(--text-primary); font-weight: 700; }
-        .pubx-tip { position: absolute; top: 0; transform: translate(-50%, calc(-100% - 6px)); background: var(--accent-darker); color: #fff; font-size: .74rem; padding: .25rem .5rem; border-radius: 6px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .15s ease; }
-        .pubx-tip.on { opacity: 1; }
-        .pubx-tip strong { font-size: .85rem; margin-right: .2rem; }
         .pubx-empty { font-size: .9rem; color: var(--text-secondary); margin: -.75rem 0 1.5rem; }
         .pub-title mark { background: #fff1b8; color: inherit; padding: 0 .1rem; border-radius: 2px; }
         .pub-entry.is-hidden, .pubx-group-hidden { display: none !important; }
-        @media (prefers-reduced-motion: reduce) { .pubx-bar { transition: none; } }
         .pub-legend { font-size: .8rem; color: var(--text-muted); margin: -.5rem 0 1rem; }
         .conf-photos { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
         .conf-photo { margin: 0; border-radius: 10px; overflow: hidden; position: relative; background: #000; }
@@ -1011,8 +995,8 @@
         <div class="metrics-inner">
             <div class="metric-item"><div class="metric-number" data-target="10" data-suffix="">0</div><div class="metric-label">Original research articles (PD, ADRD, imaging)</div></div>
             <div class="metric-item"><div class="metric-number" data-target="5" data-suffix="">0</div><div class="metric-label">First-author papers, 2025&ndash;26</div></div>
-            <div class="metric-item"><div class="metric-number" data-target="8500" data-suffix="+">0</div><div class="metric-label">Citations</div></div>
-            <div class="metric-item"><div class="metric-number" data-target="44" data-suffix="">0</div><div class="metric-label">H-Index</div></div>
+            <div class="metric-item"><div class="metric-number" data-target="8955" data-suffix="" data-scholar="citations">0</div><div class="metric-label">Citations (Google Scholar)</div></div>
+            <div class="metric-item"><div class="metric-number" data-target="46" data-suffix="" data-scholar="h_index">0</div><div class="metric-label">H-Index</div></div>
             <div class="metric-item"><div class="metric-number" data-target="9" data-suffix="">0</div><div class="metric-label">Open Research Tools</div></div>
             <div class="metric-item"><div class="metric-number" data-target="50" data-suffix="+">0</div><div class="metric-label">Mentees to first-author papers</div></div>
         </div>
@@ -1343,7 +1327,7 @@
             <p class="pub-stats">
                 <strong>10</strong> original research articles in PD, ADRD, and neuroimaging/EEG &nbsp;&middot;&nbsp; <strong>5</strong> first-author (2025&ndash;2026)
             </p>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: -0.5rem 0 1.25rem;">170+ peer-reviewed publications in total (8,500+ citations; h-index 44; i10-index 102), including 66 systematic reviews, meta-analyses, and scoping reviews, 36 of them senior-author papers led by trainees in my research-training program. Full list on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: -0.5rem 0 1.25rem;">170+ peer-reviewed publications in total (<span data-scholar="citations">8,955</span> citations; h-index <span data-scholar="h_index">46</span>; i10-index <span data-scholar="i10_index">109</span> on Google Scholar), including 66 systematic reviews, meta-analyses, and scoping reviews, 36 of them senior-author papers led by trainees in my research-training program. Full list on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
             <p class="pub-legend"><sup>*</sup> Trainee I mentored &nbsp;&middot;&nbsp; (first) / (senior): my author position</p>
 
             <!-- Publication explorer (filters the lists below) -->
@@ -1370,13 +1354,6 @@
                     <button type="button" class="pubx-chip" data-f="role" data-v="senior">Senior author</button>
                     <button type="button" class="pubx-chip" data-f="role" data-v="coauthor">Co-author</button>
                     <button type="button" class="pubx-chip" data-f="trainee" data-v="1" aria-pressed="false">With a trainee I mentored<sup>*</sup></button>
-                </div>
-                <div class="pubx-row pubx-years-row">
-                    <span class="pubx-label">Year</span>
-                    <div class="pubx-years">
-                        <div class="pubx-chart" id="pubx-chart" role="group" aria-label="Papers per year; select a year to filter"></div>
-                        <div class="pubx-tip" id="pubx-tip" aria-hidden="true"></div>
-                    </div>
                 </div>
             </div>
             <p class="pubx-empty" id="pubx-empty" hidden>No papers match these filters. <button type="button" class="pubx-reset" data-reset>Clear filters</button></p>
@@ -1424,10 +1401,6 @@
                     <div class="pub-title">Patterns and predictors of cholinesterase inhibitor use in dementia with Lewy bodies</div>
                     <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.1002/trc2.70136" target="_blank">Alzheimer's & Dementia: TRCI, 2025</a></div>
                 </div>
-                <div class="pub-entry" data-theme="treatment" data-role="senior" data-year="2025" data-trainee="1">
-                    <div class="pub-title">Comparative safety of cholinesterase inhibitors and memantine for dementia: a protocol for a network meta-analysis of randomized controlled trials</div>
-                    <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Almosilhy NA, Makhlouf HA, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/41188985/" target="_blank">Systematic Reviews, 2025</a></div>
-                </div>
                 <div class="pub-entry" data-theme="treatment" data-role="coauthor" data-year="2025" data-trainee="0">
                     <div class="pub-title">Oral medication treatment patterns in blepharospasm and Meige syndrome: a multi-institutional TriNetX study</div>
                     <div class="pub-authors">Heo RJ, Mukhopadhyay N, Dintino C, <strong>Negida A</strong>, Barrett MJ, Berman BD &middot; <a href="https://doi.org/10.3389/dyst.2025.15368" target="_blank">Dystonia, 2025</a></div>
@@ -1460,6 +1433,10 @@
                 <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2026" data-trainee="1">
                     <div class="pub-title">Efficacy and safety of apomorphine in the treatment of Parkinson's disease: a systematic review and meta-analysis of randomized controlled trials</div>
                     <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Abbas A, Yousef O, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/42027696/" target="_blank">Therapeutic Advances in Neurological Disorders, 2026</a></div>
+                </div>
+                <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2025" data-trainee="1">
+                    <div class="pub-title">Comparative safety of cholinesterase inhibitors and memantine for dementia: a protocol for a network meta-analysis of randomized controlled trials</div>
+                    <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Almosilhy NA, Makhlouf HA, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/41188985/" target="_blank">Systematic Reviews, 2025</a></div>
                 </div>
                 <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2025" data-trainee="1">
                     <div class="pub-title">Multimodal diagnostic tools and advanced data models for detection of prodromal Parkinson's disease: a scoping review</div>
@@ -2031,7 +2008,7 @@
                     const elapsed = currentTime - startTime;
                     const progress = Math.min(elapsed / duration, 1);
                     const eased = 1 - Math.pow(1 - progress, 3);
-                    counter.textContent = Math.floor(target * eased).toLocaleString() + suffix;
+                    counter.textContent = Math.floor(parseInt(counter.dataset.target) * eased).toLocaleString() + suffix;
                     if (progress < 1) requestAnimationFrame(update);
                 }
                 requestAnimationFrame(update);
@@ -2323,6 +2300,21 @@
         })();
 
 
+        // ===== Google Scholar metrics (data/scholar.json is refreshed weekly by a GitHub Action) =====
+        (function scholarMetrics() {
+            const BASE = { citations: 8955, h_index: 46, i10_index: 109 };   // values at last page edit
+            fetch('data/scholar.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(d => {
+                if (!d || !(d.citations >= BASE.citations) || !(d.h_index >= BASE.h_index) || !(d.i10_index >= BASE.i10_index)) return;
+                document.querySelectorAll('[data-scholar]').forEach(el => {
+                    const v = d[el.dataset.scholar]; if (!Number.isFinite(v)) return;
+                    if (el.classList.contains('metric-number')) {
+                        el.dataset.target = v;
+                        if (el.textContent !== '0') el.textContent = v.toLocaleString() + (el.dataset.suffix || '');
+                    } else el.textContent = v.toLocaleString();
+                });
+            }).catch(() => {});
+        })();
+
         // ===== Interactive research map =====
         (function researchMap() {
             const wrap = document.getElementById('rmap-wrap');
@@ -2489,25 +2481,19 @@
             if (!root || !section) return;
             const entries = [...section.querySelectorAll('.pub-entry[data-theme]')];
             const q = document.getElementById('pubx-q'), countEl = document.getElementById('pubx-count');
-            const chart = document.getElementById('pubx-chart'), tip = document.getElementById('pubx-tip');
             const empty = document.getElementById('pubx-empty'), book = section.querySelector('.book-chapter');
             const resets = [document.getElementById('pubx-reset'), ...section.querySelectorAll('[data-reset]')];
             const chips = [...root.querySelectorAll('.pubx-chip')];
-            const state = { theme: '', role: '', trainee: '', year: '', q: '' };
+            const state = { theme: '', role: '', trainee: '', q: '' };
             const norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
             const data = entries.map(el => {
                 const title = el.querySelector('.pub-title');
-                return { el, title, raw: title.textContent, text: norm(el.textContent), theme: el.dataset.theme, role: el.dataset.role, trainee: el.dataset.trainee, year: el.dataset.year };
+                return { el, title, raw: title.textContent, text: norm(el.textContent), theme: el.dataset.theme, role: el.dataset.role, trainee: el.dataset.trainee };
             });
-            const years = data.map(d => +d.year), y0 = Math.min(...years), y1 = Math.max(...years);
-            const perYearAll = {}; data.forEach(d => perYearAll[d.year] = (perYearAll[d.year] || 0) + 1);
-            const yMax = Math.max(...Object.values(perYearAll));
-
             function matches(d, skip) {
                 if (skip !== 'theme' && state.theme && d.theme !== state.theme) return false;
                 if (skip !== 'role' && state.role && d.role !== state.role) return false;
                 if (skip !== 'trainee' && state.trainee && d.trainee !== state.trainee) return false;
-                if (skip !== 'year' && state.year && d.year !== state.year) return false;
                 if (state.q) { const toks = norm(state.q).split(/\s+/).filter(Boolean); if (!toks.every(tk => d.text.includes(tk))) return false; }
                 return true;
             }
@@ -2527,25 +2513,6 @@
                 chars.forEach((c, i) => { if (hit[i] !== on) { flush(); on = hit[i]; } buf += c; });
                 flush();
             }
-            // year columns
-            const cols = {};
-            for (let y = y0; y <= y1; y++) {
-                const b = document.createElement('button'); b.type = 'button'; b.className = 'pubx-col'; b.dataset.year = y;
-                const w = document.createElement('span'); w.className = 'pubx-barwrap';
-                const bar = document.createElement('span'); bar.className = 'pubx-bar'; w.appendChild(bar);
-                const lab = document.createElement('span'); lab.className = 'pubx-yr'; lab.textContent = "'" + String(y).slice(2);
-                b.append(w, lab); chart.appendChild(b); cols[y] = { b, bar, n: 0 };
-                b.addEventListener('click', () => { state.year = state.year === String(y) ? '' : String(y); render(); });
-                const show = () => {
-                    const n = cols[y].n; tip.textContent = '';
-                    const s = document.createElement('strong'); s.textContent = n;
-                    tip.append(s, document.createTextNode((n === 1 ? ' paper' : ' papers') + ' \u00b7 ' + y));
-                    const r = cols[y].bar.getBoundingClientRect(), pr = chart.parentElement.getBoundingClientRect();
-                    tip.style.left = (r.left - pr.left + r.width / 2) + 'px'; tip.style.top = (r.top - pr.top) + 'px'; tip.classList.add('on');
-                };
-                b.addEventListener('pointerenter', show); b.addEventListener('focus', show);
-                b.addEventListener('pointerleave', () => tip.classList.remove('on')); b.addEventListener('blur', () => tip.classList.remove('on'));
-            }
             function render() {
                 let shown = 0;
                 data.forEach(d => { const ok = matches(d); d.el.classList.toggle('is-hidden', !ok); if (ok) shown++; highlight(d); });
@@ -2553,7 +2520,7 @@
                     const any = list.querySelector('.pub-entry:not(.is-hidden)'); const h = list.previousElementSibling;
                     list.classList.toggle('pubx-group-hidden', !any); if (h && h.matches('h3')) h.classList.toggle('pubx-group-hidden', !any);
                 });
-                const active = state.theme || state.role || state.trainee || state.year || state.q;
+                const active = state.theme || state.role || state.trainee || state.q;
                 if (book) book.classList.toggle('pubx-group-hidden', !!active);
                 countEl.textContent = ''; const s = document.createElement('strong'); s.textContent = shown;
                 countEl.append(s, document.createTextNode(' of ' + data.length + ' selected papers'));
@@ -2565,13 +2532,6 @@
                     const cnt = data.filter(d => matches(d, f) && (!v || d[f] === v)).length;
                     n.textContent = cnt; c.disabled = !on && cnt === 0 && !!v;
                 });
-                for (const y in cols) {
-                    const n = data.filter(d => matches(d, 'year') && d.year === y).length, c = cols[y];
-                    c.n = n; c.bar.style.height = (n / yMax * 100) + '%';
-                    c.b.classList.toggle('is-sel', state.year === y); c.b.setAttribute('aria-pressed', state.year === y);
-                    c.b.setAttribute('aria-label', y + ': ' + n + (n === 1 ? ' paper' : ' papers')); c.b.disabled = n === 0 && state.year !== y;
-                }
-                chart.classList.toggle('has-sel', !!state.year);
             }
             chips.forEach(c => c.addEventListener('click', () => {
                 const f = c.dataset.f; state[f] = (state[f] === c.dataset.v && c.dataset.v) ? '' : c.dataset.v; render();
