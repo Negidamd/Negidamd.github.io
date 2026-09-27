@@ -246,6 +246,7 @@
             display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
         }
         .metric-item { text-align: center; flex: 1; min-width: 70px; }
+        @media (max-width: 560px) { .metric-item { flex: 1 1 40%; } }
         .metric-number {
             font-size: 1.35rem; font-weight: 800; color: #ffffff; line-height: 1;
         }
@@ -993,8 +994,6 @@
     <!-- Key Metrics Bar -->
     <div class="metrics-bar">
         <div class="metrics-inner">
-            <div class="metric-item"><div class="metric-number" data-target="10" data-suffix="">0</div><div class="metric-label">Original research articles (PD, ADRD, imaging)</div></div>
-            <div class="metric-item"><div class="metric-number" data-target="5" data-suffix="">0</div><div class="metric-label">First-author papers, 2025&ndash;26</div></div>
             <div class="metric-item"><div class="metric-number" data-target="8955" data-suffix="" data-scholar="citations">0</div><div class="metric-label">Citations (Google Scholar)</div></div>
             <div class="metric-item"><div class="metric-number" data-target="46" data-suffix="" data-scholar="h_index">0</div><div class="metric-label">H-Index</div></div>
             <div class="metric-item"><div class="metric-number" data-target="9" data-suffix="">0</div><div class="metric-label">Open Research Tools</div></div>
