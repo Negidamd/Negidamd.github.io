@@ -841,10 +841,6 @@
         .fw-item.is-shown { animation: fwShow .35s var(--ease-out); }
         @keyframes fwShow { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
         @media (prefers-reduced-motion: reduce) { .fw-item.is-shown { animation: none; } }
-        .fw-callout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; margin-top: 1.5rem;
-            padding: 1rem 1.25rem; border-radius: 12px; background: var(--bg-lighter); border: 1px solid var(--border-light); }
-        .fw-callout p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; max-width: 640px; }
-        .fw-callout strong { color: var(--accent-darker); }
         /* Latest first-author papers */
         .latest { margin: 0 0 1.75rem; padding: 1rem 1.2rem .9rem; border: 1px solid var(--border-light); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: #fff; }
         .latest-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .5rem; }
@@ -942,7 +938,6 @@
                 <li class="nav-dropdown">
                     <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-more">More &#9662;</button>
                     <div class="nav-dropdown-menu" id="nav-more">
-                        <a href="pd-subtyping.html">PD Subtyping Story</a>
                         <a href="#presentations">Talks</a>
                         <a href="#honors">Honors &amp; Service</a>
                     </div>
@@ -1061,7 +1056,7 @@
                             <li>Made data-driven subtyping prospective with disease-duration&ndash;specific percentiles for the first 5 years after diagnosis, N&nbsp;=&nbsp;1,030 (<a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener"><em>Mov Disord Clin Pract</em>, 2026</a>)</li>
                             <li>Mapped genetics onto subtypes: <i>GBA1</i> variants enriched in diffuse-malignant PD, <i>LRRK2</i> in &alpha;-synuclein SAA-negative PD (<a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener"><em>Genes</em>, 2026</a>)</li>
                         </ul>
-                        <div class="pillar-tools"><span>Tools</span><a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank" rel="noopener">Percentile calculator</a><a href="https://pdsubtyping.negida.com" target="_blank" rel="noopener">PD Subtyping Tool</a><a href="pd-subtyping.html">Read the story &rarr;</a></div>
+                        <div class="pillar-tools"><span>Tools</span><a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank" rel="noopener">Percentile calculator</a><a href="https://pdsubtyping.negida.com" target="_blank" rel="noopener">PD Subtyping Tool</a></div>
                     </div>
                     <div class="pillar-stats">
                         <div><strong>63%</strong><span>of 10-year progression milestones reached by diffuse-malignant PD (vs 55.6% PIGD, 54.0% body-first)</span></div>
@@ -1286,11 +1281,6 @@
                         <p>Resting-state fMRI in 97 participants (16 controls, 81 with PD) showed Ch4 connectivity with salience, action-mode, and language networks declining across PD cognitive stages (FDR q&nbsp;&lt;&nbsp;0.05). Salience connectivity added 8.6 percentage points of explained variance in cognition beyond Ch4 gray-matter density and free water, although the effect weakened in sensitivity analyses.</p>
                     </div>
                 </article>
-            </div>
-
-            <div class="fw-callout">
-                <p><strong>Research story: Subtyping Parkinson's disease.</strong> How the milestones, percentiles, genetics, and Ch4 papers fit together, with the open calculators.</p>
-                <a href="pd-subtyping.html" class="btn btn-secondary">Read the story &rarr;</a>
             </div>
         </div>
     </section>
@@ -1550,7 +1540,6 @@
                 <div class="tool-meta">Mov Disord Clin Pract, 2026 &middot; npj Parkinson's Disease, 2026</div>
                 <p>Interactive tool for clinical, pathological, and data-driven subtyping of Parkinson's Disease. Applies disease-duration–specific percentile thresholds (PPMI, N=1,030) to classify patients into diffuse-malignant, intermediate, and mild-motor-predominant subtypes for real-time trial stratification.</p>
                 <div class="tool-links-inline">
-                    <a href="pd-subtyping.html"><strong>Read the research story &rarr;</strong></a>
                     <a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank">Percentile Calculator &rarr;</a>
                     <a href="https://pdsubtyping.negida.com" target="_blank">Online Tool &rarr;</a>
                     <a href="https://doi.org/10.1002/mdc3.70740" target="_blank">Percentiles paper &rarr;</a>
@@ -1930,7 +1919,7 @@
     <footer>
         <p>&copy; 2026 Ahmed Negida, MD, PhD &middot; Parkinson's &amp; Movement Disorders Center, Department of Neurology, Virginia Commonwealth University, Richmond, VA</p>
         <p style="margin-top: 0.4rem; font-size: 0.8rem; opacity: 0.7; max-width: 680px; margin-left: auto; margin-right: auto;">A personal academic website &mdash; the tools and views presented here are the author's own and are not official products of, or endorsed by, Virginia Commonwealth University. Outside activities, including Negida Research Academy and the research platforms listed here, are disclosed and managed under institutional conflict-of-interest and outside-activity policies.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;"><a href="https://negidamd.github.io/">Main site</a> &middot; <a href="https://negidamd.github.io/pd-subtyping.html">PD Subtyping</a> &middot; <a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/">Data-driven calculator</a> &middot; <a href="https://negidamd.github.io/ch4-subtyper/">Ch4 calculator</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;"><a href="https://negidamd.github.io/">Main site</a> &middot; <a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/">Data-driven calculator</a> &middot; <a href="https://negidamd.github.io/ch4-subtyper/">Ch4 calculator</a></p>
     </footer>
 
     <script>
@@ -2322,13 +2311,12 @@
             const map = document.getElementById('rmap'), colsEl = document.getElementById('rmap-cols');
             const svg = document.getElementById('rmap-edges'), detail = document.getElementById('rmap-detail');
             const doi = d => 'https://doi.org/' + d;
-            const COLS = ['Lines of work', 'Evidence', 'Tools & data', 'Research plan'];
+            const COLS = ['Lines of work', 'Publications', 'Tools & data', 'Research plan'];
             const N = [
                 { id: 'L1', c: 0, g: 'ch4', t: 'Cholinergic imaging (Ch4)', s: 'Primary focus · ~2/3', d: 'MRI measures of nucleus basalis of Meynert (Ch4) degeneration (gray-matter density, free water, and connectivity) to identify the patients most likely to benefit from cholinergic therapies.', l: [['Explore Ch4 in 3D', '#ch4x']] },
                 { id: 'L2', c: 0, g: 'ch4', t: 'EEG markers', s: 'Complements MRI', d: 'Inexpensive, repeatable resting-state EEG markers of cognitive fluctuations in Lewy body disease, developed in the NIH R21 AG077469 study.', l: [['Paper', doi('10.1186/s13195-026-02148-8')]] },
-                { id: 'L3', c: 0, g: 'sub', t: 'Subtyping & progression modeling', s: 'Second focus · ~1/3', d: 'Which patients with PD progress fastest, and how to identify them prospectively for trial enrichment.', l: [['Read the subtyping story', 'pd-subtyping.html']] },
+                { id: 'L3', c: 0, g: 'sub', t: 'Subtyping & progression modeling', s: 'Second focus · ~1/3', d: 'Which patients with PD progress fastest, and how to identify them prospectively for trial enrichment.', l: [['Percentile calculator', 'https://negidamd.github.io/data-driven-pd-subtype-calculator/']] },
                 { id: 'Pmrx', c: 1, g: 'ch4', t: 'Ch4 atrophy + free water', s: 'medRxiv preprint, 2026', d: 'In 92 participants from VCU clinics, Ch4 gray-matter density and free water were the only basal forebrain measures independently associated with cognition; together they separated PD dementia from PD without dementia (exploratory AUC 0.93).', l: [['Preprint', doi('10.64898/2026.06.08.26355183')]] },
-                { id: 'Pfmri', c: 1, g: 'ch4', t: 'Ch4 connectivity & cognition', s: 'Ongoing work', d: 'Resting-state fMRI in 97 participants: Ch4 connectivity declined across PD cognitive stages, and Ch4–cingulo-opercular connectivity statistically mediated the link between Ch4 degeneration and cognition.', l: [['See Featured Work', '#featured-work']] },
                 { id: 'Pchei', c: 1, g: 'ch4', t: 'Cholinesterase inhibitor use', s: 'J Alzheimers Dis 2026 · TRCI 2025', d: 'Prescribing patterns, predictors, and disparities in cholinesterase inhibitor treatment for dementia and dementia with Lewy bodies.', l: [['JAD paper', doi('10.1177/13872877251411418')], ['TRCI paper', doi('10.1002/trc2.70136')]] },
                 { id: 'Part', c: 1, g: 'ch4', t: 'EEG & cognitive fluctuations', s: "Alzheimer's Res Ther, 2026", d: 'Eyes-closed resting EEG in 53 patients across the Lewy body spectrum; an elastic-net model detected cognitive fluctuations with AUC 0.86.', l: [['Paper', doi('10.1186/s13195-026-02148-8')]] },
                 { id: 'Pprd', c: 1, g: 'both', t: 'Ch4-defined PD-MCI subtype', s: 'Parkinsonism Relat Disord, 2025', d: 'Among 162 PPMI participants with PD-MCI, 40 with low Ch4 gray-matter density had worse motor, autonomic, and olfactory scores and reached cognitive milestones sooner (log-rank p = 0.002). Where the two lines meet: this imaging-defined subtype overlaps with diffuse-malignant PD.', l: [['Paper', doi('10.1016/j.parkreldis.2025.108072')]] },
@@ -2336,7 +2324,8 @@
                 { id: 'Pmdcp', c: 1, g: 'sub', t: 'Year-specific percentiles', s: 'Mov Disord Clin Pract, 2026', d: 'Disease-duration–specific percentiles (PPMI, N = 1,030) classify patients prospectively in each of the first 5 years after diagnosis; diffuse-malignant PD reached a first milestone fastest (HR 3.03).', l: [['Paper', doi('10.1002/mdc3.70740')]] },
                 { id: 'Pgen', c: 1, g: 'sub', t: 'Genetics of PD subtypes', s: 'Genes, 2026', d: 'In 1,390 genotyped PPMI patients, GBA1 variants were enriched in diffuse-malignant PD and LRRK2 variants in α-synuclein SAA-negative PD.', l: [['Paper', doi('10.3390/genes17040449')]] },
                 { id: 'Tch4', c: 2, g: 'ch4', t: 'Ch4 subtyping tools', s: 'Open research tools', d: 'Research-use tools that classify PD-MCI by Ch4 gray-matter density.', l: [['Ch4 Subtyper', 'https://negidamd.github.io/ch4-subtyper/'], ['Ch4 Subtyping Tool', 'https://ch4subtyping.negida.com']] },
-                { id: 'Dvcu', c: 2, g: 'ch4', t: 'VCU clinic cohorts', s: 'MRI (n = 111) · EEG', d: 'Local multimodal MRI discovery cohort (n = 111) and resting-state EEG data from the R21 study; the source of preliminary data for my grant applications.', l: [] },
+                { id: 'Dvcu', c: 2, g: 'ch4', t: 'VCU MRI cohort', s: 'n = 111', d: 'Local multimodal MRI discovery cohort (n = 111) from VCU clinics; the source of preliminary data for my grant applications.', l: [] },
+                { id: 'Dr21', c: 2, g: 'ch4', t: 'R21 EEG cohort', s: 'n = 85', d: 'EEG cohort of 85 patients from the NIH R21 AG077469 study of cognitive fluctuations in Lewy body dementia.', l: [] },
                 { id: 'Tfe', c: 2, g: 'ch4', t: 'EEG feature toolbox', s: 'MATLAB · open source', d: 'Dominant-frequency EEG feature extraction released from the R21 study.', l: [['GitHub', 'https://github.com/Negidamd/negida-fe-toolbox']] },
                 { id: 'Dppmi', c: 2, g: 'none', t: 'PPMI', s: 'Longitudinal PD cohort', d: "Parkinson's Progression Markers Initiative: longitudinal clinical, imaging, and genetic data behind the Ch4 subtype and all subtyping studies.", l: [] },
                 { id: 'Tcalc', c: 2, g: 'sub', t: 'PD subtype calculators', s: 'Open research tools', d: 'Classify patients into data-driven PD subtypes from routine clinical scores using disease-duration–specific percentiles.', l: [['Percentile calculator', 'https://negidamd.github.io/data-driven-pd-subtype-calculator/'], ['PD Subtyping Tool', 'https://pdsubtyping.negida.com']] },
@@ -2345,9 +2334,9 @@
                 { id: 'G2', c: 3, g: 'none', t: 'Goal 2 · Validate against PET', s: 'Years 3–5', d: 'Benchmark the Ch4 signature against [18F]FEOBV PET of the vesicular acetylcholine transporter, and test whether preserved Ch4–cortical connectivity marks compensation.', l: [['Research plan', '#research-plan']] },
                 { id: 'G3', c: 3, g: 'none', t: 'Goal 3 · Ch4 and treatment response', s: 'Years 1–2, then trial', d: 'Target-trial emulation of cholinesterase inhibitor outcomes by baseline Ch4 integrity, informing a randomized cholinergic therapy trial stratified by Ch4 integrity.', l: [['Research plan', '#research-plan']] }
             ];
-            const E = [['L1','Pmrx'],['L1','Pfmri'],['L1','Pchei'],['L1','Pprd'],['L2','Part'],['L3','Pprd'],['L3','Pnpj'],['L3','Pmdcp'],['L3','Pgen'],
-                ['Pprd','Tch4'],['Pprd','Dppmi'],['Pprd','G3'],['Pmrx','Dvcu'],['Pmrx','G1'],['Pmrx','G2'],['Pfmri','Dvcu'],['Pfmri','G2'],['Pchei','G3'],
-                ['Part','Tfe'],['Part','Dvcu'],['Pnpj','Tcalc'],['Pnpj','Dppmi'],['Pmdcp','Tcalc'],['Pmdcp','Dppmi'],['Pgen','Dppmi'],
+            const E = [['L1','Pmrx'],['L1','Pchei'],['L1','Pprd'],['L2','Part'],['L3','Pprd'],['L3','Pnpj'],['L3','Pmdcp'],['L3','Pgen'],
+                ['Pprd','Tch4'],['Pprd','Dppmi'],['Pprd','G3'],['Pmrx','Dvcu'],['Pmrx','G1'],['Pmrx','G2'],['Pchei','G3'],
+                ['Part','Tfe'],['Part','Dr21'],['Pnpj','Tcalc'],['Pnpj','Dppmi'],['Pmdcp','Tcalc'],['Pmdcp','Dppmi'],['Pgen','Dppmi'],
                 ['Dvcu','G1'],['Dppmi','G1'],['Dmulti','G1']];
             const byId = {}; N.forEach(n => byId[n.id] = n);
             const out = {}, inn = {}; N.forEach(n => { out[n.id] = []; inn[n.id] = []; });
