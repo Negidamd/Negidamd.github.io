@@ -627,14 +627,6 @@
         .chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
 
         /* Two research pillars (Ch4 imaging is the primary focus) */
-        .focus-split { margin: 0 0 1.1rem; }
-        .focus-bar { display: flex; gap: 2px; height: 8px; }
-        .focus-seg { border-radius: 4px; }
-        .focus-seg.is-ch4, .focus-labels i.is-ch4 { background: linear-gradient(90deg, var(--heat-2), var(--heat-3)); }
-        .focus-seg.is-sub, .focus-labels i.is-sub { background: var(--accent); }
-        .focus-labels { display: flex; gap: 2px; margin-top: .4rem; }
-        .focus-labels span { font-size: .74rem; font-weight: 700; color: var(--text-secondary); display: flex; align-items: center; gap: .4rem; }
-        .focus-labels i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
         .pillars { display: grid; gap: 0; margin: 0 0 2.25rem; }
         .pillar { position: relative; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 1.5rem; align-items: start;
             background: #fff; border: 1px solid var(--border-light); border-radius: 14px; padding: 1.35rem 1.4rem 1.2rem; overflow: hidden;
@@ -678,8 +670,6 @@
             .pillar-stats { order: 4; margin-bottom: .85rem; }
             .pillar-list { order: 5; }
             .pillar-tools { order: 6; }
-            .focus-labels { flex-direction: column; gap: .3rem; }
-            .focus-labels span { flex: none !important; }
         }
         @media (max-width: 560px) { .pillar-ch4 .pillar-stats strong { font-size: 1.1rem; min-width: 5.2rem; } }
         @media (prefers-reduced-motion: reduce) { .pillar:hover { transform: none; } }
@@ -943,7 +933,7 @@
             .hero { padding-top: 0; }
             .profile-photo img { width: 96px; height: auto; }
             .fw-media { max-height: 150px; }
-            .pubx, .pubx-empty, .fwx, .rmap-wrap, .ch4x, .latest, .focus-split, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
+            .pubx, .pubx-empty, .fwx, .rmap-wrap, .ch4x, .latest, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
             .bridge-mark, .fw-media::after { display: none !important; }
             .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
             section.is-collapsed .section-inner > * { display: block !important; }
@@ -1013,7 +1003,7 @@
                 </div>
 
                 <p class="professional-summary">
-                    I develop multimodal MRI and EEG biomarkers to stratify patients with Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) for therapeutic trials. My main focus is <strong>cholinergic imaging</strong>: I built a multimodal MRI signature of nucleus basalis of Meynert (Ch4) degeneration and identified a PD mild cognitive impairment subtype with MRI evidence of Ch4 degeneration. A second line, <strong>disease subtyping and progression modeling</strong>, made data-driven PD subtypes usable in real time to flag fast progressors for trial enrollment. I release my methods as open tools. Previously a Research Fellow at Harvard Medical School; 2025 IMPACT-AD Fellow (NIA / Alzheimer's Association).
+                    I develop multimodal MRI and EEG biomarkers to stratify patients with Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) for therapeutic trials. My main focus is <strong>cholinergic imaging</strong>: I built a multimodal MRI signature of nucleus basalis of Meynert (Ch4) degeneration and identified a PD mild cognitive impairment subtype with MRI evidence of Ch4 degeneration. A complementary line, <strong>disease subtyping and progression modeling</strong>, made data-driven PD subtypes usable in real time to flag fast progressors for trial enrollment. I release my methods as open tools. Previously a Research Fellow at Harvard Medical School; 2025 IMPACT-AD Fellow (NIA / Alzheimer's Association).
                 </p>
 
                 <div class="hero-links">
@@ -1047,7 +1037,7 @@
             </div>
 
             <p class="research-vision-text">
-                Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) are heterogeneous in their clinical features, underlying pathology, and progression. Enrolling biologically diverse patients into trials of target-specific therapies can dilute treatment effects. My program addresses this heterogeneity along two connected lines. The main line, about two-thirds of the lab, is <strong>cholinergic imaging</strong>: it measures degeneration of the <strong>nucleus basalis of Meynert (Ch4)</strong>, which supplies most cholinergic input to the cortex, is shared across all three diseases, and is the biological rationale for cholinesterase inhibitors&mdash;yet response to these drugs varies widely. The second line, about one-third, is <strong>disease subtyping and progression modeling</strong>: it identifies the patients who progress fastest and makes that classification usable in real time for trial screening. Together, they aim to match patients to the therapies most likely to help them, from cholinesterase inhibitors to muscarinic agonists, Ch4 deep brain stimulation, and gene therapy.
+                Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) are heterogeneous in their clinical features, underlying pathology, and progression. Enrolling biologically diverse patients into trials of target-specific therapies can dilute treatment effects. My program addresses this heterogeneity along two connected lines. The main line is <strong>cholinergic imaging</strong>: it measures degeneration of the <strong>nucleus basalis of Meynert (Ch4)</strong>, which supplies most cholinergic input to the cortex, is shared across all three diseases, and is the biological rationale for cholinesterase inhibitors&mdash;yet response to these drugs varies widely. A complementary line, <strong>disease subtyping and progression modeling</strong>, identifies the patients who progress fastest and makes that classification usable in real time for trial screening. Together, they aim to match patients to the therapies most likely to help them, from cholinesterase inhibitors to muscarinic agonists, Ch4 deep brain stimulation, and gene therapy.
             </p>
 
             <div class="chip-row">
@@ -1058,14 +1048,10 @@
             </div>
 
             <!-- Two connected pillars -->
-            <div class="focus-split" role="img" aria-label="Lab focus: about two-thirds cholinergic imaging, one-third disease subtyping and progression modeling">
-                <div class="focus-bar"><span class="focus-seg is-ch4" style="flex: 2"></span><span class="focus-seg is-sub" style="flex: 1"></span></div>
-                <div class="focus-labels"><span style="flex: 2"><i class="is-ch4"></i>Cholinergic imaging (Ch4) &middot; ~2/3</span><span style="flex: 1"><i class="is-sub"></i>Subtyping &amp; progression modeling &middot; ~1/3</span></div>
-            </div>
             <div class="pillars">
                 <article class="pillar pillar-ch4">
                     <div class="pillar-main">
-                        <div class="pillar-kicker">Primary focus &middot; ~2/3 of the lab</div>
+                        <div class="pillar-kicker">Primary focus</div>
                         <h3>Cholinergic imaging (Ch4)</h3>
                         <p class="pillar-q">Can standard MRI measure Ch4 degeneration, and does it mark the patients most likely to benefit from cholinergic therapy?</p>
                         <ul class="pillar-list">
@@ -1089,7 +1075,7 @@
 
                 <article class="pillar pillar-sub">
                     <div class="pillar-main">
-                        <div class="pillar-kicker">Second focus &middot; ~1/3 of the lab</div>
+                        <div class="pillar-kicker">Complementary focus</div>
                         <h3>Disease subtyping &amp; progression modeling</h3>
                         <p class="pillar-q">Which patients with PD progress fastest, and can we identify them early enough to enrich disease-modifying trials?</p>
                         <ul class="pillar-list">
@@ -2380,9 +2366,9 @@
             const doi = d => 'https://doi.org/' + d;
             const COLS = ['Lines of work', 'Publications', 'Tools & data', 'Research plan'];
             const N = [
-                { id: 'L1', c: 0, g: 'ch4', t: 'Cholinergic imaging (Ch4)', s: 'Primary focus · ~2/3', d: 'MRI measures of nucleus basalis of Meynert (Ch4) degeneration (gray-matter density, free water, and connectivity) to identify the patients most likely to benefit from cholinergic therapies.', l: [['Explore Ch4 in 3D', '#ch4x']] },
+                { id: 'L1', c: 0, g: 'ch4', t: 'Cholinergic imaging (Ch4)', s: 'Primary focus', d: 'MRI measures of nucleus basalis of Meynert (Ch4) degeneration (gray-matter density, free water, and connectivity) to identify the patients most likely to benefit from cholinergic therapies.', l: [['Explore Ch4 in 3D', '#ch4x']] },
                 { id: 'L2', c: 0, g: 'ch4', t: 'EEG markers', s: 'Complements MRI', d: 'Inexpensive, repeatable resting-state EEG markers of cognitive fluctuations in Lewy body disease, developed in the NIH R21 AG077469 study.', l: [['Paper', doi('10.1186/s13195-026-02148-8')]] },
-                { id: 'L3', c: 0, g: 'sub', t: 'Subtyping & progression modeling', s: 'Second focus · ~1/3', d: 'Which patients with PD progress fastest, and how to identify them prospectively for trial enrichment.', l: [['Percentile calculator', 'https://negidamd.github.io/data-driven-pd-subtype-calculator/']] },
+                { id: 'L3', c: 0, g: 'sub', t: 'Subtyping & progression modeling', s: 'Complementary focus', d: 'Which patients with PD progress fastest, and how to identify them prospectively for trial enrichment.', l: [['Percentile calculator', 'https://negidamd.github.io/data-driven-pd-subtype-calculator/']] },
                 { id: 'Pmrx', c: 1, g: 'ch4', t: 'Ch4 atrophy + free water', s: 'medRxiv preprint, 2026', d: 'In 92 participants from VCU clinics, Ch4 gray-matter density and free water were the only basal forebrain measures independently associated with cognition; together they separated PD dementia from PD without dementia (exploratory AUC 0.93).', l: [['Preprint', doi('10.64898/2026.06.08.26355183')]] },
                 { id: 'Pchei', c: 1, g: 'ch4', t: 'Cholinesterase inhibitor use', s: 'J Alzheimers Dis 2026 · TRCI 2025', d: 'Prescribing patterns, predictors, and disparities in cholinesterase inhibitor treatment for dementia and dementia with Lewy bodies.', l: [['JAD paper', doi('10.1177/13872877251411418')], ['TRCI paper', doi('10.1002/trc2.70136')]] },
                 { id: 'Part', c: 1, g: 'ch4', t: 'EEG & cognitive fluctuations', s: "Alzheimer's Res Ther, 2026", d: 'Eyes-closed resting EEG in 53 patients across the Lewy body spectrum; an elastic-net model detected cognitive fluctuations with AUC 0.86.', l: [['Paper', doi('10.1186/s13195-026-02148-8')]] },
