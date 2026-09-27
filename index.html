@@ -855,25 +855,6 @@
         @media (max-width: 560px) { .latest-list li { grid-template-columns: 1fr; } .latest-date { grid-row: auto; } }
         @media (prefers-reduced-motion: reduce) { .latest-status.is-live::before { animation: none; } }
 
-        /* Publication explorer */
-        .pubx { display: grid; grid-template-columns: minmax(0, 1fr); gap: .7rem; margin: 0 0 1.75rem; padding: 1rem 1.1rem; background: var(--bg-lighter); border: 1px solid var(--border-light); border-radius: 12px; }
-        .pubx[hidden], .pubx-empty[hidden] { display: none; }
-        .pubx-row { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .5rem; }
-        .pubx-q { flex: 1 1 260px; min-width: 0; font: inherit; font-size: .9rem; padding: .55rem .8rem; border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text-primary); }
-        .pubx-q:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-        .pubx-count { font-size: .82rem; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
-        .pubx-count strong { color: var(--accent-darker); font-size: .95rem; }
-        .pubx-reset { background: none; border: none; padding: .2rem .1rem; font: inherit; font-size: .8rem; font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: underline; }
-        .pubx-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); min-width: 4.6rem; }
-        .pubx-chip { font: inherit; font-size: .78rem; font-weight: 600; color: var(--accent-dark); background: #fff; border: 1px solid var(--border-light); border-radius: 999px; padding: .28rem .75rem; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
-        .pubx-chip:hover { border-color: var(--accent-light); }
-        .pubx-chip.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
-        .pubx-chip:disabled { opacity: .45; cursor: default; }
-        .pubx-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-        .pubx-chip .n { font-weight: 500; opacity: .75; margin-left: .3rem; font-variant-numeric: tabular-nums; }
-        .pubx-empty { font-size: .9rem; color: var(--text-secondary); margin: -.75rem 0 1.5rem; }
-        .pub-title mark { background: #fff1b8; color: inherit; padding: 0 .1rem; border-radius: 2px; }
-        .pub-entry.is-hidden, .pubx-group-hidden { display: none !important; }
         .pub-legend { font-size: .8rem; color: var(--text-muted); margin: -.5rem 0 1rem; }
         .conf-photos { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
         .conf-photo { margin: 0; border-radius: 10px; overflow: hidden; position: relative; background: #000; }
@@ -930,11 +911,10 @@
             .hero { padding-top: 0; }
             .profile-photo img { width: 96px; height: auto; }
             .fw-media { max-height: 150px; }
-            .pubx, .pubx-empty, .rmap-wrap, .ch4x, .latest, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
+            .rmap-wrap, .ch4x, .latest, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
             .bridge-mark, .fw-media::after { display: none !important; }
             .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
             section.is-collapsed .section-inner > * { display: block !important; }
-            .pub-entry.is-hidden, .pubx-group-hidden { display: block !important; }
             .pillar, .fw-item, .grant-entry, .pub-entry, .timeline-item, .goal, .tool-entry, .award-entry { break-inside: avoid; }
             .pillar, .fw-item { box-shadow: none !important; transform: none !important; }
             .fw-grid { gap: .6rem; }
@@ -1324,46 +1304,17 @@
             <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: -0.5rem 0 1.25rem;">170+ peer-reviewed publications in total (<span data-scholar="citations">8,955</span> citations; h-index <span data-scholar="h_index">46</span>; i10-index <span data-scholar="i10_index">109</span> on Google Scholar), including 66 systematic reviews, meta-analyses, and scoping reviews, 36 of them senior-author papers led by trainees in my research-training program. Full list on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
             <p class="pub-legend"><sup>*</sup> Trainee I mentored &nbsp;&middot;&nbsp; (first) / (senior): my author position</p>
 
-            <!-- Publication explorer (filters the lists below) -->
-            <div class="pubx" id="pubx" hidden>
-                <div class="pubx-row">
-                    <input type="search" class="pubx-q" id="pubx-q" placeholder="Search titles, authors, journals&hellip;" aria-label="Search publications" autocomplete="off">
-                    <span class="pubx-count" id="pubx-count" aria-live="polite"></span>
-                    <button type="button" class="pubx-reset" id="pubx-reset" hidden>Clear filters</button>
-                </div>
-                <div class="pubx-row" role="group" aria-label="Filter by theme">
-                    <span class="pubx-label">Theme</span>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="">All</button>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="biomarkers">Ch4 &amp; EEG biomarkers</button>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="subtypes">PD subtypes</button>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="treatment">Treatment patterns</button>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="clinical">Clinical studies</button>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="consortium">Consortium</button>
-                    <button type="button" class="pubx-chip" data-f="theme" data-v="reviews">Reviews &amp; meta-analyses</button>
-                </div>
-                <div class="pubx-row" role="group" aria-label="Filter by my author role">
-                    <span class="pubx-label">My role</span>
-                    <button type="button" class="pubx-chip" data-f="role" data-v="">All</button>
-                    <button type="button" class="pubx-chip" data-f="role" data-v="first">First author</button>
-                    <button type="button" class="pubx-chip" data-f="role" data-v="senior">Senior author</button>
-                    <button type="button" class="pubx-chip" data-f="role" data-v="coauthor">Co-author</button>
-                    <button type="button" class="pubx-chip" data-f="trainee" data-v="1" aria-pressed="false">With a trainee I mentored<sup>*</sup></button>
-                </div>
-            </div>
-            <p class="pubx-empty" id="pubx-empty" hidden>No papers match these filters. <button type="button" class="pubx-reset" data-reset>Clear filters</button></p>
-
-
             <h3 class="subsection-title" style="margin-top: 0;">Cholinergic Imaging and EEG Biomarkers</h3>
             <div class="pub-list">
-                <div class="pub-entry" data-theme="biomarkers" data-role="first" data-year="2026" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Multimodal MRI characterization of nucleus basalis of Meynert degeneration: structural atrophy and free-water diffusion in Parkinson's disease cognitive impairment</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Zaman A, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.64898/2026.06.08.26355183" target="_blank">medRxiv preprint (under review), 2026</a></div>
                 </div>
-                <div class="pub-entry" data-theme="biomarkers" data-role="first" data-year="2026" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Resting-state EEG features of cognitive fluctuations across the Lewy body disease spectrum</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Lageman SK, Ono K, Ahsan MM, Mukhopadhyay N, Barrett MJ &middot; <a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank">Alzheimer's Research &amp; Therapy, 2026</a></div>
                 </div>
-                <div class="pub-entry" data-theme="biomarkers" data-role="first" data-year="2025" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: A new subtype?</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ &middot; <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank">Parkinsonism & Related Disorders, 2025</a></div>
                 </div>
@@ -1371,15 +1322,15 @@
 
             <h3 class="subsection-title">Parkinson's Disease Subtypes and Progression</h3>
             <div class="pub-list">
-                <div class="pub-entry" data-theme="subtypes" data-role="first" data-year="2026" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Comparative analysis of progression milestones across PD clinical, pathological, and data-driven subtypes: 10-year follow-up</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Mukhopadhyay N, Berman BD, Barrett MJ &middot; <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank">npj Parkinson's Disease, 2026</a></div>
                 </div>
-                <div class="pub-entry" data-theme="subtypes" data-role="first" data-year="2026" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Disease-duration–specific percentiles for prospective subtyping of Parkinson's disease: A PPMI-based study</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Mukhopadhyay N, Berman BD, Fereshtehnejad SM, Barrett MJ &middot; <a href="https://doi.org/10.1002/mdc3.70740" target="_blank">Movement Disorders Clinical Practice, 2026</a></div>
                 </div>
-                <div class="pub-entry" data-theme="subtypes" data-role="first" data-year="2026" data-trainee="1">
+                <div class="pub-entry">
                     <div class="pub-title">Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Abouelmagd ME<sup>*</sup>, Hamed BM<sup>*</sup>, et al. &middot; <a href="https://doi.org/10.3390/genes17040449" target="_blank">Genes (Basel), 2026;17(4):449</a></div>
                 </div>
@@ -1387,15 +1338,15 @@
 
             <h3 class="subsection-title">Treatment Patterns in Dementia and Movement Disorders</h3>
             <div class="pub-list">
-                <div class="pub-entry" data-theme="treatment" data-role="coauthor" data-year="2026" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Cholinesterase inhibitors for patients with dementia: Patterns of prescribing and disparities in treatment</div>
                     <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Barrett MJ, et al. &middot; <a href="https://doi.org/10.1177/13872877251411418" target="_blank">Journal of Alzheimer's Disease, 2026</a></div>
                 </div>
-                <div class="pub-entry" data-theme="treatment" data-role="coauthor" data-year="2025" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Patterns and predictors of cholinesterase inhibitor use in dementia with Lewy bodies</div>
                     <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.1002/trc2.70136" target="_blank">Alzheimer's & Dementia: TRCI, 2025</a></div>
                 </div>
-                <div class="pub-entry" data-theme="treatment" data-role="coauthor" data-year="2025" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Oral medication treatment patterns in blepharospasm and Meige syndrome: a multi-institutional TriNetX study</div>
                     <div class="pub-authors">Heo RJ, Mukhopadhyay N, Dintino C, <strong>Negida A</strong>, Barrett MJ, Berman BD &middot; <a href="https://doi.org/10.3389/dyst.2025.15368" target="_blank">Dystonia, 2025</a></div>
                 </div>
@@ -1403,11 +1354,11 @@
 
             <h3 class="subsection-title">Other Clinical Studies</h3>
             <div class="pub-list">
-                <div class="pub-entry" data-theme="clinical" data-role="coauthor" data-year="2024" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Optimizing screening for intrastriatal interventions in Huntington's disease using predictive models</div>
                     <div class="pub-authors">Barrett MJ, <strong>Negida A</strong>, Mukhopadhyay N, et al. &middot; <a href="https://doi.org/10.1002/mds.29749" target="_blank">Movement Disorders, 2024</a></div>
                 </div>
-                <div class="pub-entry" data-theme="clinical" data-role="coauthor" data-year="2024" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Neuropsychological determinants of impairment in activities of daily living in patients with Lewy body dementia</div>
                     <div class="pub-authors">Desai N, Nawaz H, Mukhopadhyay ND, ... <strong>Negida A</strong>, ... Barrett MJ &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/39493124/" target="_blank">Cureus, 2024</a></div>
                 </div>
@@ -1415,7 +1366,7 @@
 
             <h3 class="subsection-title">Multicenter Consortium Study (Co-Principal Investigator)</h3>
             <div class="pub-list">
-                <div class="pub-entry" data-theme="consortium" data-role="coauthor" data-year="2026" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Traumatic brain injury outcomes across human development index strata in 29 countries</div>
                     <div class="pub-authors">Nugent JG, Tan H, Stedelin B, et al.; <strong>Negida A</strong>, Raslan AM; on behalf of the GNS-I Collaborators &middot; <a href="https://doi.org/10.1038/s41591-026-04600-6" target="_blank"><strong>Nature Medicine</strong>, 2026</a></div>
                     <div class="pub-authors">PMID: 42618631. Role: Co-Principal Investigator, Steering Committee and Writing Group. Prospective study of 2,165 patients with traumatic brain injury at 100 hospitals in 29 countries; flagship study of the Global NeuroSurg Research Collaborative, which I co-founded.</div>
@@ -1424,43 +1375,43 @@
 
             <h3 class="subsection-title">Reviews and Evidence Synthesis (Selected)</h3>
             <div class="pub-list">
-                <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2026" data-trainee="1">
+                <div class="pub-entry">
                     <div class="pub-title">Efficacy and safety of apomorphine in the treatment of Parkinson's disease: a systematic review and meta-analysis of randomized controlled trials</div>
                     <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Abbas A, Yousef O, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/42027696/" target="_blank">Therapeutic Advances in Neurological Disorders, 2026</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2025" data-trainee="1">
+                <div class="pub-entry">
                     <div class="pub-title">Comparative safety of cholinesterase inhibitors and memantine for dementia: a protocol for a network meta-analysis of randomized controlled trials</div>
                     <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Almosilhy NA, Makhlouf HA, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/41188985/" target="_blank">Systematic Reviews, 2025</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2025" data-trainee="1">
+                <div class="pub-entry">
                     <div class="pub-title">Multimodal diagnostic tools and advanced data models for detection of prodromal Parkinson's disease: a scoping review</div>
                     <div class="pub-authors">Serag I<sup>*</sup>, Azzam AY, ... <strong>Negida A (senior)</strong> &middot; <a href="https://doi.org/10.1186/s12880-025-01620-5" target="_blank">BMC Medical Imaging, 2025</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="coauthor" data-year="2025" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Subthalamic nucleus versus globus pallidus internus deep brain stimulation in the treatment of dystonia: a systematic review and meta-analysis of safety and efficacy</div>
                     <div class="pub-authors">Yousef O, Abbas A, Abdelmeseh M, ... <strong>Negida A</strong>, ... Berman BD &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/39647323/" target="_blank">Journal of Clinical Neuroscience, 2025</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2024" data-trainee="1">
+                <div class="pub-entry">
                     <div class="pub-title">Statins and Parkinson's disease risk reduction and disease-modification: A meta-analysis of 4 million participants</div>
                     <div class="pub-authors">Mady A<sup>*</sup>, Nabil Y, ... Barrett MJ, Berman B, <strong>Negida A (senior)</strong> &middot; <a href="https://doi.org/10.1111/cns.14888" target="_blank">CNS Neuroscience & Therapeutics, 2024</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="first" data-year="2024" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Efficacy of the iron-chelating agent, deferiprone, in patients with Parkinson's disease: A systematic review and meta-analysis</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Hassan NM, Aboeldahab H, et al. &middot; <a href="https://doi.org/10.1111/cns.14607" target="_blank">CNS Neuroscience & Therapeutics, 2024</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="senior" data-year="2023" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Do cerebral microbleeds increase the risk of dementia? A systematic review and meta-analysis</div>
                     <div class="pub-authors">Hussein AS, Shawqi M, Bahbah EI, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/36632242/" target="_blank">IBRO Neuroscience Reports, 2023</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="first" data-year="2021" data-trainee="1">
+                <div class="pub-entry">
                     <div class="pub-title">Mavoglurant (AFQ056) for the treatment of levodopa-induced dyskinesia in patients with Parkinson's disease: a meta-analysis</div>
                     <div class="pub-authors"><strong>Negida A (first)</strong>, Ghaith HS<sup>*</sup>, Fala SY, et al. &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/34014397/" target="_blank">Neurological Sciences, 2021</a></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="coauthor" data-year="2018" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">C-Abl inhibition: A novel therapeutic target for Parkinson's disease</div>
                     <div class="pub-authors">Abushouk AI, <strong>Negida A</strong>, et al. &middot; CNS & Neurological Disorders - Drug Targets, 2018 <span class="pub-citation-note">[100+ citations]</span></div>
                 </div>
-                <div class="pub-entry" data-theme="reviews" data-role="first" data-year="2017" data-trainee="0">
+                <div class="pub-entry">
                     <div class="pub-title">Caffeine: The forgotten potential for Parkinson's disease</div>
                     <div class="pub-authors"><strong>Negida A</strong>, Elfil M, Attia A, et al. &middot; CNS & Neurological Disorders - Drug Targets, 2017 <span class="pub-citation-note">[150+ citations]</span></div>
                 </div>
@@ -1889,7 +1840,7 @@
 
                     <div class="contact-line">Email: <a href="mailto:ahmed.negida@vcuhealth.org">ahmed.negida@vcuhealth.org</a></div>
                     <div class="contact-line">Email: <a href="mailto:ahmed.said.negida@gmail.com">ahmed.said.negida@gmail.com</a></div>
-                    <div class="contact-line">Status: U.S. Permanent Resident; no visa sponsorship required</div>
+                    <div class="contact-line">Status: U.S. Permanent Resident</div>
                 </div>
 
                 <div class="contact-block">
@@ -2491,77 +2442,6 @@
                 try { localStorage.setItem(KEY, JSON.stringify({ ts, items })); } catch (e) {}
                 render(items, true, ts);
             }).catch(() => clearTimeout(timer));
-        })();
-
-        // ===== Publication explorer =====
-        (function pubExplorer() {
-            const root = document.getElementById('pubx');
-            const section = document.getElementById('publications');
-            if (!root || !section) return;
-            const entries = [...section.querySelectorAll('.pub-entry[data-theme]')];
-            const q = document.getElementById('pubx-q'), countEl = document.getElementById('pubx-count');
-            const empty = document.getElementById('pubx-empty'), book = section.querySelector('.book-chapter');
-            const resets = [document.getElementById('pubx-reset'), ...section.querySelectorAll('[data-reset]')];
-            const chips = [...root.querySelectorAll('.pubx-chip')];
-            const state = { theme: '', role: '', trainee: '', q: '' };
-            const norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-            const data = entries.map(el => {
-                const title = el.querySelector('.pub-title');
-                return { el, title, raw: title.textContent, text: norm(el.textContent), theme: el.dataset.theme, role: el.dataset.role, trainee: el.dataset.trainee };
-            });
-            function matches(d, skip) {
-                if (skip !== 'theme' && state.theme && d.theme !== state.theme) return false;
-                if (skip !== 'role' && state.role && d.role !== state.role) return false;
-                if (skip !== 'trainee' && state.trainee && d.trainee !== state.trainee) return false;
-                if (state.q) { const toks = norm(state.q).split(/\s+/).filter(Boolean); if (!toks.every(tk => d.text.includes(tk))) return false; }
-                return true;
-            }
-            function highlight(d) {
-                const toks = state.q ? norm(state.q).split(/\s+/).filter(tk => tk.length > 1) : [];
-                d.title.textContent = '';
-                if (!toks.length) { d.title.textContent = d.raw; return; }
-                // Mark matches on the normalized title, mapping back to original characters (same length after NFD strip per char)
-                const chars = [...d.raw], low = chars.map(c => norm(c));
-                const hit = new Array(chars.length).fill(false);
-                const flat = low.join('');
-                // map index in flat string -> char index
-                const idx = []; low.forEach((s, i) => { for (let k = 0; k < s.length; k++) idx.push(i); });
-                toks.forEach(tk => { let from = 0, at; while ((at = flat.indexOf(tk, from)) !== -1) { for (let k = at; k < at + tk.length; k++) hit[idx[k]] = true; from = at + tk.length; } });
-                let buf = '', on = false;
-                const flush = () => { if (!buf) return; if (on) { const m = document.createElement('mark'); m.textContent = buf; d.title.appendChild(m); } else d.title.appendChild(document.createTextNode(buf)); buf = ''; };
-                chars.forEach((c, i) => { if (hit[i] !== on) { flush(); on = hit[i]; } buf += c; });
-                flush();
-            }
-            function render() {
-                let shown = 0;
-                data.forEach(d => { const ok = matches(d); d.el.classList.toggle('is-hidden', !ok); if (ok) shown++; highlight(d); });
-                section.querySelectorAll('.pub-list').forEach(list => {
-                    const any = list.querySelector('.pub-entry:not(.is-hidden)'); const h = list.previousElementSibling;
-                    list.classList.toggle('pubx-group-hidden', !any); if (h && h.matches('h3')) h.classList.toggle('pubx-group-hidden', !any);
-                });
-                const active = state.theme || state.role || state.trainee || state.q;
-                if (book) book.classList.toggle('pubx-group-hidden', !!active);
-                countEl.textContent = ''; const s = document.createElement('strong'); s.textContent = shown;
-                countEl.append(s, document.createTextNode(' of ' + data.length + ' selected papers'));
-                resets.forEach(r => r.hidden = !active); empty.hidden = shown > 0;
-                chips.forEach(c => {
-                    const f = c.dataset.f, v = c.dataset.v, on = state[f] === v;
-                    c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on);
-                    let n = c.querySelector('.n'); if (!n) { n = document.createElement('span'); n.className = 'n'; c.appendChild(n); }
-                    const cnt = data.filter(d => matches(d, f) && (!v || d[f] === v)).length;
-                    n.textContent = cnt; c.disabled = !on && cnt === 0 && !!v;
-                });
-            }
-            chips.forEach(c => c.addEventListener('click', () => {
-                const f = c.dataset.f; state[f] = (state[f] === c.dataset.v && c.dataset.v) ? '' : c.dataset.v; render();
-            }));
-            let tq; q.addEventListener('input', () => { clearTimeout(tq); tq = setTimeout(() => { state.q = q.value.trim(); render(); }, 120); });
-            resets.forEach(r => r.addEventListener('click', () => { Object.keys(state).forEach(k => state[k] = ''); q.value = ''; render(); }));
-            document.addEventListener('keydown', e => {
-                if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) { e.preventDefault(); q.focus(); q.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
-            });
-            root.hidden = false;
-            render();
         })();
 
         // ===== GNS-I stat tile count-up =====
