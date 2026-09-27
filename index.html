@@ -676,57 +676,6 @@
         @media (max-width: 560px) { .pillar-stats strong { font-size: 1.05rem; min-width: 4.9rem; } }
         @media (prefers-reduced-motion: reduce) { .pillar:hover { transform: none; } }
 
-        /* Research map */
-        .rmap-wrap[hidden] { display: none; }
-        @media (max-width: 768px) { .rmap-wrap.is-collapsed > :not(.subsection-title):not(.sec-toggle) { display: none; } }
-        .rmap { border: 1px solid var(--border-light); border-radius: 14px; padding: 1rem 1rem 1.1rem; background: linear-gradient(#fff, var(--bg-lighter)); }
-        .rmap-cols { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 2.4rem; }
-        .rmap-edges { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
-        .rmap-edges path { fill: none; stroke: #c3ccd8; stroke-width: 1.5; transition: stroke .25s ease, opacity .25s ease, stroke-width .25s ease; }
-        .rmap.has-focus .rmap-edges path { opacity: .18; }
-        .rmap.has-focus .rmap-edges path.is-on { opacity: 1; stroke: var(--accent-darker); stroke-width: 2; }
-        .rmap-col { position: relative; z-index: 1; display: flex; flex-direction: column; min-width: 0; }
-        .rmap-col-h { font-size: .64rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: .45rem; }
-        .rmap-nodes { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: .45rem; }
-        .rmap-node { position: relative; overflow: hidden; text-align: left; font: inherit; font-size: .76rem; font-weight: 600; line-height: 1.3; color: var(--text-primary);
-            background: #fff; border: 1px solid var(--border-light); border-radius: 8px; padding: .42rem .55rem .42rem .85rem; cursor: pointer;
-            transition: opacity .25s ease, box-shadow .25s ease, transform .25s var(--ease-out); }
-        .rmap-node small { display: block; font-size: .66rem; font-weight: 500; color: var(--text-muted); margin-top: .1rem; }
-        .rmap-node::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #a9b4c2; }
-        .rmap-node.g-ch4::before { background: var(--heat-2); }
-        .rmap-node.g-sub::before { background: var(--accent); }
-        .rmap-node.g-both::before { background: linear-gradient(var(--heat-2), var(--accent)); }
-        .rmap-node:hover { transform: translateX(2px); }
-        .rmap-node:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-        .rmap.has-focus .rmap-node:not(.is-on) { opacity: .32; }
-        .rmap-node.is-on { box-shadow: 0 4px 14px rgba(22,46,81,.14); }
-        .rmap-node.is-pin { border-color: var(--accent-darker); box-shadow: 0 0 0 1px var(--accent-darker), 0 6px 18px rgba(22,46,81,.18); }
-        .rmap-detail { margin-top: 1rem; padding: .85rem 1rem; background: #fff; border: 1px solid var(--border-light); border-radius: 10px; min-height: 5.8rem; }
-        .rmap-detail .k { font-size: .64rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); }
-        .rmap-detail h4 { font-family: var(--font-serif); font-size: 1rem; color: var(--accent-darker); margin: .15rem 0 .3rem; }
-        .rmap-detail p { font-size: .85rem; color: var(--text-secondary); line-height: 1.6; }
-        .rmap-detail .links { margin-top: .4rem; display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .82rem; font-weight: 700; }
-        @media (max-width: 760px) {
-            .rmap-cols { grid-template-columns: 1fr; row-gap: 1rem; }
-            .rmap-edges { display: none; }
-            .rmap-nodes { gap: .35rem; }
-        }
-        @media (prefers-reduced-motion: reduce) { .rmap-node, .rmap-edges path { transition: none; } .rmap-node:hover { transform: none; } }
-
-        /* Research plan: goals pipeline */
-        .goals { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; position: relative; padding-top: .5rem; }
-        .goals::before { content: ''; position: absolute; top: 1.55rem; left: 1.1rem; right: 1.1rem; height: 3px;
-            background: linear-gradient(90deg, var(--heat-1), var(--heat-2), var(--heat-3)); transform: scaleX(0); transform-origin: left; transition: transform 1.4s .2s var(--ease-out); }
-        .visible .goals::before { transform: scaleX(1); }
-        .goal { position: relative; padding-top: 2.6rem; }
-        .goal-node { position: absolute; top: 0; left: 0; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--accent-darker); color: #fff;
-            display: grid; place-items: center; font-weight: 800; font-size: .9rem; box-shadow: 0 0 0 4px #fff; transition: transform .35s var(--ease-out), background .35s ease; }
-        .goal:hover .goal-node { transform: scale(1.15); background: var(--heat-3); }
-        .goal-when { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: .25rem; }
-        .goal h4 { font-family: var(--font-serif); font-size: .95rem; color: var(--accent-darker); line-height: 1.35; margin-bottom: .4rem; }
-        .goal p { font-size: .83rem; color: var(--text-secondary); line-height: 1.65; }
-        .goal-fund { display: inline-block; margin-top: .5rem; font-size: .72rem; font-weight: 700; color: var(--accent-dark); background: var(--bg-lighter); border: 1px solid var(--border-light); border-radius: 999px; padding: .15rem .6rem; }
-
         /* ---------- Ch4 explorer ---------- */
         .ch4x { margin: .5rem 0 0; background: radial-gradient(120% 140% at 0% 0%, #13294b 0%, #0a1426 55%, #060b16 100%); color: #e8edf5;
             border-radius: 14px; padding: 1.5rem 1.5rem 1.1rem; box-shadow: 0 18px 50px rgba(8,20,40,.28); position: relative; overflow: hidden; }
@@ -853,10 +802,6 @@
         @media (max-width: 900px) {
             .ch4x-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, .8fr); }
             .ch4x-info { grid-column: 1 / -1; }
-            .goals { grid-template-columns: 1fr; }
-            .goals::before { top: 1rem; bottom: 1rem; left: 1.02rem; right: auto; width: 3px; height: auto; transform: scaleY(0); transform-origin: top; background: linear-gradient(var(--heat-1), var(--heat-3)); }
-            .visible .goals::before { transform: scaleY(1); }
-            .goal { padding-top: 0; padding-left: 3.1rem; }
         }
         @media (max-width: 560px) {
             .ch4x { padding: 1.1rem 1rem .9rem; border-radius: 10px; }
@@ -869,7 +814,6 @@
             .hero-content > *, .profile-photo { animation: none; }
             .reveal { opacity: 1; transform: none; transition: none; }
             .section-header h2::after { transform: scaleX(1); transition: none; }
-            .goals::before { transform: none !important; transition: none; }
             .ch4x::before, .ch4x-dot { animation: none; }
             .tool-entry:hover, .pub-entry:hover, .grant-entry:hover, .lecture-entry:hover, .award-entry:hover, .btn:hover, .metric-item:hover { transform: none; }
             .scroll-progress { display: none; }
@@ -895,11 +839,11 @@
             .hero { padding-top: 0; }
             .profile-photo img { width: 96px; height: auto; }
             .fw-media { max-height: 150px; }
-            .rmap-wrap, .ch4x, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
+            .ch4x, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
             .fw-media::after { display: none !important; }
             .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
             section.is-collapsed .section-inner > * { display: block !important; }
-            .pillar, .fw-item, .grant-entry, .pub-entry, .timeline-item, .goal, .tool-entry, .award-entry { break-inside: avoid; }
+            .pillar, .fw-item, .grant-entry, .pub-entry, .timeline-item, .tool-entry, .award-entry { break-inside: avoid; }
             .pillar, .fw-item { box-shadow: none !important; transform: none !important; }
             .fw-grid { gap: .6rem; }
             .pillars { gap: .5rem; }
@@ -908,7 +852,6 @@
             .pillar-stats { gap: .3rem; }
             .pillar-stats div { padding: .35rem .55rem; }
             .methods-row { margin: 0 0 1rem; padding: .5rem .8rem; }
-            #research .subsection-title { margin-top: 1.25rem !important; }
             #research { page-break-inside: auto; break-inside: auto; }
             .fw-item { display: grid; grid-template-columns: 150px 1fr; gap: .8rem; padding: .5rem; }
             .fw-media { aspect-ratio: auto; }
@@ -1061,7 +1004,7 @@
 
             <div class="methods-row">
                 <div><span>Methods</span><p>SPM12, CAT12, FreeSurfer, FSL, MRtrix3, fMRIPrep, CONN, and EEGLAB for image preprocessing and statistical modeling</p></div>
-                <div><span>Data</span><p>Approved data use agreements for ten multisite imaging and biomarker cohorts in PD and ADRD, including ADNI, NACC, PPMI, PDBP, and AMP-PD (more than 35,000 MRIs), supporting work in years 1&ndash;2 without new recruitment or scanner time</p></div>
+                <div><span>Data</span><p>Approved data use agreements for ten multisite imaging and biomarker cohorts in PD and ADRD, including ADNI, NACC, PPMI, PDBP, and AMP-PD (more than 35,000 MRIs)</p></div>
             </div>
 
             <!-- Interactive Ch4 explorer (MNI152 template) -->
@@ -1114,46 +1057,6 @@
                     <button type="button" class="ch4x-zoom" id="ch4x-zoom" aria-pressed="false">Zoom to Ch4</button>
                 </div>
                 <p class="ch4x-src">Template: MNI152NLin2009cAsym T1 (1 mm). Ch4: Julich-Brain probabilistic cytoarchitectonic map of Ch 4, derived from 10 postmortem brains (Zaborszky et al., <em>NeuroImage</em> 2008). Ch1&ndash;3: Julich-Brain maximum probability map. Atlas data &copy; EBRAINS, CC BY-NC-SA 4.0. Ch4 voxels classified as CSF on the template (FSL FAST on the brain-masked T1, CSF partial volume &gt; 0.5) or outside the brain mask were removed (5,799 &rarr; 5,332 voxels); remaining probabilities are the original atlas values.</p>
-            </div>
-
-            <h3 class="subsection-title" id="research-plan" style="margin-top: 2.75rem;">Independent Research Program: The Negida Lab</h3>
-            <p class="research-vision-text" style="margin-bottom: 1.25rem;">The lab will focus on scalable Ch4 imaging markers for trial enrichment. Three goals test whether these markers can identify the patients most likely to benefit from cholinergic therapies.</p>
-            <ol class="goals">
-                <li class="goal">
-                    <div class="goal-node">1</div>
-                    <div class="goal-when">Goal 1</div>
-                    <h4>Generalize the Ch4 signature across diseases</h4>
-                    <p>Extend the gray-matter and free-water signature to AD, DLB, and PDD in 3,611 participants from five cohorts (VCU, ADNI, NACC, PPMI, PDBP), and test whether disease-specific Ch4 signatures are associated with attentional and executive deficits and predict progression from MCI to dementia. Models account for image quality and are benchmarked against hippocampal volume, global atrophy, and a size-matched non-cholinergic control region to test whether Ch4 adds information beyond generalized neurodegeneration.</p>
-                    <span class="goal-fund">Years 1&ndash;2</span>
-                </li>
-                <li class="goal">
-                    <div class="goal-node">2</div>
-                    <div class="goal-when">Goal 2</div>
-                    <h4>Establish what the MRI signature measures</h4>
-                    <p>With established collaborators in cholinergic PET imaging, benchmark the Ch4 signature against [<sup>18</sup>F]FEOBV PET of the vesicular acetylcholine transporter. Concordance would support the MRI signature as a scalable marker of cholinergic integrity; discordance would help clarify what each modality captures. The same work tests whether patients with structural Ch4 loss but preserved Ch4&ndash;cortical connectivity have better cognition, a pattern consistent with compensation.</p>
-                    <span class="goal-fund">Years 3&ndash;5</span>
-                </li>
-                <li class="goal">
-                    <div class="goal-node">3</div>
-                    <div class="goal-when">Goal 3</div>
-                    <h4>Link Ch4 markers to treatment response</h4>
-                    <p>Use target-trial emulation to estimate whether cognitive outcomes associated with cholinesterase inhibitor treatment vary by baseline Ch4 integrity. These observational estimates cannot establish efficacy, but positive findings would support Ch4 as a candidate predictive biomarker and inform effect-size and sample-size planning for a randomized cholinergic therapy trial stratified by Ch4 integrity, testing a prespecified treatment-by-biomarker interaction.</p>
-                    <span class="goal-fund">Years 1&ndash;2; randomized trial in years 5&ndash;7</span>
-                </li>
-            </ol>
-            <p class="research-vision-text" style="margin: 1.5rem 0 0;">
-                <strong>Long-term vision.</strong> In the next five years, my goal is to build an automated MRI pipeline that stages Ch4&ndash;cortical cholinergic degeneration in individual patients with PD or ADRD and identifies those best suited to cholinergic trials. The same framework could inform trials of Ch4 deep brain stimulation, gene therapy, and neurotrophic therapies, where remaining target tissue may determine benefit. Two roles prepare me to carry these imaging biomarkers into trials: training as a 2025 IMPACT-AD Fellow in ADRD trial methodology and chairing the writing group for an approved U.S. POINTER imaging secondary analysis.
-            </p>
-
-            <!-- Interactive research map (built by script; hidden without JS) -->
-            <div class="rmap-wrap" id="rmap-wrap" hidden>
-                <h3 class="subsection-title" style="margin-top: 2.75rem;">How the Work Connects</h3>
-                <div class="rmap" id="rmap">
-                    <div class="rmap-cols" id="rmap-cols">
-                        <svg class="rmap-edges" id="rmap-edges" aria-hidden="true"></svg>
-                    </div>
-                    <div class="rmap-detail" id="rmap-detail" aria-live="polite"></div>
-                </div>
             </div>
         </div>
     </section>
@@ -1566,7 +1469,7 @@
 
             <div class="teaching-block">
                 <h3>Mentorship Track Record</h3>
-                <p>I have mentored <strong>50+</strong> junior researchers to first-author publications in peer-reviewed journals, using a model built around staged project scoping, weekly writing accountability, and graduated independence, and have supervised graduate and undergraduate students in neuroimaging analysis, machine learning, and systematic reviews. In my laboratory, trainees will lead defined imaging, EEG, and longitudinal projects, supported by shared code review and reproducible workflows.</p>
+                <p>I have mentored <strong>50+</strong> junior researchers to first-author publications in peer-reviewed journals, using a model built around staged project scoping, weekly writing accountability, and graduated independence, and have supervised graduate and undergraduate students in neuroimaging analysis, machine learning, and systematic reviews.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;"><strong>Named mentees:</strong> Hazem Ghaith, MD (Postdoctoral Scholar, Department of Neurological Surgery, Oregon Health &amp; Science University) and Hussien Abdelgawad, MD (Research Scientist, University of Arizona; Assistant Research Professor, Mayo Clinic Arizona). Further mentees have first-authored peer-reviewed papers across academic medical centers in Europe and the Middle East.</p>
             </div>
 
@@ -1994,7 +1897,7 @@
                 requestAnimationFrame(upd);
             }
             if (reduce || !('IntersectionObserver' in window)) return;
-            const sel = '.fw-item, .conf-photo, .goal, .timeline-item, .tool-entry, .pub-entry, .grant-entry, .lecture-entry, .presentation-entry, .award-entry, .service-block, .teaching-block';
+            const sel = '.fw-item, .conf-photo, .timeline-item, .tool-entry, .pub-entry, .grant-entry, .lecture-entry, .presentation-entry, .award-entry, .service-block, .teaching-block';
             const els = document.querySelectorAll(sel);
             els.forEach(el => el.classList.add('reveal'));
             const io = new IntersectionObserver(entries => {
@@ -2276,114 +2179,6 @@
                     } else el.textContent = v.toLocaleString();
                 });
             }).catch(() => {});
-        })();
-
-        // ===== Interactive research map =====
-        (function researchMap() {
-            const wrap = document.getElementById('rmap-wrap');
-            if (!wrap) return;
-            const map = document.getElementById('rmap'), colsEl = document.getElementById('rmap-cols');
-            const svg = document.getElementById('rmap-edges'), detail = document.getElementById('rmap-detail');
-            const doi = d => 'https://doi.org/' + d;
-            const COLS = ['Research contributions', 'Publications', 'Tools & data', 'Research plan'];
-            const N = [
-                { id: 'L1', c: 0, g: 'ch4', t: 'Measuring Ch4 in vivo', s: 'Contribution 1', d: 'Ch4 integrity from standard MRI with probabilistic cytoarchitectonic maps (gray-matter density and free water), extended with resting-state fMRI, to identify the patients most likely to benefit from cholinergic therapies.', l: [['Explore Ch4 in 3D', '#ch4x']] },
-                { id: 'L2', c: 0, g: 'ch4', t: 'Complementing MRI with EEG', s: 'Contribution 2', d: 'Inexpensive, repeatable resting-state EEG markers of cognitive fluctuations in Lewy body disease from the NIH R21 AG077469 study, which led to a funded mechanistic R01 (NS142622).', l: [['Paper', doi('10.1186/s13195-026-02148-8')]] },
-                { id: 'L3', c: 0, g: 'sub', t: 'Explaining progression', s: 'Contribution 3', d: 'Ten-year progression milestones across PD subtypes, and disease-duration–specific percentiles that identify rapid progressors prospectively for trial enrichment.', l: [['Percentile calculator', 'https://negidamd.github.io/data-driven-pd-subtype-calculator/']] },
-                { id: 'Pmrx', c: 1, g: 'ch4', t: 'Ch4 atrophy + free water', s: 'medRxiv preprint, 2026', d: 'In 92 participants from VCU clinics, Ch4 gray-matter density and free water were the only basal forebrain measures independently associated with cognition; together they separated PD dementia from PD without dementia (exploratory AUC 0.93).', l: [['Preprint', doi('10.64898/2026.06.08.26355183')]] },
-                { id: 'Pchei', c: 1, g: 'ch4', t: 'Cholinesterase inhibitor use', s: 'J Alzheimers Dis 2026 · TRCI 2025', d: 'Prescribing patterns, predictors, and disparities in cholinesterase inhibitor treatment for dementia and dementia with Lewy bodies.', l: [['JAD paper', doi('10.1177/13872877251411418')], ['TRCI paper', doi('10.1002/trc2.70136')]] },
-                { id: 'Part', c: 1, g: 'ch4', t: 'EEG & cognitive fluctuations', s: "Alzheimer's Res Ther, 2026", d: 'Eyes-closed resting EEG in 53 patients across the Lewy body spectrum; an elastic-net model detected cognitive fluctuations with AUC 0.86.', l: [['Paper', doi('10.1186/s13195-026-02148-8')]] },
-                { id: 'Pprd', c: 1, g: 'both', t: 'Ch4-defined PD-MCI subtype', s: 'Parkinsonism Relat Disord, 2025', d: 'Among 162 PPMI participants with PD-MCI, 40 with low Ch4 gray-matter density had worse motor, autonomic, and olfactory scores and reached cognitive milestones sooner (log-rank p = 0.002). Where the two lines meet: this imaging-defined subtype overlaps with diffuse-malignant PD.', l: [['Paper', doi('10.1016/j.parkreldis.2025.108072')]] },
-                { id: 'Pnpj', c: 1, g: 'sub', t: '10-year milestones by subtype', s: "npj Parkinson's Dis, 2026", d: 'Over 10 years of PPMI follow-up, diffuse-malignant PD reached 63.0% of progression milestones, and enrolling these patients cut the required trial sample size by about 50% in simulations.', l: [['Paper', doi('10.1038/s41531-026-01430-8')]] },
-                { id: 'Pmdcp', c: 1, g: 'sub', t: 'Year-specific percentiles', s: 'Mov Disord Clin Pract, 2026', d: 'Disease-duration–specific percentiles (PPMI, N = 1,030) classify patients prospectively in each of the first 5 years after diagnosis; diffuse-malignant PD reached a first milestone fastest (HR 3.03).', l: [['Paper', doi('10.1002/mdc3.70740')]] },
-                { id: 'Pgen', c: 1, g: 'sub', t: 'Genetics of PD subtypes', s: 'Genes, 2026', d: 'In 1,390 genotyped PPMI patients, GBA1 variants were enriched in diffuse-malignant PD and LRRK2 variants in α-synuclein SAA-negative PD.', l: [['Paper', doi('10.3390/genes17040449')]] },
-                { id: 'Tch4', c: 2, g: 'ch4', t: 'Ch4 subtyping tools', s: 'Open research tools', d: 'Research-use tools that classify PD-MCI by Ch4 gray-matter density.', l: [['Ch4 Subtyper', 'https://negidamd.github.io/ch4-subtyper/'], ['Ch4 Subtyping Tool', 'https://ch4subtyping.negida.com']] },
-                { id: 'Dvcu', c: 2, g: 'ch4', t: 'VCU MRI cohort', s: 'n = 111', d: 'Local multimodal MRI discovery cohort (n = 111) from VCU clinics.', l: [] },
-                { id: 'Dr21', c: 2, g: 'ch4', t: 'R21 EEG cohort', s: 'n = 85', d: 'EEG cohort of 85 patients from the NIH R21 AG077469 study of cognitive fluctuations in Lewy body dementia.', l: [] },
-                { id: 'Tfe', c: 2, g: 'ch4', t: 'EEG feature toolbox', s: 'MATLAB · open source', d: 'Dominant-frequency EEG feature extraction released from the R21 study.', l: [['GitHub', 'https://github.com/Negidamd/negida-fe-toolbox']] },
-                { id: 'Dppmi', c: 2, g: 'none', t: 'PPMI', s: 'Longitudinal PD cohort', d: "Parkinson's Progression Markers Initiative: longitudinal clinical, imaging, and genetic data behind the Ch4 subtype and all subtyping studies.", l: [] },
-                { id: 'Tcalc', c: 2, g: 'sub', t: 'PD subtype calculators', s: 'Open research tools', d: 'Classify patients into data-driven PD subtypes from routine clinical scores using disease-duration–specific percentiles.', l: [['Percentile calculator', 'https://negidamd.github.io/data-driven-pd-subtype-calculator/'], ['PD Subtyping Tool', 'https://pdsubtyping.negida.com']] },
-                { id: 'Dmulti', c: 2, g: 'none', t: 'ADNI · NACC · PDBP', s: 'Approved data access', d: 'With PPMI and the VCU cohort, these cohorts provide 3,611 participants for extending the Ch4 signature across AD, DLB, and PDD.', l: [['Data resources', '#grants']] },
-                { id: 'G1', c: 3, g: 'none', t: 'Goal 1 · Ch4 signature across diseases', s: 'Years 1–2', d: 'Extend the gray-matter and free-water signature to AD, DLB, and PDD in 3,611 participants from five cohorts, benchmarked against hippocampal volume, global atrophy, and a non-cholinergic control region.', l: [['Research plan', '#research-plan']] },
-                { id: 'G2', c: 3, g: 'none', t: 'Goal 2 · Validate against PET', s: 'Years 3–5', d: 'Benchmark the Ch4 signature against [18F]FEOBV PET of the vesicular acetylcholine transporter, and test whether preserved Ch4–cortical connectivity marks compensation.', l: [['Research plan', '#research-plan']] },
-                { id: 'G3', c: 3, g: 'none', t: 'Goal 3 · Ch4 and treatment response', s: 'Years 1–2, then trial', d: 'Target-trial emulation of cholinesterase inhibitor outcomes by baseline Ch4 integrity, informing a randomized cholinergic therapy trial stratified by Ch4 integrity.', l: [['Research plan', '#research-plan']] }
-            ];
-            const E = [['L1','Pmrx'],['L1','Pchei'],['L1','Pprd'],['L2','Part'],['L3','Pprd'],['L3','Pnpj'],['L3','Pmdcp'],['L3','Pgen'],
-                ['Pprd','Tch4'],['Pprd','Dppmi'],['Pprd','G3'],['Pmrx','Dvcu'],['Pmrx','G1'],['Pmrx','G2'],['Pchei','G3'],
-                ['Part','Tfe'],['Part','Dr21'],['Pnpj','Tcalc'],['Pnpj','Dppmi'],['Pmdcp','Tcalc'],['Pmdcp','Dppmi'],['Pgen','Dppmi'],
-                ['Dvcu','G1'],['Dppmi','G1'],['Dmulti','G1']];
-            const byId = {}; N.forEach(n => byId[n.id] = n);
-            const out = {}, inn = {}; N.forEach(n => { out[n.id] = []; inn[n.id] = []; });
-            E.forEach(([a, b]) => { out[a].push(b); inn[b].push(a); });
-
-            // build columns and node buttons
-            COLS.forEach((name, c) => {
-                const col = document.createElement('div'); col.className = 'rmap-col';
-                const h = document.createElement('div'); h.className = 'rmap-col-h'; h.textContent = name;
-                const list = document.createElement('div'); list.className = 'rmap-nodes';
-                N.filter(n => n.c === c).forEach(n => {
-                    const b = document.createElement('button'); b.type = 'button'; b.className = 'rmap-node g-' + n.g; b.dataset.id = n.id;
-                    b.appendChild(document.createTextNode(n.t));
-                    const s = document.createElement('small'); s.textContent = n.s; b.appendChild(s);
-                    list.appendChild(b); n.el = b;
-                });
-                col.append(h, list); colsEl.appendChild(col);
-            });
-            const paths = E.map(([a, b]) => { const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.dataset.a = a; p.dataset.b = b; svg.appendChild(p); return p; });
-
-            function draw() {
-                const box = colsEl.getBoundingClientRect();
-                if (getComputedStyle(svg).display === 'none') return;
-                paths.forEach(p => {
-                    const r1 = byId[p.dataset.a].el.getBoundingClientRect(), r2 = byId[p.dataset.b].el.getBoundingClientRect();
-                    const x1 = r1.right - box.left, y1 = r1.top + r1.height / 2 - box.top, x2 = r2.left - box.left, y2 = r2.top + r2.height / 2 - box.top;
-                    const dx = Math.max(24, (x2 - x1) / 2);
-                    p.setAttribute('d', 'M' + x1 + ' ' + y1 + ' C' + (x1 + dx) + ' ' + y1 + ',' + (x2 - dx) + ' ' + y2 + ',' + x2 + ' ' + y2);
-                });
-            }
-            function chain(id) {
-                const on = new Set([id]);
-                const walk = (k, adj) => adj[k].forEach(j => { if (!on.has(j)) { on.add(j); walk(j, adj); } });
-                walk(id, out); walk(id, inn);
-                return on;
-            }
-            let pinned = 'L1';
-            function show(id) {
-                const on = chain(id);
-                map.classList.add('has-focus');
-                N.forEach(n => { n.el.classList.toggle('is-on', on.has(n.id)); n.el.classList.toggle('is-pin', n.id === pinned); n.el.setAttribute('aria-pressed', n.id === pinned); });
-                paths.forEach(p => p.classList.toggle('is-on', on.has(p.dataset.a) && on.has(p.dataset.b)));
-                const n = byId[id]; detail.textContent = '';
-                const k = document.createElement('div'); k.className = 'k'; k.textContent = COLS[n.c] + ' · ' + (on.size - 1) + ' connected';
-                const h = document.createElement('h4'); h.textContent = n.t;
-                const d = document.createElement('p'); d.textContent = n.d;
-                detail.append(k, h, d);
-                if (n.l.length) {
-                    const links = document.createElement('div'); links.className = 'links';
-                    n.l.forEach(([txt, href]) => { const a = document.createElement('a'); a.href = href; a.textContent = txt + ' →';
-                        if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; } links.appendChild(a); });
-                    detail.appendChild(links);
-                }
-            }
-            N.forEach(n => {
-                n.el.addEventListener('click', () => { pinned = n.id; show(n.id); });
-                n.el.addEventListener('pointerenter', () => show(n.id));
-                n.el.addEventListener('pointerleave', () => show(pinned));
-                n.el.addEventListener('focus', () => show(n.id));
-                n.el.addEventListener('blur', () => show(pinned));
-            });
-            wrap.hidden = false;
-            // Phones: the map starts collapsed behind a toggle (.sec-toggle is only shown at 768px and below)
-            const tg = document.createElement('button'); tg.type = 'button'; tg.className = 'sec-toggle';
-            tg.setAttribute('aria-expanded', 'false'); tg.setAttribute('aria-controls', 'rmap'); tg.textContent = 'Show map';
-            tg.addEventListener('click', () => {
-                const open = wrap.classList.toggle('is-collapsed') === false;
-                tg.setAttribute('aria-expanded', open); tg.textContent = open ? 'Hide map' : 'Show map';
-            });
-            wrap.querySelector('.subsection-title').after(tg); wrap.classList.add('is-collapsed');
-            draw(); show(pinned);
-            if ('ResizeObserver' in window) new ResizeObserver(draw).observe(colsEl); else addEventListener('resize', draw);
-            if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
         })();
 
         // ===== GNS-I stat tile count-up =====
