@@ -28,10 +28,8 @@
 
     <meta name="theme-color" content="#162e51">
 
-    <!-- Fonts — Public Sans (USWDS / NIH official) + Merriweather (USWDS serif) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Fonts — Public Sans (USWDS / NIH official) + Merriweather (USWDS serif), self-hosted variable fonts (SIL OFL, see assets/fonts/) -->
+    <link rel="preload" href="assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 
     <!-- Favicon -->
@@ -69,6 +67,10 @@
     </script>
 
     <style>
+        @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400 900; font-display: swap; src: url(assets/fonts/public-sans-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400 900; font-display: swap; src: url(assets/fonts/public-sans-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 900; font-display: swap; src: url(assets/fonts/merriweather-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 900; font-display: swap; src: url(assets/fonts/merriweather-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
         :root {
             /* USWDS / NIH color palette */
             --bg-primary: #ffffff;
@@ -351,7 +353,7 @@
         /* ===== Tools ===== */
         .tool-entry { margin-bottom: 1.5rem; }
         .tool-entry:last-child { margin-bottom: 0; }
-        .tool-entry h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.1rem; color: var(--text-primary); }
+        .tool-entry h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.1rem; color: var(--text-primary); }
         .tool-entry .tool-meta {
             font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-bottom: 0.35rem;
         }
@@ -362,6 +364,19 @@
             font-size: 0.88rem;
         }
         .tool-links-inline a { margin-right: 1rem; font-weight: 600; }
+        .tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        .tool-grid .tool-entry { display: flex; flex-direction: column; margin: 0; padding: 1rem 1.1rem; background: #fff; border: 1px solid var(--border-light); border-radius: 12px; }
+        .tool-grid .tool-entry:only-child { grid-column: 1 / -1; }
+        .tool-grid .tool-entry p { font-size: 0.86rem; }
+        .tool-grid .tool-entry::before { left: -1px; top: 12px; bottom: 12px; }
+        .tool-grid .tool-links-inline { margin-top: auto; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+        .tool-grid .tool-links-inline a { margin-right: 0; }
+        .tool-grid .tool-entry:hover { transform: none; }
+        @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+            .tool-grid .tool-entry { transition-property: opacity, transform, box-shadow, border-color; transition-duration: .55s, .6s, .25s, .25s; transition-timing-function: ease, var(--ease-out), ease, ease; }
+            .tool-grid .tool-entry:hover { transform: translateY(-2px); border-color: #c3ccd8; box-shadow: 0 8px 22px rgba(22,46,81,.08); }
+        }
+        @media (max-width: 700px) { .tool-grid { grid-template-columns: minmax(0, 1fr); } }
 
         /* ===== Publications ===== */
         .pub-list { counter-reset: pub-counter; }
@@ -646,14 +661,11 @@
         .pillar-ch4 .pillar-stats strong { font-size: 1.3rem; min-width: 6.3rem; color: #9a2a0e; }
         .pillar-sub .pillar-stats strong { font-size: 1rem; min-width: 4.4rem; }
         .pillar-stats span { font-size: .74rem; color: var(--text-secondary); line-height: 1.45; }
-        .pillar-list { list-style: none; margin-bottom: .75rem; }
-        .pillar-list li { position: relative; padding: .2rem 0 .2rem .95rem; font-size: .85rem; color: var(--text-secondary); line-height: 1.6; }
-        .pillar-list li::before { content: ''; position: absolute; left: 0; top: .72rem; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-        .pillar-ch4 .pillar-list li::before { background: var(--heat-2); }
-        .pillar-list a { font-weight: 600; }
-        .pillar-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .9rem; font-size: .8rem; border-top: 1px solid var(--border-light); padding-top: .65rem; }
-        .pillar-tools span { font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); }
+        .pillar-tools { display: flex; align-items: baseline; gap: .9rem; font-size: .8rem; border-top: 1px solid var(--border-light); padding-top: .65rem; }
+        .pillar-tools > span { flex: none; min-width: 3.4rem; font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); }
+        .pt-links { display: flex; flex-wrap: wrap; gap: .35rem .9rem; min-width: 0; }
         .pillar-tools a { font-weight: 700; }
+        .pillar-tools + .pillar-tools { border-top: none; padding-top: .4rem; }
         .pillar-bridge { display: flex; align-items: center; gap: .9rem; max-width: 760px; margin: 0 auto; padding: .7rem 1rem; position: relative; }
         .pillar-bridge::before { content: ''; position: absolute; left: calc(1rem + 1.3rem - 1px); top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--heat-2), var(--accent)); opacity: .4; }
         .bridge-mark { position: relative; z-index: 1; flex: none; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 50%; color: #fff; font-size: 1.2rem;
@@ -664,7 +676,6 @@
             .pillar { display: flex; flex-direction: column; gap: 0; }
             .pillar-main { display: contents; }
             .pillar-stats { order: 4; margin-bottom: .85rem; }
-            .pillar-list { order: 5; }
             .pillar-tools { order: 6; }
         }
         @media (max-width: 560px) { .pillar-ch4 .pillar-stats strong { font-size: 1.1rem; min-width: 5.2rem; } }
@@ -672,6 +683,7 @@
 
         /* Research map */
         .rmap-wrap[hidden] { display: none; }
+        @media (max-width: 768px) { .rmap-wrap.is-collapsed > :not(.subsection-title):not(.sec-toggle) { display: none; } }
         .rmap { border: 1px solid var(--border-light); border-radius: 14px; padding: 1rem 1rem 1.1rem; background: linear-gradient(#fff, var(--bg-lighter)); }
         .rmap-cols { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 2.4rem; }
         .rmap-edges { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
@@ -737,6 +749,9 @@
             transition: border-color .3s ease, box-shadow .3s ease; }
         .ch4x-view.is-hot { border-color: rgba(253,141,60,.65); box-shadow: 0 0 0 1px rgba(253,141,60,.25), 0 0 26px rgba(227,26,28,.25); }
         .ch4x-view canvas { display: block; width: 100%; height: auto; cursor: crosshair; touch-action: none; }
+        .ch4x-view[data-view="coronal"] canvas { aspect-ratio: 147 / 148; }
+        .ch4x-view[data-view="axial"] canvas { aspect-ratio: 147 / 184; }
+        .ch4x-view[data-view="sagittal"] canvas { aspect-ratio: 184 / 148; }
         .ch4x-view canvas:focus-visible { outline: 2px solid var(--heat-1); outline-offset: -2px; }
         .ch4x-view figcaption { position: absolute; left: .6rem; bottom: .45rem; font-size: .68rem; letter-spacing: .04em; color: #cfd8e6; background: rgba(0,0,0,.45); padding: .1rem .45rem; border-radius: 4px; pointer-events: none; }
         .ch4x-lr { position: absolute; top: .45rem; font-size: .7rem; font-weight: 800; color: rgba(255,255,255,.55); pointer-events: none; }
@@ -828,26 +843,6 @@
         .fw-close { all: unset; position: absolute; top: -.9rem; right: -.9rem; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #fff; color: #162e51;
             display: grid; place-items: center; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
         .fw-close:focus-visible { outline: 2px solid var(--heat-2); }
-        /* Latest first-author papers */
-        .latest { margin: 0 0 1.75rem; padding: 1rem 1.2rem .9rem; border: 1px solid var(--border-light); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: #fff; }
-        .latest-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .5rem; }
-        .latest-head h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--accent-darker); }
-        .latest-status { display: inline-flex; align-items: center; gap: .35rem; font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); white-space: nowrap; }
-        .latest-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); }
-        .latest-status.is-live { color: #1B7837; }
-        .latest-status.is-live::before { background: #1B7837; box-shadow: 0 0 0 0 rgba(27,120,55,.5); animation: latestPing 2s infinite; }
-        @keyframes latestPing { 0% { box-shadow: 0 0 0 0 rgba(27,120,55,.5); } 80%, 100% { box-shadow: 0 0 0 7px rgba(27,120,55,0); } }
-        .latest-list { list-style: none; }
-        .latest-list li { display: grid; grid-template-columns: 5.2rem 1fr; column-gap: .75rem; padding: .45rem 0; border-bottom: 1px solid var(--border-light); font-size: .88rem; line-height: 1.5; }
-        .latest-list li:last-child { border-bottom: none; }
-        .latest-date { grid-row: span 2; font-size: .78rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; padding-top: .1rem; }
-        .latest-list a { font-weight: 600; color: var(--text-primary); }
-        .latest-list a:hover { color: var(--accent); }
-        .latest-journal { font-size: .8rem; color: var(--text-muted); font-style: italic; }
-        .latest-new { display: inline-block; margin-left: .4rem; font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: #fff; background: var(--heat-3); border-radius: 999px; padding: .08rem .45rem; vertical-align: .12em; font-style: normal; }
-        .latest-foot { font-size: .74rem; color: var(--text-muted); margin-top: .45rem; }
-        @media (max-width: 560px) { .latest-list li { grid-template-columns: 1fr; } .latest-date { grid-row: auto; } }
-        @media (prefers-reduced-motion: reduce) { .latest-status.is-live::before { animation: none; } }
 
         .pub-legend { font-size: .8rem; color: var(--text-muted); margin: -.5rem 0 1rem; }
         .conf-photos { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
@@ -905,7 +900,7 @@
             .hero { padding-top: 0; }
             .profile-photo img { width: 96px; height: auto; }
             .fw-media { max-height: 150px; }
-            .rmap-wrap, .ch4x, .latest, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
+            .rmap-wrap, .ch4x, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
             .bridge-mark, .fw-media::after { display: none !important; }
             .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
             section.is-collapsed .section-inner > * { display: block !important; }
@@ -955,7 +950,7 @@
     <section class="hero">
         <div class="hero-inner">
             <div class="profile-photo">
-                <img src="headshot.jpg" alt="Ahmed Negida, MD, PhD" width="160" height="200" fetchpriority="high" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>&#128100;</div>'">
+                <img src="headshot.jpg" srcset="headshot-320.jpg 320w, headshot.jpg 400w" sizes="160px" alt="Ahmed Negida, MD, PhD" width="160" height="200" fetchpriority="high" onerror="this.parentElement.innerHTML='<div class=\'profile-placeholder\'>&#128100;</div>'">
             </div>
 
             <div class="hero-content">
@@ -1005,7 +1000,7 @@
             </div>
 
             <p class="research-vision-text">
-                Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) are heterogeneous in their clinical features, underlying pathology, and progression. Enrolling biologically diverse patients into trials of target-specific therapies can dilute treatment effects. My program addresses this heterogeneity along two connected lines. The main line is <strong>cholinergic imaging</strong>: it measures degeneration of the <strong>nucleus basalis of Meynert (Ch4)</strong>, which supplies most cholinergic input to the cortex, is shared across all three diseases, and is the biological rationale for cholinesterase inhibitors&mdash;yet response to these drugs varies widely. A complementary line, <strong>disease subtyping and progression modeling</strong>, identifies the patients who progress fastest and makes that classification usable in real time for trial screening. Together, they aim to match patients to the therapies most likely to help them, from cholinesterase inhibitors to muscarinic agonists, Ch4 deep brain stimulation, and gene therapy.
+                Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) vary widely in pathology and progression, and enrolling biologically diverse patients into trials of targeted therapies can dilute treatment effects. My main line of work, <strong>cholinergic imaging</strong>, measures degeneration of the <strong>nucleus basalis of Meynert (Ch4)</strong>, which supplies most cholinergic input to the cortex and is the target of cholinesterase inhibitors, whose benefit varies widely across patients. A complementary line, <strong>disease subtyping and progression modeling</strong>, identifies the patients who progress fastest early enough to enrich trials.
             </p>
 
             <div class="chip-row">
@@ -1022,12 +1017,8 @@
                         <div class="pillar-kicker">Primary focus</div>
                         <h3>Cholinergic imaging (Ch4)</h3>
                         <p class="pillar-q">Can standard MRI measure Ch4 degeneration, and does it mark the patients most likely to benefit from cholinergic therapy?</p>
-                        <ul class="pillar-list">
-                            <li>Identified a PD-MCI subtype with MRI evidence of Ch4 degeneration (<a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener"><em>Parkinsonism Relat Disord</em>, 2025</a>)</li>
-                            <li>Built a multimodal Ch4 signature from gray-matter density and free-water diffusion (<a href="https://doi.org/10.64898/2026.06.08.26355183" target="_blank" rel="noopener">medRxiv, 2026</a>); in ongoing resting-state fMRI work, Ch4&ndash;cingulo-opercular connectivity mediated its link with cognition</li>
-                            <li>Complemented MRI with resting-state EEG markers of cognitive fluctuations (<a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank" rel="noopener"><em>Alzheimer's Res Ther</em>, 2026</a>)</li>
-                        </ul>
-                        <div class="pillar-tools"><span>Tools</span><a href="https://negidamd.github.io/ch4-subtyper/" target="_blank" rel="noopener">Ch4 Subtyper</a><a href="https://ch4subtyping.negida.com" target="_blank" rel="noopener">Ch4 Subtyping Tool</a><a href="https://github.com/Negidamd/negida-fe-toolbox" target="_blank" rel="noopener">EEG feature toolbox</a></div>
+                        <div class="pillar-tools"><span>Papers</span><div class="pt-links"><a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener"><em>Parkinsonism Relat Disord</em>, 2025</a><a href="https://doi.org/10.64898/2026.06.08.26355183" target="_blank" rel="noopener">medRxiv, 2026</a><a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank" rel="noopener"><em>Alzheimer's Res Ther</em>, 2026</a></div></div>
+                        <div class="pillar-tools"><span>Tools</span><div class="pt-links"><a href="https://negidamd.github.io/ch4-subtyper/" target="_blank" rel="noopener">Ch4 Subtyper</a><a href="https://ch4subtyping.negida.com" target="_blank" rel="noopener">Ch4 Subtyping Tool</a><a href="https://github.com/Negidamd/negida-fe-toolbox" target="_blank" rel="noopener">EEG feature toolbox</a></div></div>
                     </div>
                     <div class="pillar-stats">
                         <div><strong>40 of 162</strong><span>PPMI patients with PD-MCI had low Ch4 gray-matter density; they reached cognitive milestones sooner</span></div>
@@ -1046,12 +1037,8 @@
                         <div class="pillar-kicker">Complementary focus</div>
                         <h3>Disease subtyping &amp; progression modeling</h3>
                         <p class="pillar-q">Which patients with PD progress fastest, and can we identify them early enough to enrich disease-modifying trials?</p>
-                        <ul class="pillar-list">
-                            <li>Compared clinical, pathological, and data-driven subtypes over 10 years of PPMI follow-up (<a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener"><em>npj Parkinson's Dis</em>, 2026</a>)</li>
-                            <li>Made data-driven subtyping prospective with disease-duration&ndash;specific percentiles for the first 5 years after diagnosis, N&nbsp;=&nbsp;1,030 (<a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener"><em>Mov Disord Clin Pract</em>, 2026</a>)</li>
-                            <li>Mapped genetics onto subtypes: <i>GBA1</i> variants enriched in diffuse-malignant PD, <i>LRRK2</i> in &alpha;-synuclein SAA-negative PD (<a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener"><em>Genes</em>, 2026</a>)</li>
-                        </ul>
-                        <div class="pillar-tools"><span>Tools</span><a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank" rel="noopener">Percentile calculator</a><a href="https://pdsubtyping.negida.com" target="_blank" rel="noopener">PD Subtyping Tool</a></div>
+                        <div class="pillar-tools"><span>Papers</span><div class="pt-links"><a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener"><em>npj Parkinson's Dis</em>, 2026</a><a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener"><em>Mov Disord Clin Pract</em>, 2026</a><a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener"><em>Genes</em>, 2026</a></div></div>
+                        <div class="pillar-tools"><span>Tools</span><div class="pt-links"><a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank" rel="noopener">Percentile calculator</a><a href="https://pdsubtyping.negida.com" target="_blank" rel="noopener">PD Subtyping Tool</a></div></div>
                     </div>
                     <div class="pillar-stats">
                         <div><strong>63%</strong><span>of 10-year progression milestones reached by diffuse-malignant PD (vs 55.6% PIGD, 54.0% body-first)</span></div>
@@ -1276,22 +1263,6 @@
 
             <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem;">170+ peer-reviewed publications in total (<span data-scholar="citations">8,955</span> citations; h-index <span data-scholar="h_index">46</span>; i10-index <span data-scholar="i10_index">109</span> on Google Scholar), including 66 systematic reviews, meta-analyses, and scoping reviews, 36 of them senior-author papers led by trainees in my research-training program. Full list on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
 
-            <!-- Latest first-author papers: static list, refreshed from Europe PMC when available -->
-            <div class="latest" id="latest">
-                <div class="latest-head">
-                    <h3>Latest First-Author Papers</h3>
-                    <span class="latest-status" id="latest-status">Saved list</span>
-                </div>
-                <ol class="latest-list" id="latest-list">
-                    <li><span class="latest-date">Jul 2026</span><a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank" rel="noopener">Resting-state EEG features of cognitive fluctuations across the Lewy body disease spectrum</a><span class="latest-journal">Alzheimer's Research &amp; Therapy</span></li>
-                    <li><span class="latest-date">Jul 2026</span><a href="https://doi.org/10.1002/mdc3.70740" target="_blank" rel="noopener">Disease-duration&ndash;specific percentiles for prospective subtyping of Parkinson's disease: a PPMI-based study</a><span class="latest-journal">Movement Disorders Clinical Practice</span></li>
-                    <li><span class="latest-date">Jun 2026</span><a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank" rel="noopener">Comparative analysis of progression milestones across Parkinson's disease clinical, pathological, and data-driven subtypes: a 10-year follow-up</a><span class="latest-journal">npj Parkinson's Disease</span></li>
-                    <li><span class="latest-date">Apr 2026</span><a href="https://doi.org/10.3390/genes17040449" target="_blank" rel="noopener">Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes</a><span class="latest-journal">Genes (Basel)</span></li>
-                    <li><span class="latest-date">Oct 2025</span><a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank" rel="noopener">Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: a new subtype?</a><span class="latest-journal">Parkinsonism &amp; Related Disorders</span></li>
-                </ol>
-                <p class="latest-foot" id="latest-foot">New first-author papers in Parkinson's disease and dementia are added automatically from Europe PMC.</p>
-            </div>
-
             <p class="pub-legend"><sup>*</sup> Trainee I mentored &nbsp;&middot;&nbsp; (first) / (senior): my author position</p>
 
             <h3 class="subsection-title" style="margin-top: 0;">Cholinergic Imaging and EEG Biomarkers</h3>
@@ -1468,91 +1439,103 @@
                 <p>Open-source tools developed for clinical neuroscience and evidence synthesis research</p>
             </div>
 
-            <div class="tool-entry">
-                <h3>PD-MCI Ch4 Subtyping Tool</h3>
-                <div class="tool-meta">Parkinsonism & Related Disorders, 2025</div>
-                <p>Imaging-based subtype tool for PD-MCI using cholinergic nucleus 4 (NBM) gray matter density. Helps identify patients with cholinergic vulnerability markers for treatment selection.</p>
-                <div class="tool-links-inline">
-                    <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank">Paper &rarr;</a>
-                    <a href="https://ch4subtyping.negida.com" target="_blank">Online Tool &rarr;</a>
-                    <a href="https://negidamd.github.io/ch4-subtyper/" target="_blank">Ch4 Subtyper (open source) &rarr;</a>
-                    <a href="https://github.com/Negidamd/ch4-subtyper" target="_blank">Source on GitHub &rarr;</a>
+            <h3 class="subsection-title" style="margin-top: 0;">Cholinergic Imaging and EEG</h3>
+            <div class="tool-grid">
+                <div class="tool-entry">
+                    <h4>PD-MCI Ch4 Subtyping Tool</h4>
+                    <div class="tool-meta">Parkinsonism & Related Disorders, 2025</div>
+                    <p>Imaging-based subtype tool for PD-MCI using cholinergic nucleus 4 (NBM) gray matter density. Helps identify patients with cholinergic vulnerability markers for treatment selection.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank">Paper &rarr;</a>
+                        <a href="https://ch4subtyping.negida.com" target="_blank">Online Tool &rarr;</a>
+                        <a href="https://negidamd.github.io/ch4-subtyper/" target="_blank">Ch4 Subtyper (open source) &rarr;</a>
+                        <a href="https://github.com/Negidamd/ch4-subtyper" target="_blank">Source on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="tool-entry">
+                    <h4>Negida-FE-Toolbox</h4>
+                    <div class="tool-meta">EEG Analysis &middot; Open Source</div>
+                    <p>MATLAB toolbox for dominant frequency-based EEG feature extraction, released from the NIH R21 AG077469 study of cognitive fluctuations in Lewy body disease. Automated spectral analysis and biomarker pipelines for AD, LBD, and PD cohorts.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://github.com/Negidamd/negida-fe-toolbox" target="_blank">GitHub &rarr;</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="tool-entry">
-                <h3>PD Subtyping Tool</h3>
-                <div class="tool-meta">Mov Disord Clin Pract, 2026 &middot; npj Parkinson's Disease, 2026</div>
-                <p>Interactive tool for clinical, pathological, and data-driven subtyping of Parkinson's Disease. Applies disease-duration–specific percentile thresholds (PPMI, N=1,030) to classify patients into diffuse-malignant, intermediate, and mild-motor-predominant subtypes for real-time trial stratification.</p>
-                <div class="tool-links-inline">
-                    <a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank">Percentile Calculator &rarr;</a>
-                    <a href="https://pdsubtyping.negida.com" target="_blank">Online Tool &rarr;</a>
-                    <a href="https://doi.org/10.1002/mdc3.70740" target="_blank">Percentiles paper &rarr;</a>
-                    <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank">Milestones paper &rarr;</a>
+            <h3 class="subsection-title">Disease Subtyping and Progression</h3>
+            <div class="tool-grid">
+                <div class="tool-entry">
+                    <h4>PD Subtyping Tool</h4>
+                    <div class="tool-meta">Mov Disord Clin Pract, 2026 &middot; npj Parkinson's Disease, 2026</div>
+                    <p>Clinical, pathological, and data-driven subtyping of Parkinson's disease. Disease-duration&ndash;specific percentiles (PPMI, N&nbsp;=&nbsp;1,030) classify patients as diffuse-malignant, intermediate, or mild motor-predominant for real-time trial stratification.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/" target="_blank">Percentile Calculator &rarr;</a>
+                        <a href="https://pdsubtyping.negida.com" target="_blank">Online Tool &rarr;</a>
+                        <a href="https://doi.org/10.1002/mdc3.70740" target="_blank">Percentiles paper &rarr;</a>
+                        <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank">Milestones paper &rarr;</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="tool-entry">
-                <h3>Vol-HD</h3>
-                <div class="tool-meta">Movement Disorders, 2024</div>
-                <p>Online calculator for predicting striatal volumes in Huntington's Disease patients using demographic and clinical variables, enabling pre-screening for clinical trials of intrastriatal gene therapies.</p>
-                <div class="tool-links-inline">
-                    <a href="https://doi.org/10.1002/mds.29749" target="_blank">Paper &rarr;</a>
-                    <a href="https://concepcion388.softr.app" target="_blank">Online Tool &rarr;</a>
+            <h3 class="subsection-title">Neuroimaging Methods</h3>
+            <div class="tool-grid">
+                <div class="tool-entry">
+                    <h4>Negida-DTI-ALPS</h4>
+                    <div class="tool-meta">Diffusion MRI &middot; Open Source</div>
+                    <p>DTI-ALPS pipeline for perivascular (glymphatic) diffusivity that uses ANTs SyN and T1-based boundary-based registration to correct ROI misplacement under high head rotation. Validated against the reference alps.sh toolbox in 106 diffusion-MRI datasets (r&nbsp;=&nbsp;0.96 for mean ALPS); MIT-licensed.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://github.com/Negidamd/Negida-DTI-ALPS" target="_blank">GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="tool-entry">
+                    <h4>CNN-PD-3D</h4>
+                    <div class="tool-meta">Deep Learning &middot; Open Source</div>
+                    <p>Convolutional neural network for automated Parkinson's Disease detection from structural 3D T1-weighted MRI. End-to-end pipeline from preprocessing to classification with interpretability visualization.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://github.com/negidamd/CNN-PD-3D" target="_blank">GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="tool-entry">
+                    <h4>Vol-HD</h4>
+                    <div class="tool-meta">Movement Disorders, 2024</div>
+                    <p>Online calculator for predicting striatal volumes in Huntington's Disease patients using demographic and clinical variables, enabling pre-screening for clinical trials of intrastriatal gene therapies.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://doi.org/10.1002/mds.29749" target="_blank">Paper &rarr;</a>
+                        <a href="https://concepcion388.softr.app" target="_blank">Online Tool &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="tool-entry">
+                    <h4>Neuroimaging Pipelines</h4>
+                    <div class="tool-meta">End-to-End Workflows</div>
+                    <p>Comprehensive pipelines for structural, functional, and diffusion MRI analysis including VBM, cortical thickness, DTI-ALPS for glymphatic function, and multimodal integration.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://github.com/negidamd" target="_blank">GitHub &rarr;</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="tool-entry">
-                <h3>Meta-Analysis Accelerator</h3>
-                <div class="tool-meta">BMC Medical Research Methodology, 2024 &middot; 12,000+ Users</div>
-                <p>Comprehensive statistical conversion tool for systematic reviews with 21 conversion functions including median/IQR to mean/SD, SEM to SD, and CI to SD for one and two groups.</p>
-                <div class="tool-links-inline">
-                    <a href="https://meta-analysis-accelerator.com" target="_blank">Online Tool &rarr;</a>
+            <h3 class="subsection-title">Evidence Synthesis</h3>
+            <div class="tool-grid">
+                <div class="tool-entry">
+                    <h4>Meta-Analysis Accelerator</h4>
+                    <div class="tool-meta">BMC Medical Research Methodology, 2024 &middot; 12,000+ Users</div>
+                    <p>Comprehensive statistical conversion tool for systematic reviews with 21 conversion functions including median/IQR to mean/SD, SEM to SD, and CI to SD for one and two groups.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://meta-analysis-accelerator.com" target="_blank">Online Tool &rarr;</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="tool-entry">
-                <h3>Meta-analysis.io</h3>
-                <div class="tool-meta">Comprehensive Meta-Analysis Platform</div>
-                <p>Full-featured platform for meta-analyses with statistical analysis and visualization. Supports standard meta-analysis, DTA, meta-regression, subgroup analysis, and publication bias assessment.</p>
-                <div class="tool-links-inline">
-                    <a href="https://meta-analysis.io" target="_blank">Online Tool &rarr;</a>
-                </div>
-            </div>
-
-            <div class="tool-entry">
-                <h3>CNN-PD-3D</h3>
-                <div class="tool-meta">Deep Learning &middot; Open Source</div>
-                <p>Convolutional neural network for automated Parkinson's Disease detection from structural 3D T1-weighted MRI. End-to-end pipeline from preprocessing to classification with interpretability visualization.</p>
-                <div class="tool-links-inline">
-                    <a href="https://github.com/negidamd/CNN-PD-3D" target="_blank">GitHub &rarr;</a>
-                </div>
-            </div>
-
-            <div class="tool-entry">
-                <h3>Negida-DTI-ALPS</h3>
-                <div class="tool-meta">Diffusion MRI &middot; Open Source</div>
-                <p>DTI-ALPS pipeline for quantifying perivascular (glymphatic) diffusivity, using ANTs SyN nonlinear registration in place of the FSL-FLIRT tensor registration of the standard alps.sh toolbox, with T1-mediated boundary-based registration that corrects ALPS ROI misplacement in high head-rotation cases. Validated against the reference implementation across 106 diffusion-MRI datasets (r = 0.96 for mean ALPS). MIT-licensed.</p>
-                <div class="tool-links-inline">
-                    <a href="https://github.com/Negidamd/Negida-DTI-ALPS" target="_blank">GitHub &rarr;</a>
-                </div>
-            </div>
-
-            <div class="tool-entry">
-                <h3>Negida-FE-Toolbox</h3>
-                <div class="tool-meta">EEG Analysis &middot; Open Source</div>
-                <p>MATLAB toolbox for dominant frequency-based EEG feature extraction, released from the NIH R21 AG077469 study of cognitive fluctuations in Lewy body disease. Automated spectral analysis and biomarker pipelines for AD, LBD, and PD cohorts.</p>
-                <div class="tool-links-inline">
-                    <a href="https://github.com/Negidamd/negida-fe-toolbox" target="_blank">GitHub &rarr;</a>
-                </div>
-            </div>
-
-            <div class="tool-entry">
-                <h3>Neuroimaging Pipelines</h3>
-                <div class="tool-meta">End-to-End Workflows</div>
-                <p>Comprehensive pipelines for structural, functional, and diffusion MRI analysis including VBM, cortical thickness, DTI-ALPS for glymphatic function, and multimodal integration.</p>
-                <div class="tool-links-inline">
-                    <a href="https://github.com/negidamd" target="_blank">GitHub &rarr;</a>
+                <div class="tool-entry">
+                    <h4>Meta-analysis.io</h4>
+                    <div class="tool-meta">Comprehensive Meta-Analysis Platform</div>
+                    <p>Full-featured platform for meta-analyses with statistical analysis and visualization. Supports standard meta-analysis, DTA, meta-regression, subgroup analysis, and publication bias assessment.</p>
+                    <div class="tool-links-inline">
+                        <a href="https://meta-analysis.io" target="_blank">Online Tool &rarr;</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1993,7 +1976,7 @@
                     ticking = false;
                 };
                 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
-                upd();
+                requestAnimationFrame(upd);
             }
             if (reduce || !('IntersectionObserver' in window)) return;
             const sel = '.fw-item, .conf-photo, .goal, .timeline-item, .tool-entry, .pub-entry, .grant-entry, .lecture-entry, .presentation-entry, .award-entry, .service-block, .teaching-block';
@@ -2046,13 +2029,18 @@
             const pixels = im => { const c = document.createElement('canvas'); c.width = im.width; c.height = im.height;
                 const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(im, 0, 0); return x.getImageData(0, 0, c.width, c.height).data; };
 
-            Promise.all([
+            const start = () => Promise.all([
                 fetch(BASE + 'meta.json').then(r => r.json()),
                 loadImg('coronal_t1.jpg'), loadImg('coronal_lbl.png'),
                 loadImg('axial_t1.jpg'), loadImg('axial_lbl.png'),
                 loadImg('sagittal_t1.jpg'), loadImg('sagittal_lbl.png')
             ]).then(([meta, cT1, cLb, aT1, aLb, sT1, sLb]) => init(meta, cT1, pixels(cLb), cLb.width, aT1, pixels(aLb), sT1, pixels(sLb)))
               .catch(err => { root.querySelector('.ch4x-head p').textContent = 'The interactive viewer could not load in this browser.'; console.warn(err); });
+            // Fetch the template and atlas images only when the viewer nears the screen (~420 KB kept off the initial load)
+            if ('IntersectionObserver' in window) {
+                const near = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { near.disconnect(); start(); } }, { rootMargin: '600px 0px' });
+                near.observe(root);
+            } else start();
 
             function init(meta, cT1, cLbl, cLblW, aT1, aLbl, sT1, sLbl) {
                 const [SX, SY, SZ] = meta.shape, A = meta.affine, PMAX = meta.pmax, C = meta.coronal;
@@ -2370,68 +2358,17 @@
                 n.el.addEventListener('blur', () => show(pinned));
             });
             wrap.hidden = false;
+            // Phones: the map starts collapsed behind a toggle (.sec-toggle is only shown at 768px and below)
+            const tg = document.createElement('button'); tg.type = 'button'; tg.className = 'sec-toggle';
+            tg.setAttribute('aria-expanded', 'false'); tg.setAttribute('aria-controls', 'rmap'); tg.textContent = 'Show map';
+            tg.addEventListener('click', () => {
+                const open = wrap.classList.toggle('is-collapsed') === false;
+                tg.setAttribute('aria-expanded', open); tg.textContent = open ? 'Hide map' : 'Show map';
+            });
+            wrap.querySelector('.subsection-title').after(tg); wrap.classList.add('is-collapsed');
             draw(); show(pinned);
             if ('ResizeObserver' in window) new ResizeObserver(draw).observe(colsEl); else addEventListener('resize', draw);
             if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
-        })();
-
-        // ===== Latest first-author papers (Europe PMC, with the saved list as fallback) =====
-        (function latestPapers() {
-            const list = document.getElementById('latest-list');
-            if (!list) return;
-            const statusEl = document.getElementById('latest-status'), foot = document.getElementById('latest-foot');
-            const SAVED = [
-                { date: '2026-07-23', doi: '10.1186/s13195-026-02148-8', title: 'Resting-state EEG features of cognitive fluctuations across the Lewy body disease spectrum', journal: "Alzheimer's Research & Therapy" },
-                { date: '2026-07-09', doi: '10.1002/mdc3.70740', title: "Disease-duration\u2013specific percentiles for prospective subtyping of Parkinson's disease: a PPMI-based study", journal: 'Movement Disorders Clinical Practice' },
-                { date: '2026-06-12', doi: '10.1038/s41531-026-01430-8', title: "Comparative analysis of progression milestones across Parkinson's disease clinical, pathological, and data-driven subtypes: a 10-year follow-up", journal: "npj Parkinson's Disease" },
-                { date: '2026-04-13', doi: '10.3390/genes17040449', title: "Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes", journal: 'Genes (Basel)' },
-                { date: '2025-10-10', doi: '10.1016/j.parkreldis.2025.108072', title: "Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: a new subtype?", journal: 'Parkinsonism & Related Disorders' }
-            ];
-            const QUERY = 'AUTH_FIRST:"Negida A" AND SRC:MED AND (TITLE_ABS:parkinson* OR TITLE_ABS:dementia OR TITLE_ABS:lewy OR TITLE_ABS:alzheimer* OR TITLE_ABS:cholinergic OR TITLE_ABS:basalis OR TITLE_ABS:EEG OR TITLE_ABS:neurodegenerat*)';
-            const KEY = 'negida_latest_v1', TTL = 24 * 3600 * 1000, DAY = 86400000;
-            const fmt = d => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
-
-            function render(items, live, checked) {
-                const cutoff = Date.now() - 730 * DAY, seen = new Set(), merged = [];
-                [...SAVED, ...items].forEach(it => {
-                    const k = (it.doi || it.title).toLowerCase();
-                    if (seen.has(k) || Date.parse(it.date) < cutoff) return;
-                    seen.add(k); merged.push(it);
-                });
-                merged.sort((a, b) => b.date.localeCompare(a.date));
-                list.textContent = '';
-                merged.slice(0, 5).forEach(it => {
-                    const li = document.createElement('li');
-                    const d = document.createElement('span'); d.className = 'latest-date'; d.textContent = fmt(it.date);
-                    const a = document.createElement('a'); a.href = it.doi ? 'https://doi.org/' + it.doi : 'https://europepmc.org/article/MED/' + it.pmid;
-                    a.target = '_blank'; a.rel = 'noopener'; a.textContent = it.title;
-                    const j = document.createElement('span'); j.className = 'latest-journal'; j.textContent = it.journal;
-                    if (Date.now() - Date.parse(it.date) < 90 * DAY) { const n = document.createElement('span'); n.className = 'latest-new'; n.textContent = 'New'; j.appendChild(n); }
-                    li.append(d, a, j); list.appendChild(li);
-                });
-                if (live) {
-                    statusEl.textContent = 'Live'; statusEl.classList.add('is-live');
-                    foot.textContent = 'Updated automatically from Europe PMC \u00b7 checked ' + new Date(checked).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                }
-            }
-            let cached = null;
-            try { cached = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
-            if (cached && cached.items && Date.now() - cached.ts < TTL) { render(cached.items, true, cached.ts); return; }
-            render([], false);
-            const url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?format=json&resultType=lite&pageSize=10&sort=' +
-                encodeURIComponent('P_PDATE_D desc') + '&query=' + encodeURIComponent(QUERY);
-            const ctl = 'AbortController' in window ? new AbortController() : null;
-            const timer = setTimeout(() => ctl && ctl.abort(), 8000);
-            fetch(url, ctl ? { signal: ctl.signal } : {}).then(r => r.ok ? r.json() : Promise.reject(r.status)).then(json => {
-                clearTimeout(timer);
-                const items = ((json.resultList || {}).result || []).filter(r => r.title && r.firstPublicationDate).map(r => ({
-                    date: r.firstPublicationDate, doi: r.doi || '', pmid: r.pmid || '',
-                    title: r.title.replace(/<[^>]+>/g, '').replace(/\.\s*$/, ''), journal: r.journalTitle || ''
-                }));
-                const ts = Date.now();
-                try { localStorage.setItem(KEY, JSON.stringify({ ts, items })); } catch (e) {}
-                render(items, true, ts);
-            }).catch(() => clearTimeout(timer));
         })();
 
         // ===== GNS-I stat tile count-up =====
