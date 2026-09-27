@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Negida, MD, PhD | Multimodal Imaging Biomarkers of PD and ADRD</title>
-    <meta name="description" content="Ahmed Negida, MD, PhD — translational neuroscientist at Virginia Commonwealth University developing multimodal MRI and EEG biomarkers of cholinergic (nucleus basalis of Meynert, Ch4) degeneration to stratify patients with Parkinson's disease, dementia with Lewy bodies, and Alzheimer's disease for therapeutic trials.">
+    <meta name="description" content="Ahmed Negida, MD, PhD, translational neuroscientist at VCU: cholinergic (Ch4) imaging and subtyping biomarkers for Parkinson's disease and dementia trials.">
     <meta name="keywords" content="Ahmed Negida, Parkinson's Disease, Lewy Body Dementia, Neuroimaging, Precision Medicine, Machine Learning, Clinical Research, VCU">
     <meta name="author" content="Ahmed Negida">
+    <link rel="canonical" href="https://negidamd.github.io/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Ahmed Negida, MD, PhD | Translational Neuroscientist &middot; Multimodal Imaging Biomarkers of PD and ADRD">
     <meta property="og:description" content="Multimodal MRI and EEG biomarkers of cholinergic degeneration for patient stratification in Parkinson's disease and ADRD.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://negidamd.github.io/">
-    <meta property="og:image" content="https://negidamd.github.io/headshot.jpg">
-    <meta property="og:image:alt" content="Ahmed Negida, MD, PhD">
+    <meta property="og:image" content="https://negidamd.github.io/assets/social-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ahmed Negida, MD, PhD. Translational Neuroscientist: multimodal imaging biomarkers of PD and ADRD">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ahmed Negida, MD, PhD | Translational Neuroscientist &middot; Multimodal Imaging Biomarkers of PD and ADRD">
     <meta name="twitter:description" content="Multimodal MRI and EEG biomarkers of cholinergic degeneration for patient stratification in Parkinson's disease and ADRD.">
-    <meta name="twitter:image" content="https://negidamd.github.io/headshot.jpg">
+    <meta name="twitter:image" content="https://negidamd.github.io/assets/social-card.jpg">
+    <meta name="twitter:image:alt" content="Ahmed Negida, MD, PhD. Translational Neuroscientist: multimodal imaging biomarkers of PD and ADRD">
 
     <meta name="theme-color" content="#162e51">
 
@@ -31,7 +35,9 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129504;</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- JSON-LD structured data for search engines -->
     <script type="application/ld+json">
@@ -917,11 +923,45 @@
             .scroll-progress { display: none; }
         }
         @media print { .scroll-progress, .ch4x-controls, .ch4x-tip { display: none; } }
+
+        /* Collapsible sections on phones */
+        .sec-toggle { display: none; }
+        @media (max-width: 768px) {
+            .sec-toggle { display: inline-flex; align-items: center; gap: .35rem; margin-top: .75rem; font: inherit; font-size: .8rem; font-weight: 700; color: var(--accent);
+                background: #fff; border: 1px solid var(--accent-light); border-radius: 999px; padding: .35rem .9rem; cursor: pointer; }
+            .sec-toggle::after { content: '\25BE'; font-size: .75rem; }
+            .sec-toggle[aria-expanded="true"]::after { content: '\25B4'; }
+            section.is-collapsed .section-inner > :not(.section-header) { display: none; }
+            section.is-collapsed .section-header { margin-bottom: 0; }
+        }
+        main:focus { outline: none; }
+
+        /* Print: a clean, static document */
+        @page { margin: 14mm 14mm 16mm; }
+        @media print {
+            html { font-size: 11.5px; }
+            .hero { padding-top: 0; }
+            .profile-photo img { width: 96px; height: auto; }
+            .fw-media { max-height: 150px; }
+            .pubx, .pubx-empty, .fwx, .rmap-wrap, .ch4x, .latest, .focus-split, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
+            .bridge-mark, .fw-media::after { display: none !important; }
+            .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
+            section.is-collapsed .section-inner > * { display: block !important; }
+            .pub-entry.is-hidden, .pubx-group-hidden { display: block !important; }
+            .fw-item.is-hidden { display: grid !important; }
+            .pillar, .fw-item, .grant-entry, .pub-entry, .timeline-item, .goal, .tool-entry, .award-entry { break-inside: avoid; }
+            .pillar, .fw-item { box-shadow: none !important; transform: none !important; }
+            .fw-grid { gap: .6rem; }
+            .fw-item { grid-template-columns: 110px 1fr; padding: .5rem; }
+            .fw-media { aspect-ratio: auto; }
+            .fw-text p { font-size: .72rem; }
+            section { padding: .9rem 0; }
+        }
     </style>
 </head>
 <body>
     <div class="scroll-progress" aria-hidden="true"></div>
-    <a href="#research" class="skip-link">Skip to main content</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main">
         <div class="nav-inner">
@@ -950,6 +990,7 @@
         </div>
     </nav>
 
+    <main id="main" tabindex="-1">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-inner">
@@ -1783,12 +1824,6 @@
                     <span class="conf-name">AAN 2026</span> &mdash; Psychomotor Vigilance in Lewy Body Diseases: Comparative Performance and Associations. <em>Neurology. 2026;106(11 Suppl 1):1610.</em>
                 </div>
                 <div class="presentation-entry">
-                    <span class="conf-name">AAN 2026</span> &mdash; Effectiveness and Safety of Magnetic Resonance-guided Focused Ultrasound Subthalamotomy. <em>Neurology. 2026;106(11 Suppl 1):3863.</em>
-                </div>
-                <div class="presentation-entry">
-                    <span class="conf-name">AAN 2026</span> &mdash; Argatroban Plus Antiplatelet Therapy Versus Antiplatelet Alone in Acute Ischemic Stroke. <em>Neurology. 2026;106(11 Suppl 1):4509.</em>
-                </div>
-                <div class="presentation-entry">
                     <span class="conf-name">MDS 2025</span> &mdash; Developing disease-duration specific percentiles for prospective subtyping of diffuse-malignant PD. <em>MDS Congress, October 2025.</em>
                 </div>
                 <div class="presentation-entry">
@@ -1915,10 +1950,13 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Ahmed Negida, MD, PhD &middot; Parkinson's &amp; Movement Disorders Center, Department of Neurology, Virginia Commonwealth University, Richmond, VA</p>
         <p style="margin-top: 0.4rem; font-size: 0.8rem; opacity: 0.7; max-width: 680px; margin-left: auto; margin-right: auto;">A personal academic website &mdash; the tools and views presented here are the author's own and are not official products of, or endorsed by, Virginia Commonwealth University. Outside activities, including Negida Research Academy and the research platforms listed here, are disclosed and managed under institutional conflict-of-interest and outside-activity policies.</p>
+        <p style="margin-top: 0.4rem; font-size: 0.78rem; opacity: 0.7;">Last updated <span id="last-updated">September 2026</span></p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;"><a href="https://negidamd.github.io/">Main site</a> &middot; <a href="https://negidamd.github.io/data-driven-pd-subtype-calculator/">Data-driven calculator</a> &middot; <a href="https://negidamd.github.io/ch4-subtyper/">Ch4 calculator</a></p>
     </footer>
 
@@ -1957,10 +1995,33 @@
                 if (!target) return;
                 e.preventDefault();
                 if (id === '#') window.scrollTo({ top: 0, behavior: 'smooth' });
-                else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                else { openSection(target); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                if (target.hasAttribute('tabindex')) target.focus({ preventScroll: true });
                 setMenu(false);
             });
         });
+
+        // ===== Long sections collapse on phones (Career, Talks, Honors & Service) =====
+        function openSection(el) {
+            const sec = el.closest && el.closest('section.collapsible');
+            if (!sec || !sec.classList.contains('is-collapsed')) return;
+            sec.classList.remove('is-collapsed');
+            const b = sec.querySelector('.sec-toggle'); if (b) { b.setAttribute('aria-expanded', 'true'); b.textContent = 'Hide'; }
+        }
+        ['appointments', 'presentations', 'honors'].forEach(id => {
+            const sec = document.getElementById(id); if (!sec) return;
+            const head = sec.querySelector('.section-header'); const inner = sec.querySelector('.section-inner');
+            const count = inner.querySelectorAll('.timeline-item, .lecture-entry, .presentation-entry, .award-entry, .service-block').length;
+            const b = document.createElement('button'); b.type = 'button'; b.className = 'sec-toggle';
+            b.setAttribute('aria-expanded', 'false'); b.textContent = 'Show ' + count + ' items';
+            b.addEventListener('click', () => {
+                const open = sec.classList.toggle('is-collapsed') === false;
+                b.setAttribute('aria-expanded', open); b.textContent = open ? 'Hide' : 'Show ' + count + ' items';
+            });
+            head.appendChild(b); sec.classList.add('collapsible', 'is-collapsed');
+        });
+        if (location.hash) { const t0 = document.getElementById(location.hash.slice(1)); if (t0) openSection(t0); }
+        addEventListener('hashchange', () => { const t1 = document.getElementById(location.hash.slice(1)); if (t1) openSection(t1); });
 
         // ===== Fade-In Observer =====
         const fadeObserver = new IntersectionObserver((entries) => {
@@ -2288,6 +2349,12 @@
             }
         })();
 
+
+        // ===== Footer: last-updated date from the server's Last-Modified header =====
+        (function lastUpdated() {
+            const el = document.getElementById('last-updated'), d = new Date(document.lastModified);
+            if (el && !isNaN(d) && d.getFullYear() >= 2026 && d <= new Date()) el.textContent = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        })();
 
         // ===== Google Scholar metrics (data/scholar.json is refreshed weekly by a GitHub Action) =====
         (function scholarMetrics() {
