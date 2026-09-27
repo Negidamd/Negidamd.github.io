@@ -822,7 +822,7 @@
         .fw-ref { margin-top: .4rem; }
         .fw-ref a { font-weight: 600; font-size: .8rem; }
         .fw-lic { font-size: .66rem; color: var(--text-muted); margin-left: .35rem; }
-        .fw-lightbox { border: none; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: visible; }
+        .fw-lightbox { margin: auto; border: none; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: visible; }
         .fw-lightbox::backdrop { background: rgba(6,11,22,.82); backdrop-filter: blur(3px); }
         .fw-lightbox[open] { animation: fwIn .35s var(--ease-out); }
         @keyframes fwIn { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
@@ -831,12 +831,9 @@
         .fw-close { all: unset; position: absolute; top: -.9rem; right: -.9rem; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #fff; color: #162e51;
             display: grid; place-items: center; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
         .fw-close:focus-visible { outline: 2px solid var(--heat-2); }
-        .fwx { display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; margin: -.25rem 0 1.25rem; }
-        .fwx[hidden] { display: none; }
-        .fw-item.is-hidden { display: none; }
-        .fw-item.is-shown { animation: fwShow .35s var(--ease-out); }
-        @keyframes fwShow { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-        @media (prefers-reduced-motion: reduce) { .fw-item.is-shown { animation: none; } }
+        .fw-item.fw-wide { grid-template-columns: 1fr; }
+        .fw-wide .fw-media { aspect-ratio: auto; }
+        .fw-wide .fw-media img { height: auto; }
         /* Latest first-author papers */
         .latest { margin: 0 0 1.75rem; padding: 1rem 1.2rem .9rem; border: 1px solid var(--border-light); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: #fff; }
         .latest-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .5rem; }
@@ -933,12 +930,11 @@
             .hero { padding-top: 0; }
             .profile-photo img { width: 96px; height: auto; }
             .fw-media { max-height: 150px; }
-            .pubx, .pubx-empty, .fwx, .rmap-wrap, .ch4x, .latest, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
+            .pubx, .pubx-empty, .rmap-wrap, .ch4x, .latest, .conf-photos, .fw-lightbox, .sec-toggle, .skip-link,
             .bridge-mark, .fw-media::after { display: none !important; }
             .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
             section.is-collapsed .section-inner > * { display: block !important; }
             .pub-entry.is-hidden, .pubx-group-hidden { display: block !important; }
-            .fw-item.is-hidden { display: grid !important; }
             .pillar, .fw-item, .grant-entry, .pub-entry, .timeline-item, .goal, .tool-entry, .award-entry { break-inside: avoid; }
             .pillar, .fw-item { box-shadow: none !important; transform: none !important; }
             .fw-grid { gap: .6rem; }
@@ -1193,25 +1189,6 @@
         <div class="section-inner">
             <div class="section-header">
                 <h2>Featured Work</h2>
-                <p>Figures from published papers, manuscripts pending publication, and ongoing analyses. Click any figure to enlarge.</p>
-            </div>
-
-            <div class="fwx" id="fwx" hidden>
-                <div class="pubx-row" role="group" aria-label="Filter by method">
-                    <span class="pubx-label">Method</span>
-                    <button type="button" class="pubx-chip" data-f="method" data-v="">All</button>
-                    <button type="button" class="pubx-chip" data-f="method" data-v="ch4">Ch4 imaging</button>
-                    <button type="button" class="pubx-chip" data-f="method" data-v="eeg">EEG</button>
-                    <button type="button" class="pubx-chip" data-f="method" data-v="subtyping">Subtyping &amp; progression</button>
-                    <button type="button" class="pubx-chip" data-f="method" data-v="global">Global health</button>
-                </div>
-                <div class="pubx-row" role="group" aria-label="Filter by status">
-                    <span class="pubx-label">Status</span>
-                    <button type="button" class="pubx-chip" data-f="status" data-v="">All</button>
-                    <button type="button" class="pubx-chip" data-f="status" data-v="published">Published</button>
-                    <button type="button" class="pubx-chip" data-f="status" data-v="preprint">Preprint</button>
-                    <button type="button" class="pubx-chip" data-f="status" data-v="ongoing">Ongoing</button>
-                </div>
             </div>
 
             <div class="fw-grid">
@@ -1227,14 +1204,14 @@
                         <p class="fw-lic" style="margin-left:0;">Illustration: Julich-Brain Ch4 on the MNI152 template (not a figure from the article).</p>
                     </div>
                 </article>
-                <article class="fw-item" data-method="eeg" data-status="published">
-                    <button type="button" class="fw-media" data-full="assets/featured/eeg_mechanism.jpg" aria-label="Enlarge: mechanism linking Ch4 cholinergic loss to EEG slowing">
-                        <img src="assets/featured/eeg_mechanism_tile.jpg" alt="Schematic of cholinergic neuron degeneration in the nucleus basalis of Meynert and thalamic relay neuron deafferentation" loading="lazy">
+                <article class="fw-item fw-wide" data-method="eeg" data-status="published">
+                    <button type="button" class="fw-media" data-full="assets/featured/eeg_df_topomap.jpg" aria-label="Enlarge: topographic maps of dominant EEG frequency">
+                        <img class="fw-true-color" src="assets/featured/eeg_df_topomap_tile.jpg" width="720" height="286" alt="Topographic heat maps of mean dominant EEG frequency with eyes closed: mostly blue to yellow (about 6 to 7 Hz) in patients with cognitive fluctuations and red (about 8 Hz) in patients without" loading="lazy">
                     </button>
                     <div class="fw-text">
                         <span class="fw-status is-published">Published</span>
                         <h3>Slower resting EEG rhythms flag cognitive fluctuations in Lewy body disease</h3>
-                        <p>Eyes-closed resting EEG in 53 patients across the Lewy body spectrum. Patients with fluctuations had lower dominant frequency, dominant-alpha prevalence, and individual alpha peak frequency after adjusting for age, sex, and MoCA; an elastic-net model detected fluctuations with AUC&nbsp;0.86. The schematic shows the proposed Ch4-thalamocortical mechanism.</p>
+                        <p>Eyes-closed resting EEG in 53 patients across the Lewy body spectrum. Patients with fluctuations had lower dominant frequency, dominant-alpha prevalence, and individual alpha peak frequency after adjusting for age, sex, and MoCA; an elastic-net model detected fluctuations with AUC&nbsp;0.86. The topographic maps show mean dominant frequency at every electrode: about 6&ndash;7&nbsp;Hz in patients with fluctuations versus about 8&nbsp;Hz in those without.</p>
                         <p class="fw-ref"><a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank"><em>Alzheimer's Research &amp; Therapy</em>, 2026 &rarr;</a> <span class="fw-lic">CC BY 4.0</span></p>
                     </div>
                 </article>
@@ -2600,34 +2577,6 @@
             }), { threshold: 0.6 });
             els.forEach(el => io.observe(el));
         })();
-        // ===== Featured Work filters =====
-        (function featuredFilters() {
-            const root = document.getElementById('fwx');
-            if (!root) return;
-            const items = [...document.querySelectorAll('.fw-item[data-method]')];
-            const chips = [...root.querySelectorAll('.pubx-chip')];
-            const state = { method: '', status: '' };
-            const has = (el, f, v) => !v || (f === 'method' ? el.dataset.method.split(' ').includes(v) : el.dataset.status === v);
-            function render() {
-                items.forEach(el => {
-                    const ok = has(el, 'method', state.method) && has(el, 'status', state.status);
-                    const was = !el.classList.contains('is-hidden');
-                    el.classList.toggle('is-hidden', !ok);
-                    el.classList.toggle('is-shown', ok && !was);
-                    if (ok) el.classList.add('in');
-                });
-                chips.forEach(c => {
-                    const f = c.dataset.f, v = c.dataset.v, other = f === 'method' ? 'status' : 'method', on = state[f] === v;
-                    const cnt = items.filter(el => has(el, f, v) && has(el, other, state[other])).length;
-                    let n = c.querySelector('.n'); if (!n) { n = document.createElement('span'); n.className = 'n'; c.appendChild(n); }
-                    n.textContent = cnt; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); c.disabled = !on && !!v && cnt === 0;
-                });
-            }
-            chips.forEach(c => c.addEventListener('click', () => { const f = c.dataset.f; state[f] = state[f] === c.dataset.v ? '' : c.dataset.v; render(); }));
-            root.hidden = false;
-            render();
-        })();
-
         // ===== Featured Work lightbox =====
         (function featuredLightbox() {
             const dlg = document.getElementById('fw-lightbox');
