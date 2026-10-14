@@ -896,6 +896,23 @@
             .scroll-progress { left: var(--sidebar-w); }
         }
         @media print { body { padding-left: 0; } nav { display: none; } }
+
+        /* Publication tags (by-year list) */
+        .pub-year { margin-top: 1.75rem; }
+        .pub-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .3rem; }
+        .ptag { font-size: .68rem; font-weight: 700; letter-spacing: .02em; padding: .1rem .5rem; border-radius: 999px; line-height: 1.5; }
+        .ptag-role { color: var(--accent-darker); border: 1px solid var(--accent); background: #fff; }
+        .ptag-note { color: var(--text-muted); border: 1px solid var(--border); background: #fff; }
+        .ptag-pd { background: #e1eefa; color: #0b4a7d; }
+        .ptag-lbd { background: #efe6f7; color: #5b2a86; }
+        .ptag-dem { background: #fbeadb; color: #8a3b00; }
+        .ptag-hd { background: #e0f2ef; color: #0e5c52; }
+        .ptag-dys { background: #e9f3e1; color: #2f5d12; }
+        .ptag-tbi { background: #f1f1f1; color: #3d4551; }
+        .pub-entry .pub-authors a { text-decoration: none; }
+        .pub-entry .pub-authors a:hover { text-decoration: underline; }
+        .pub-journal { color: var(--text-primary); font-weight: 700; }
+        @media print { .ptag { border: 1px solid #999; background: #fff !important; color: #000 !important; } }
     </style>
 </head>
 <body>
@@ -1028,7 +1045,6 @@
             <div class="section-header">
                 <h2>Research Support</h2>
             </div>
-            <p class="cv-note" style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:1.25rem;">Contributing role as a postdoctoral researcher on NIH awards led by Matthew J. Barrett, MD, MS (VCU).</p>
 
             <h3 class="subsection-title" style="margin-top: 0;">Postdoctoral Salary Support (PI: Matthew J. Barrett, MD, MS)</h3>
             <div class="grant-entry">
@@ -1069,128 +1085,148 @@
                 <h2>Publications</h2>
             </div>
 
-
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem;">Selected papers. The full list is on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
-
-            <p class="pub-legend"><sup>*</sup> Trainee I mentored &nbsp;&middot;&nbsp; (first) / (senior): my author position</p>
-
-            <h3 class="subsection-title" style="margin-top: 0;">Cholinergic Imaging and EEG Biomarkers</h3>
+            <h3 class="subsection-title pub-year">2026</h3>
             <div class="pub-list">
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span><span class="ptag ptag-note">Preprint</span></div>
                     <div class="pub-title">Multimodal MRI characterization of nucleus basalis of Meynert degeneration: structural atrophy and free-water diffusion in Parkinson's disease cognitive impairment</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Zaman A, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.64898/2026.06.08.26355183" target="_blank">medRxiv preprint (under review), 2026</a></div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Zaman A, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.64898/2026.06.08.26355183" target="_blank"><strong class="pub-journal" data-j="medRxiv preprint (under review)">medRxiv preprint (under review)</strong>, 2026</a></div>
                 </div>
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-lbd">Lewy body dementia</span></div>
                     <div class="pub-title">Resting-state EEG features of cognitive fluctuations across the Lewy body disease spectrum</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Lageman SK, Ono K, Ahsan MM, Mukhopadhyay N, Barrett MJ &middot; <a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank">Alzheimer's Research &amp; Therapy, 2026</a></div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Lageman SK, Ono K, Ahsan MM, Mukhopadhyay N, Barrett MJ &middot; <a href="https://doi.org/10.1186/s13195-026-02148-8" target="_blank"><strong class="pub-journal" data-j="Alzheimer's Research &amp; Therapy">Alzheimer's Research &amp; Therapy</strong>, 2026</a></div>
                 </div>
                 <div class="pub-entry">
-                    <div class="pub-title">Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: A new subtype?</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ &middot; <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank">Parkinsonism & Related Disorders, 2025</a></div>
-                </div>
-            </div>
-
-            <h3 class="subsection-title">Parkinson's Disease Subtypes and Progression</h3>
-            <div class="pub-list">
-                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
                     <div class="pub-title">Comparative analysis of progression milestones across PD clinical, pathological, and data-driven subtypes: 10-year follow-up</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Mukhopadhyay N, Berman BD, Barrett MJ &middot; <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank">npj Parkinson's Disease, 2026</a></div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Mukhopadhyay N, Berman BD, Barrett MJ &middot; <a href="https://doi.org/10.1038/s41531-026-01430-8" target="_blank"><strong class="pub-journal" data-j="npj Parkinson's Disease">npj Parkinson's Disease</strong>, 2026</a></div>
                 </div>
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
                     <div class="pub-title">Disease-duration–specific percentiles for prospective subtyping of Parkinson's disease: A PPMI-based study</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Mukhopadhyay N, Berman BD, Fereshtehnejad SM, Barrett MJ &middot; <a href="https://doi.org/10.1002/mdc3.70740" target="_blank">Movement Disorders Clinical Practice, 2026</a></div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Mukhopadhyay N, Berman BD, Fereshtehnejad SM, Barrett MJ &middot; <a href="https://doi.org/10.1002/mdc3.70740" target="_blank"><strong class="pub-journal" data-j="Movement Disorders Clinical Practice">Movement Disorders Clinical Practice</strong>, 2026</a></div>
                 </div>
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
                     <div class="pub-title">Genetic associations of Parkinson's disease clinical, pathological, and data-driven subtypes</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Abouelmagd ME<sup>*</sup>, Hamed BM<sup>*</sup>, et al. &middot; <a href="https://doi.org/10.3390/genes17040449" target="_blank">Genes (Basel), 2026;17(4):449</a></div>
-                </div>
-            </div>
-
-            <h3 class="subsection-title">Treatment Patterns in Dementia and Movement Disorders</h3>
-            <div class="pub-list">
-                <div class="pub-entry">
-                    <div class="pub-title">Cholinesterase inhibitors for patients with dementia: Patterns of prescribing and disparities in treatment</div>
-                    <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Barrett MJ, et al. &middot; <a href="https://doi.org/10.1177/13872877251411418" target="_blank">Journal of Alzheimer's Disease, 2026</a></div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Abouelmagd ME, Hamed BM, et al. &middot; <a href="https://doi.org/10.3390/genes17040449" target="_blank"><strong class="pub-journal" data-j="Genes (Basel)">Genes (Basel)</strong>, 2026;17(4):449</a></div>
                 </div>
                 <div class="pub-entry">
-                    <div class="pub-title">Patterns and predictors of cholinesterase inhibitor use in dementia with Lewy bodies</div>
-                    <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.1002/trc2.70136" target="_blank">Alzheimer's & Dementia: TRCI, 2025</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Oral medication treatment patterns in blepharospasm and Meige syndrome: a multi-institutional TriNetX study</div>
-                    <div class="pub-authors">Heo RJ, Mukhopadhyay N, Dintino C, <strong>Negida A</strong>, Barrett MJ, Berman BD &middot; <a href="https://doi.org/10.3389/dyst.2025.15368" target="_blank">Dystonia, 2025</a></div>
-                </div>
-            </div>
-
-            <h3 class="subsection-title">Other Clinical Studies</h3>
-            <div class="pub-list">
-                <div class="pub-entry">
-                    <div class="pub-title">Optimizing screening for intrastriatal interventions in Huntington's disease using predictive models</div>
-                    <div class="pub-authors">Barrett MJ, <strong>Negida A</strong>, Mukhopadhyay N, et al. &middot; <a href="https://doi.org/10.1002/mds.29749" target="_blank">Movement Disorders, 2024</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Neuropsychological determinants of impairment in activities of daily living in patients with Lewy body dementia</div>
-                    <div class="pub-authors">Desai N, Nawaz H, Mukhopadhyay ND, ... <strong>Negida A</strong>, ... Barrett MJ &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/39493124/" target="_blank">Cureus, 2024</a></div>
-                </div>
-            </div>
-
-            <h3 class="subsection-title">Multicenter Consortium Study (Co-Principal Investigator)</h3>
-            <div class="pub-list">
-                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">Co-principal investigator</span><span class="ptag ptag-tbi">Traumatic brain injury</span></div>
                     <div class="pub-title">Traumatic brain injury outcomes across human development index strata in 29 countries</div>
-                    <div class="pub-authors">Nugent JG, Tan H, Stedelin B, et al.; <strong>Negida A</strong>, Raslan AM; on behalf of the GNS-I Collaborators &middot; <a href="https://doi.org/10.1038/s41591-026-04600-6" target="_blank"><strong>Nature Medicine</strong>, 2026</a></div>
+                    <div class="pub-authors">Nugent JG, Tan H, Stedelin B, et al.; <strong>Negida A</strong>, Raslan AM; on behalf of the GNS-I Collaborators &middot; <a href="https://doi.org/10.1038/s41591-026-04600-6" target="_blank"><strong class="pub-journal" data-j="Nature Medicine">Nature Medicine</strong>, 2026</a></div>
                     <div class="pub-authors">PMID: 42618631. Role: Co-Principal Investigator, Steering Committee and Writing Group. Prospective study of 2,165 patients with traumatic brain injury at 100 hospitals in 29 countries; flagship study of the Global NeuroSurg Research Collaborative, which I co-founded.</div>
                 </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">Senior author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">Efficacy and safety of apomorphine in the treatment of Parkinson's disease: a systematic review and meta-analysis of randomized controlled trials</div>
+                    <div class="pub-authors">Abouelmagd ME, Abbas A, Yousef O, et al.; <strong>Negida A</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/42027696/" target="_blank"><strong class="pub-journal" data-j="Therapeutic Advances in Neurological Disorders">Therapeutic Advances in Neurological Disorders</strong>, 2026</a></div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-dem">Dementia</span></div>
+                    <div class="pub-title">Cholinesterase inhibitors for patients with dementia: Patterns of prescribing and disparities in treatment</div>
+                    <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Barrett MJ, et al. &middot; <a href="https://doi.org/10.1177/13872877251411418" target="_blank"><strong class="pub-journal" data-j="Journal of Alzheimer's Disease">Journal of Alzheimer's Disease</strong>, 2026</a></div>
+                </div>
             </div>
 
-            <h3 class="subsection-title">Reviews and Evidence Synthesis (Selected)</h3>
+            <h3 class="subsection-title pub-year">2025</h3>
             <div class="pub-list">
                 <div class="pub-entry">
-                    <div class="pub-title">Efficacy and safety of apomorphine in the treatment of Parkinson's disease: a systematic review and meta-analysis of randomized controlled trials</div>
-                    <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Abbas A, Yousef O, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/42027696/" target="_blank">Therapeutic Advances in Neurological Disorders, 2026</a></div>
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">Parkinson's disease mild cognitive impairment with MRI evidence of cholinergic nucleus 4 degeneration: A new subtype?</div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Vohra HZ, Lageman SK, Mukhopadhyay N, Berman BD, Weintraub D, Barrett MJ &middot; <a href="https://doi.org/10.1016/j.parkreldis.2025.108072" target="_blank"><strong class="pub-journal" data-j="Parkinsonism & Related Disorders">Parkinsonism & Related Disorders</strong>, 2025</a></div>
                 </div>
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span><span class="ptag ptag-note">Book chapter</span></div>
+                    <div class="pub-title">Chapter 14: Epidemiology and risk factors of Parkinson's disease</div>
+                    <div class="pub-authors"><strong>Negida A</strong>, et al. &middot; In: <em>Essential Guide to Neurodegenerative Disorders</em>. <strong class="pub-journal">Academic Press</strong>, 2025; pp 225&ndash;234</div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">Senior author</span><span class="ptag ptag-dem">Dementia</span></div>
                     <div class="pub-title">Comparative safety of cholinesterase inhibitors and memantine for dementia: a protocol for a network meta-analysis of randomized controlled trials</div>
-                    <div class="pub-authors">Abouelmagd ME<sup>*</sup>, Almosilhy NA, Makhlouf HA, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/41188985/" target="_blank">Systematic Reviews, 2025</a></div>
+                    <div class="pub-authors">Abouelmagd ME, Almosilhy NA, Makhlouf HA, et al.; <strong>Negida A</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/41188985/" target="_blank"><strong class="pub-journal" data-j="Systematic Reviews">Systematic Reviews</strong>, 2025</a></div>
                 </div>
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">Senior author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
                     <div class="pub-title">Multimodal diagnostic tools and advanced data models for detection of prodromal Parkinson's disease: a scoping review</div>
-                    <div class="pub-authors">Serag I<sup>*</sup>, Azzam AY, ... <strong>Negida A (senior)</strong> &middot; <a href="https://doi.org/10.1186/s12880-025-01620-5" target="_blank">BMC Medical Imaging, 2025</a></div>
+                    <div class="pub-authors">Serag I, Azzam AY, ... <strong>Negida A</strong> &middot; <a href="https://doi.org/10.1186/s12880-025-01620-5" target="_blank"><strong class="pub-journal" data-j="BMC Medical Imaging">BMC Medical Imaging</strong>, 2025</a></div>
                 </div>
                 <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-lbd">Lewy body dementia</span></div>
+                    <div class="pub-title">Patterns and predictors of cholinesterase inhibitor use in dementia with Lewy bodies</div>
+                    <div class="pub-authors">Heo RJ, <strong>Negida A</strong>, Wyman-Chick KA, et al. &middot; <a href="https://doi.org/10.1002/trc2.70136" target="_blank"><strong class="pub-journal" data-j="Alzheimer's & Dementia: TRCI">Alzheimer's & Dementia: TRCI</strong>, 2025</a></div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-dys">Dystonia</span></div>
+                    <div class="pub-title">Oral medication treatment patterns in blepharospasm and Meige syndrome: a multi-institutional TriNetX study</div>
+                    <div class="pub-authors">Heo RJ, Mukhopadhyay N, Dintino C, <strong>Negida A</strong>, Barrett MJ, Berman BD &middot; <a href="https://doi.org/10.3389/dyst.2025.15368" target="_blank"><strong class="pub-journal" data-j="Dystonia">Dystonia</strong>, 2025</a></div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-dys">Dystonia</span></div>
                     <div class="pub-title">Subthalamic nucleus versus globus pallidus internus deep brain stimulation in the treatment of dystonia: a systematic review and meta-analysis of safety and efficacy</div>
-                    <div class="pub-authors">Yousef O, Abbas A, Abdelmeseh M, ... <strong>Negida A</strong>, ... Berman BD &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/39647323/" target="_blank">Journal of Clinical Neuroscience, 2025</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Statins and Parkinson's disease risk reduction and disease-modification: A meta-analysis of 4 million participants</div>
-                    <div class="pub-authors">Mady A<sup>*</sup>, Nabil Y, ... Barrett MJ, Berman B, <strong>Negida A (senior)</strong> &middot; <a href="https://doi.org/10.1111/cns.14888" target="_blank">CNS Neuroscience & Therapeutics, 2024</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Efficacy of the iron-chelating agent, deferiprone, in patients with Parkinson's disease: A systematic review and meta-analysis</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Hassan NM, Aboeldahab H, et al. &middot; <a href="https://doi.org/10.1111/cns.14607" target="_blank">CNS Neuroscience & Therapeutics, 2024</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Do cerebral microbleeds increase the risk of dementia? A systematic review and meta-analysis</div>
-                    <div class="pub-authors">Hussein AS, Shawqi M, Bahbah EI, et al.; <strong>Negida A (senior)</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/36632242/" target="_blank">IBRO Neuroscience Reports, 2023</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Mavoglurant (AFQ056) for the treatment of levodopa-induced dyskinesia in patients with Parkinson's disease: a meta-analysis</div>
-                    <div class="pub-authors"><strong>Negida A (first)</strong>, Ghaith HS<sup>*</sup>, Fala SY, et al. &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/34014397/" target="_blank">Neurological Sciences, 2021</a></div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">C-Abl inhibition: A novel therapeutic target for Parkinson's disease</div>
-                    <div class="pub-authors">Abushouk AI, <strong>Negida A</strong>, et al. &middot; CNS & Neurological Disorders - Drug Targets, 2018</div>
-                </div>
-                <div class="pub-entry">
-                    <div class="pub-title">Caffeine: The forgotten potential for Parkinson's disease</div>
-                    <div class="pub-authors"><strong>Negida A</strong>, Elfil M, Attia A, et al. &middot; CNS & Neurological Disorders - Drug Targets, 2017</div>
+                    <div class="pub-authors">Yousef O, Abbas A, Abdelmeseh M, ... <strong>Negida A</strong>, ... Berman BD &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/39647323/" target="_blank"><strong class="pub-journal" data-j="Journal of Clinical Neuroscience">Journal of Clinical Neuroscience</strong>, 2025</a></div>
                 </div>
             </div>
 
-            <!-- Book Chapter -->
-            <div class="book-chapter">
-                <h3>Book Chapter</h3>
-                <p><strong>Negida A</strong>, et al. Chapter 14: Epidemiology and risk factors of Parkinson's disease. In: <em>Essential Guide to Neurodegenerative Disorders</em>. Academic Press, 2025; pp 225&ndash;234.</p>
+            <h3 class="subsection-title pub-year">2024</h3>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">Efficacy of the iron-chelating agent, deferiprone, in patients with Parkinson's disease: A systematic review and meta-analysis</div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Hassan NM, Aboeldahab H, et al. &middot; <a href="https://doi.org/10.1111/cns.14607" target="_blank"><strong class="pub-journal" data-j="CNS Neuroscience & Therapeutics">CNS Neuroscience & Therapeutics</strong>, 2024</a></div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">Senior author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">Statins and Parkinson's disease risk reduction and disease-modification: A meta-analysis of 4 million participants</div>
+                    <div class="pub-authors">Mady A, Nabil Y, ... Barrett MJ, Berman B, <strong>Negida A</strong> &middot; <a href="https://doi.org/10.1111/cns.14888" target="_blank"><strong class="pub-journal" data-j="CNS Neuroscience & Therapeutics">CNS Neuroscience & Therapeutics</strong>, 2024</a></div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-hd">Huntington's disease</span></div>
+                    <div class="pub-title">Optimizing screening for intrastriatal interventions in Huntington's disease using predictive models</div>
+                    <div class="pub-authors">Barrett MJ, <strong>Negida A</strong>, Mukhopadhyay N, et al. &middot; <a href="https://doi.org/10.1002/mds.29749" target="_blank"><strong class="pub-journal" data-j="Movement Disorders">Movement Disorders</strong>, 2024</a></div>
+                </div>
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-lbd">Lewy body dementia</span></div>
+                    <div class="pub-title">Neuropsychological determinants of impairment in activities of daily living in patients with Lewy body dementia</div>
+                    <div class="pub-authors">Desai N, Nawaz H, Mukhopadhyay ND, ... <strong>Negida A</strong>, ... Barrett MJ &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/39493124/" target="_blank"><strong class="pub-journal" data-j="Cureus">Cureus</strong>, 2024</a></div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title pub-year">2023</h3>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">Senior author</span><span class="ptag ptag-dem">Dementia</span></div>
+                    <div class="pub-title">Do cerebral microbleeds increase the risk of dementia? A systematic review and meta-analysis</div>
+                    <div class="pub-authors">Hussein AS, Shawqi M, Bahbah EI, et al.; <strong>Negida A</strong> &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/36632242/" target="_blank"><strong class="pub-journal" data-j="IBRO Neuroscience Reports">IBRO Neuroscience Reports</strong>, 2023</a></div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title pub-year">2021</h3>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">Mavoglurant (AFQ056) for the treatment of levodopa-induced dyskinesia in patients with Parkinson's disease: a meta-analysis</div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Ghaith HS, Fala SY, et al. &middot; <a href="https://pubmed.ncbi.nlm.nih.gov/34014397/" target="_blank"><strong class="pub-journal" data-j="Neurological Sciences">Neurological Sciences</strong>, 2021</a></div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title pub-year">2018</h3>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">C-Abl inhibition: A novel therapeutic target for Parkinson's disease</div>
+                    <div class="pub-authors">Abushouk AI, <strong>Negida A</strong>, et al. &middot; <strong class="pub-journal" data-j="CNS & Neurological Disorders - Drug Targets">CNS & Neurological Disorders - Drug Targets</strong>, 2018</div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title pub-year">2017</h3>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-tags"><span class="ptag ptag-role">First author</span><span class="ptag ptag-pd">Parkinson's disease</span></div>
+                    <div class="pub-title">Caffeine: The forgotten potential for Parkinson's disease</div>
+                    <div class="pub-authors"><strong>Negida A</strong>, Elfil M, Attia A, et al. &middot; <strong class="pub-journal" data-j="CNS & Neurological Disorders - Drug Targets">CNS & Neurological Disorders - Drug Targets</strong>, 2017</div>
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 1.5rem;">
@@ -1203,7 +1239,6 @@
         <div class="section-inner">
             <div class="section-header">
                 <h2>Research Software</h2>
-                <p>Open-source and web-deployed tools</p>
             </div>
 
 
@@ -1276,14 +1311,6 @@
                     </div>
                 </div>
 
-                <div class="tool-entry">
-                    <h4>Neuroimaging Pipelines</h4>
-                    <div class="tool-meta">End-to-End Workflows</div>
-                    <p>Comprehensive pipelines for structural, functional, and diffusion MRI analysis including VBM, cortical thickness, DTI-ALPS for glymphatic function, and multimodal integration.</p>
-                    <div class="tool-links-inline">
-                        <a href="https://github.com/negidamd" target="_blank">GitHub &rarr;</a>
-                    </div>
-                </div>
             </div>
 
             <h3 class="subsection-title">Evidence Synthesis</h3>
@@ -1374,9 +1401,6 @@
                     <span class="conf-name">AAN 2024</span> &mdash; Comparing NIH Toolbox-cognition Battery and MoCA in Parkinson's. <em>American Academy of Neurology, 2024.</em>
                 </div>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted);">
-                Additional presentations at MDS, AAN, WFNS, WSO, EANS, and other international conferences (2014&ndash;2026).
-            </p>
         </div>
     </section>
 
