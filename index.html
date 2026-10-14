@@ -857,6 +857,70 @@
             .fw-text p { font-size: .72rem; }
             section { padding: .9rem 0; }
         }
+
+        /* ===================================================================
+           Minimal layer + left sidebar navigation (Oct 2026).
+           Research program, contribution cards, Ch4 explorer and Featured Work keep their styling.
+           =================================================================== */
+        body { background: #fff; }
+        /* Navigation: light bar on phones, left sidebar on wide screens */
+        nav { background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border-light); backdrop-filter: blur(6px); }
+        nav .logo { color: var(--accent-darker); font-family: var(--font-serif); font-weight: 900; }
+        nav .logo span { color: var(--accent-darker); }
+        nav .nav-links a { color: var(--text-secondary); }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--accent-darker); background: var(--bg-lighter); }
+        nav .nav-links a.nav-cv { color: var(--accent); border-color: var(--accent); }
+        nav .nav-links a.nav-cv:hover { color: #fff; background: var(--accent); }
+        .mobile-menu span { background: var(--accent-darker); }
+        @media (max-width: 768px) {
+            nav .nav-links.open { background: #fff; border-bottom: 1px solid var(--border-light); }
+        }
+        /* Hero: no rule underneath, quieter buttons */
+        .hero { border-bottom: none; padding-bottom: 1.5rem; }
+        .hero-content h1 { color: var(--text-primary); }
+        .hero-content .credentials { color: var(--text-secondary); font-weight: 600; }
+        .btn-secondary { border: 1px solid var(--border); color: var(--text-primary); }
+        .btn-secondary:hover { background: var(--bg-lighter); color: var(--accent-darker); border-color: var(--accent); }
+        .btn:hover { box-shadow: none; }
+        /* Metrics: hairline strip instead of a dark band */
+        .metrics-bar { background: #fff; color: var(--text-primary); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        .metric-number { color: var(--accent-darker); }
+        .metric-label { color: var(--text-muted); }
+        /* Section headings: sentence case, no underline bar */
+        section { border-bottom: none; padding-top: 3rem; padding-bottom: 1.5rem; }
+        .section-header h2 { text-transform: none; letter-spacing: 0; font-size: 1.55rem; color: var(--text-primary); border-bottom: none; padding-bottom: 0; }
+        .section-header h2::after { display: none; }
+        .subsection-title { text-transform: none; letter-spacing: 0; }
+        /* Contribution cards span the full width now that the stat column is gone */
+        .pillar { grid-template-columns: minmax(0, 1fr); }
+        /* CV timeline: drop the coloured institution badges */
+        .inst-badge { display: none; }
+        .timeline-item.has-badge { padding-left: 1.25rem; }
+        .timeline-item.has-badge::before { display: block; }
+        /* Footer: plain */
+        footer { background: #fff; color: var(--text-muted); border-top: 1px solid var(--border-light); }
+        footer a { color: var(--text-secondary); }
+
+        @media (min-width: 1024px) {
+            :root { --sidebar-w: 220px; }
+            body { padding-left: var(--sidebar-w); }
+            nav { top: 0; bottom: 0; left: 0; right: auto; width: var(--sidebar-w);
+                border-bottom: none; border-right: 1px solid var(--border-light); background: #fff; backdrop-filter: none; }
+            nav .nav-inner { height: 100%; max-width: none; flex-direction: column; align-items: stretch; justify-content: flex-start;
+                padding: 2rem 1rem 1.5rem; overflow-y: auto; }
+            nav .logo { font-size: 1.2rem; line-height: 1.3; padding: 0 0.75rem 1.25rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-light); }
+            nav .logo span { display: block; }
+            nav .nav-links { flex-direction: column; align-items: stretch; gap: 0.1rem; flex: 1; }
+            nav .nav-links a { display: block; font-size: 0.9rem; font-weight: 500; padding: 0.45rem 0.75rem; border-radius: 6px; border-left: 2px solid transparent; }
+            nav .nav-links a.active { font-weight: 700; border-left-color: var(--accent); border-radius: 0 6px 6px 0; }
+            nav .nav-links li:last-child { margin-top: auto; padding-top: 1rem; }
+            nav .nav-links a.nav-cv { margin-left: 0; text-align: center; font-weight: 700; border: 1px solid var(--accent); border-radius: 6px; }
+            .mobile-menu { display: none; }
+            .hero, .cv-head { padding-top: 3.5rem; }
+            section[id] { scroll-margin-top: 1.5rem; }
+            .scroll-progress { left: var(--sidebar-w); }
+        }
+        @media print { body { padding-left: 0; } nav { display: none; } }
     </style>
 </head>
 <body>
@@ -870,7 +934,7 @@
                 <li><a href="#research">Research</a></li>
                 <li><a href="#featured-work">Featured Work</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#tools">Tools</a></li>
+                <li><a href="#tools">Code &amp; Tools</a></li>
                 <li><a href="#teaching">Teaching</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a class="nav-cv" href="cv/">CV</a></li>
@@ -904,7 +968,7 @@
                 </div>
 
                 <p class="professional-summary">
-                    I develop multimodal imaging biomarkers to stratify patients with Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) for therapeutic trials and to monitor disease progression. My program centers on <strong>cholinergic vulnerability</strong>: I built a multimodal MRI signature of nucleus basalis of Meynert (Ch4) degeneration, complemented MRI with resting-state EEG markers of cognitive fluctuations, and modeled PD progression to identify rapid progressors for trial enrichment.
+                    I develop multimodal MRI and EEG biomarkers to select patients with Parkinson's disease (PD), dementia with Lewy bodies (DLB), and Alzheimer's disease (AD) for therapeutic trials and to track disease progression. My work centers on degeneration of the cholinergic <strong>nucleus basalis of Meynert (Ch4)</strong>.
                 </p>
 
                 <div class="hero-links">
@@ -917,15 +981,6 @@
         </div>
     </section>
 
-    <!-- Key Metrics Bar -->
-    <div class="metrics-bar">
-        <div class="metrics-inner">
-            <div class="metric-item"><div class="metric-number" data-target="8955" data-suffix="" data-scholar="citations">0</div><div class="metric-label">Citations (Google Scholar)</div></div>
-            <div class="metric-item"><div class="metric-number" data-target="46" data-suffix="" data-scholar="h_index">0</div><div class="metric-label">H-Index</div></div>
-            <div class="metric-item"><div class="metric-number" data-target="9" data-suffix="">0</div><div class="metric-label">Open Research Tools</div></div>
-            <div class="metric-item"><div class="metric-number" data-target="50" data-suffix="+">0</div><div class="metric-label">Mentees to first-author papers</div></div>
-        </div>
-    </div>
 
     <!-- Research Section -->
     <section id="research" class="fade-in">
@@ -1157,7 +1212,7 @@
                 <h2>Selected Publications</h2>
             </div>
 
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem;">170+ peer-reviewed publications in total (<span data-scholar="citations">8,955</span> citations; h-index <span data-scholar="h_index">46</span>; i10-index <span data-scholar="i10_index">109</span> on Google Scholar), including 66 systematic reviews, meta-analyses, and scoping reviews, 36 of them senior-author papers led by trainees in my research-training program. Full list on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem;">Selected papers. The full list is on <a href="https://orcid.org/0000-0001-5363-6369" target="_blank" rel="noopener">ORCID</a> and <a href="https://scholar.google.com/citations?user=HURlCI8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
 
             <p class="pub-legend"><sup>*</sup> Trainee I mentored &nbsp;&middot;&nbsp; (first) / (senior): my author position</p>
 
@@ -1214,7 +1269,7 @@
     <section id="tools" class="fade-in">
         <div class="section-inner">
             <div class="section-header">
-                <h2>Research Tools & Software</h2>
+                <h2>Code &amp; Tools</h2>
                 <p>Open-source tools developed for clinical neuroscience and evidence synthesis research</p>
             </div>
 
@@ -1849,6 +1904,22 @@
             }));
             dlg.querySelector('.fw-close').addEventListener('click', () => dlg.close());
             dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+        })();
+
+        // ===== Sidebar: highlight the section in view =====
+        (() => {
+            const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+            const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+            const secs = [...map.keys()].map(id => document.getElementById(id)).filter(Boolean);
+            if (!secs.length) return;
+            const spy = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    links.forEach(a => a.classList.remove('active'));
+                    const a = map.get(e.target.id); if (a) a.classList.add('active');
+                });
+            }, { rootMargin: '-35% 0px -60% 0px' });
+            secs.forEach(s => spy.observe(s));
         })();
     </script>
 </body>
