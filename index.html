@@ -938,6 +938,18 @@
         .pub-entry .pub-authors a:hover { text-decoration: underline; }
         .pub-journal { color: var(--text-primary); font-weight: 700; }
         @media print { .ptag { border: 1px solid #999; background: #fff !important; color: #000 !important; } }
+
+        /* ===== Typography: two typefaces only (Oct 2026) =====
+           Merriweather: name and section titles. Public Sans: everything else. */
+        h3, h4, h5, .subsection-title, .pub-title, .grant-agency, .grant-title, .timeline-item h3, .timeline-item h4,
+        .teaching-block h3, .service-block h3, .tool-entry h4, .contact-block h3, .book-chapter h3,
+        .pillar h4, .fw-text h3, .ch4x-head h3, .ch4x-coord { font-family: var(--font-sans) !important; }
+        .hero-content h1, .cv-head h1, .section-header h2, nav .logo { font-family: var(--font-serif); font-weight: 700; }
+        .ch4x-coord { font-variant-numeric: tabular-nums; }
+        main *, nav *, footer * { text-transform: none !important; letter-spacing: normal !important; }
+        .hero-content .subtitle, .grant-title, .lecture-title { font-style: normal; }
+        .pillar-kicker, .fw-status, .pillar-tools > span, .ch4x-kicker, .ch4x-end, .fw-stat-grid span, .ptag { font-weight: 600; }
+        .pillar h4, .fw-text h3, .ch4x-head h3, .tool-entry h4, .timeline-item h3, .subsection-title { font-weight: 700; }
     </style>
 </head>
 <body>
