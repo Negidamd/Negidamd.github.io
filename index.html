@@ -1109,6 +1109,8 @@
         .fw-grid > .fw-item:nth-child(2) { border-top: 1px solid #dcdcdc !important; padding-top: 1.1rem !important; }
         .fw-text h3 { font-size: 1rem !important; }
         @media (max-width: 700px) { .fw-item { grid-template-columns: minmax(0, 1fr); gap: 0.75rem !important; } }
+        .fw-media, .gal-item img { cursor: default !important; }
+        .fw-media::after { display: none !important; }
     </style>
 </head>
 <body>
@@ -1219,9 +1221,9 @@
 
             <div class="fw-grid">
                 <article class="fw-item" data-method="ch4 subtyping" data-status="published">
-                    <button type="button" class="fw-media" data-full="assets/featured/ch4_red_mni.jpg" aria-label="Enlarge: Ch4 on the MNI152 template">
+                    <div class="fw-media">
                         <img class="fw-true-color" src="assets/featured/ch4_red_mni_tile.jpg" alt="Coronal and axial MNI152 slices with the nucleus basalis of Meynert highlighted in red" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3>Low Ch4 gray-matter density marks a more severe, faster-declining PD-MCI group</h3>
                         <p>Using voxel-based morphometry and probabilistic Ch4 maps in 162 PPMI participants with PD-MCI, we identified 40 with low Ch4 density (below &minus;1 SD). They had worse MDS-UPDRS, autonomic, and olfactory scores and reached cognitive milestones sooner (log-rank <i>p</i>&nbsp;=&nbsp;0.002). The classifier is released as an open research tool.</p>
@@ -1230,9 +1232,9 @@
                     </div>
                 </article>
                 <article class="fw-item" data-method="ch4" data-status="preprint">
-                    <button type="button" class="fw-media" data-full="assets/featured/ch4_gmd_fw.jpg" aria-label="Enlarge: Ch4 gray matter and free water">
+                    <div class="fw-media">
                         <img src="assets/featured/ch4_gmd_fw_tile.jpg" alt="Raincloud plots of Ch4 and Ch1-3 gray-matter density and free-water fraction across HC, PD-NC, PD-MCI, and PDD" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3>Ch4 gray-matter density and free water are independently associated with cognition in PD (preprint)</h3>
                         <p>We combined T1-weighted and free-water diffusion MRI in 92 participants (controls, PD-NC, PD-MCI, PDD). Ch4 gray-matter density was lowest and free water highest in PDD. Only these two Ch4 measures were independently associated with cognition, and together they separated PDD from PD without dementia (exploratory AUC&nbsp;0.93).</p>
@@ -1240,18 +1242,18 @@
                     </div>
                 </article>
                 <article class="fw-item" data-method="ch4" data-status="ongoing">
-                    <button type="button" class="fw-media" data-full="assets/featured/ch4_fc_maps.jpg" aria-label="Enlarge: Ch4 functional connectivity maps">
+                    <div class="fw-media">
                         <img src="assets/featured/ch4_fc_maps_tile.jpg" alt="Axial slices showing positive (red-yellow) and negative (blue) resting-state connectivity of the Ch4 seed" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3>Ch4&ndash;cingulo-opercular connectivity links Ch4 degeneration to cognition</h3>
                         <p>Resting-state fMRI extends the multimodal Ch4 signature. Ch4 connectivity with the attention-related cingulo-opercular network statistically mediated the relationship between Ch4 degeneration and cognition, supporting a candidate circuit link between Ch4 degeneration and cognitive impairment.</p>
                     </div>
                 </article>
                 <article class="fw-item" data-method="eeg" data-status="published">
-                    <button type="button" class="fw-media" data-full="assets/featured/eeg_df_topomap.jpg" aria-label="Enlarge: topographic maps of dominant EEG frequency">
+                    <div class="fw-media">
                         <img class="fw-true-color" src="assets/featured/eeg_df_topomap_tile.jpg" alt="Topographic heat maps of mean dominant EEG frequency with eyes closed: mostly blue to yellow (about 6 to 7 Hz) in patients with cognitive fluctuations and red (about 8 Hz) in patients without" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3>Slower resting EEG rhythms are associated with cognitive fluctuations in Lewy body disease</h3>
                         <p>Eyes-closed resting EEG in 53 patients across the Lewy body spectrum. Patients with fluctuations had lower dominant frequency, dominant-alpha prevalence, and individual alpha peak frequency after adjusting for age, sex, and MoCA; an elastic-net model detected fluctuations with AUC&nbsp;0.86. The topographic maps show mean dominant frequency at every electrode: about 6&ndash;7&nbsp;Hz in patients with fluctuations versus about 8&nbsp;Hz in those without.</p>
@@ -1259,9 +1261,9 @@
                     </div>
                 </article>
                 <article class="fw-item" data-method="subtyping" data-status="published">
-                    <button type="button" class="fw-media" data-full="assets/featured/milestones_km.jpg" aria-label="Enlarge: progression milestones by PD subtype">
+                    <div class="fw-media">
                         <img src="assets/featured/milestones_km_tile.jpg" alt="Kaplan-Meier curves of milestone-free probability for data-driven PD subtypes" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3>Diffuse-malignant PD progresses fastest; enrolling it halved required sample sizes in trial simulations</h3>
                         <p>Over 10 years of PPMI follow-up, we compared clinical, pathological, and data-driven subtypes on milestones across six functional domains using Cox regression. Diffuse-malignant patients reached 63.0% of milestones (PIGD 55.6%, body-first 54.0%), and in trial simulations enrolling them cut the required sample size by about 50%.</p>
@@ -1269,9 +1271,9 @@
                     </div>
                 </article>
                 <article class="fw-item" data-method="subtyping" data-status="published">
-                    <button type="button" class="fw-media" data-full="assets/featured/percentiles_forest.jpg" aria-label="Enlarge: hazard ratios by PD subtype">
+                    <div class="fw-media">
                         <img src="assets/featured/percentiles_forest_tile.jpg" alt="Forest plot of adjusted hazard ratios for diffuse-malignant and intermediate versus mild motor-predominant PD" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3>Year-specific percentiles enable real-time PD subtyping for trial enrollment</h3>
                         <p>Percentile thresholds for motor, cognitive, RBD, and autonomic scores, set for each of the first 5 years after diagnosis (PPMI, N&nbsp;=&nbsp;1,030), classify patients prospectively each year. Diffuse-malignant PD reached a first progression milestone fastest (HR&nbsp;3.03, 95% CI 2.30&ndash;3.97, vs mild motor-predominant).</p>
@@ -1279,9 +1281,9 @@
                     </div>
                 </article>
                 <article class="fw-item" data-method="subtyping" data-status="published">
-                    <button type="button" class="fw-media" data-full="assets/featured/genes_subtypes.jpg" aria-label="Enlarge: genetic associations of PD subtypes">
+                    <div class="fw-media">
                         <img src="assets/featured/genes_subtypes_tile.jpg" alt="Heatmap of gene-variant association strength across four PD subtyping schemes" loading="lazy">
-                    </button>
+                    </div>
                     <div class="fw-text">
                         <h3><i>LRRK2</i> and <i>GBA1</i> map onto different PD subtypes</h3>
                         <p>Variant frequencies were compared across four subtyping frameworks in 1,390 genotyped PPMI patients with FDR correction. <i>LRRK2</i> variants were enriched in &alpha;&#8209;synuclein SAA-negative PD (37.1% vs 10.2%) and <i>GBA1</i> variants in diffuse-malignant PD (14.0% vs 5.9% in mild motor-predominant); the tremor/gait split showed no signal that survived correction.</p>
@@ -1879,19 +1881,19 @@
             <h3 class="subsection-title gal-year">2026</h3>
             <div class="gal-grid">
                 <figure class="gal-item">
-                    <a href="assets/gallery/mds-2026-presenting.jpg" target="_blank" rel="noopener"><img src="assets/gallery/mds-2026-presenting.jpg" alt="Ahmed Negida presenting at a poster station at the MDS Congress 2026" loading="lazy"></a>
+                    <img src="assets/gallery/mds-2026-presenting.jpg" alt="Ahmed Negida presenting at a poster station at the MDS Congress 2026" loading="lazy">
                     <figcaption><strong>MDS International Congress 2026, Korea</strong> &middot; Presenting at the poster station.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/mds-2026-ballroom.jpg" target="_blank" rel="noopener"><img src="assets/gallery/mds-2026-ballroom.jpg" alt="Ahmed Negida in front of the MDS ballroom, MDS Congress 2026" loading="lazy"></a>
+                    <img src="assets/gallery/mds-2026-ballroom.jpg" alt="Ahmed Negida in front of the MDS ballroom, MDS Congress 2026" loading="lazy">
                     <figcaption><strong>MDS International Congress 2026, Korea</strong> &middot; In front of the MDS ballroom.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/mds-2026-students.jpg" target="_blank" rel="noopener"><img src="assets/gallery/mds-2026-students.jpg" alt="Ahmed Negida with a group of his students at the MDS Congress 2026" loading="lazy"></a>
+                    <img src="assets/gallery/mds-2026-students.jpg" alt="Ahmed Negida with a group of his students at the MDS Congress 2026" loading="lazy">
                     <figcaption><strong>MDS International Congress 2026, Korea</strong> &middot; With a group of my students.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/course-roundtable-2026.jpg" target="_blank" rel="noopener"><img src="assets/gallery/course-roundtable-2026.jpg" alt="Roundtable discussion of research protocols with course students" loading="lazy"></a>
+                    <img src="assets/gallery/course-roundtable-2026.jpg" alt="Roundtable discussion of research protocols with course students" loading="lazy">
                     <figcaption><strong>Research training course</strong> &middot; Roundtable discussion of research protocols with my course students.</figcaption>
                 </figure>
             </div>
@@ -1899,19 +1901,19 @@
             <h3 class="subsection-title gal-year">2025</h3>
             <div class="gal-grid">
                 <figure class="gal-item">
-                    <a href="assets/photos/aan-2025-oral.jpg" target="_blank" rel="noopener"><img src="assets/photos/aan-2025-oral.jpg" alt="Ahmed Negida delivering an oral presentation at the AAN 2025 Annual Meeting" loading="lazy"></a>
+                    <img src="assets/photos/aan-2025-oral.jpg" alt="Ahmed Negida delivering an oral presentation at the AAN 2025 Annual Meeting" loading="lazy">
                     <figcaption><strong>AAN Annual Meeting 2025</strong> &middot; Oral presentation: subtyping PD-MCI with MRI evidence of cholinergic nucleus 4 degeneration.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/aan-2025.jpg" target="_blank" rel="noopener"><img src="assets/gallery/aan-2025.jpg" alt="Ahmed Negida at the AAN 2025 Annual Meeting" loading="lazy"></a>
+                    <img src="assets/gallery/aan-2025.jpg" alt="Ahmed Negida at the AAN 2025 Annual Meeting" loading="lazy">
                     <figcaption><strong>AAN Annual Meeting 2025</strong></figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/pmdc-symposium-2025.jpg" target="_blank" rel="noopener"><img src="assets/gallery/pmdc-symposium-2025.jpg" alt="Ahmed Negida presenting on PD-MCI and Ch4 degeneration at the VCU PMDC symposium 2025" loading="lazy"></a>
+                    <img src="assets/gallery/pmdc-symposium-2025.jpg" alt="Ahmed Negida presenting on PD-MCI and Ch4 degeneration at the VCU PMDC symposium 2025" loading="lazy">
                     <figcaption><strong>VCU Parkinson&rsquo;s and Movement Disorders Center Annual Research Symposium 2025</strong> &middot; Talk: PD-MCI with MRI evidence of cholinergic nucleus 4 degeneration.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/students-meeting-2025.jpg" target="_blank" rel="noopener"><img src="assets/gallery/students-meeting-2025.jpg" alt="Ahmed Negida with a large group of his students" loading="lazy"></a>
+                    <img src="assets/gallery/students-meeting-2025.jpg" alt="Ahmed Negida with a large group of his students" loading="lazy">
                     <figcaption><strong>Research training</strong> &middot; Group meeting with my students.</figcaption>
                 </figure>
             </div>
@@ -1919,31 +1921,31 @@
             <h3 class="subsection-title gal-year">2024</h3>
             <div class="gal-grid">
                 <figure class="gal-item">
-                    <a href="assets/photos/mds-2024-poster.jpg" target="_blank" rel="noopener"><img src="assets/photos/mds-2024-poster.jpg" alt="Ahmed Negida presenting a poster on PD-MCI Ch4 subtyping at the MDS Congress 2024" loading="lazy"></a>
+                    <img src="assets/photos/mds-2024-poster.jpg" alt="Ahmed Negida presenting a poster on PD-MCI Ch4 subtyping at the MDS Congress 2024" loading="lazy">
                     <figcaption><strong>MDS International Congress 2024</strong> &middot; Poster on PD-MCI Ch4 subtyping.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/aaic-2024-poster.jpg" target="_blank" rel="noopener"><img src="assets/gallery/aaic-2024-poster.jpg" alt="Ahmed Negida at his AAIC 2024 poster on EEG features of cognitive fluctuations" loading="lazy"></a>
+                    <img src="assets/gallery/aaic-2024-poster.jpg" alt="Ahmed Negida at his AAIC 2024 poster on EEG features of cognitive fluctuations" loading="lazy">
                     <figcaption><strong>AAIC 2024</strong> &middot; Poster: resting-state EEG features of cognitive fluctuations in Lewy body dementia.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/aaic-2024.jpg" target="_blank" rel="noopener"><img src="assets/gallery/aaic-2024.jpg" alt="Ahmed Negida at AAIC 2024" loading="lazy"></a>
+                    <img src="assets/gallery/aaic-2024.jpg" alt="Ahmed Negida at AAIC 2024" loading="lazy">
                     <figcaption><strong>AAIC 2024</strong></figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/pmdc-symposium-2024.jpg" target="_blank" rel="noopener"><img src="assets/gallery/pmdc-symposium-2024.jpg" alt="Ahmed Negida at the VCU PMDC 2nd Annual Research Symposium, 2024" loading="lazy"></a>
+                    <img src="assets/gallery/pmdc-symposium-2024.jpg" alt="Ahmed Negida at the VCU PMDC 2nd Annual Research Symposium, 2024" loading="lazy">
                     <figcaption><strong>VCU Parkinson&rsquo;s and Movement Disorders Center 2nd Annual Research Symposium</strong></figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/aan-2024-poster.jpg" target="_blank" rel="noopener"><img src="assets/gallery/aan-2024-poster.jpg" alt="AAN 2024 poster comparing NIH Toolbox-Cognition Battery and MoCA in Parkinson's disease" loading="lazy"></a>
+                    <img src="assets/gallery/aan-2024-poster.jpg" alt="AAN 2024 poster comparing NIH Toolbox-Cognition Battery and MoCA in Parkinson's disease" loading="lazy">
                     <figcaption><strong>AAN Annual Meeting 2024</strong> &middot; Poster: comparing the NIH Toolbox-Cognition Battery and MoCA in Parkinson&rsquo;s disease.</figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/aan-2024.jpg" target="_blank" rel="noopener"><img src="assets/gallery/aan-2024.jpg" alt="Ahmed Negida at the AAN 2024 Annual Meeting" loading="lazy"></a>
+                    <img src="assets/gallery/aan-2024.jpg" alt="Ahmed Negida at the AAN 2024 Annual Meeting" loading="lazy">
                     <figcaption><strong>AAN Annual Meeting 2024</strong></figcaption>
                 </figure>
                 <figure class="gal-item">
-                    <a href="assets/gallery/students-2024.jpg" target="_blank" rel="noopener"><img src="assets/gallery/students-2024.jpg" alt="Ahmed Negida with a group of research training students" loading="lazy"></a>
+                    <img src="assets/gallery/students-2024.jpg" alt="Ahmed Negida with a group of research training students" loading="lazy">
                     <figcaption><strong>Research training</strong> &middot; With a group of my research training students.</figcaption>
                 </figure>
             </div>
@@ -2541,7 +2543,7 @@
             const dlg = document.getElementById('fw-lightbox');
             if (!dlg || typeof dlg.showModal !== 'function') return;
             const img = dlg.querySelector('img'), cap = dlg.querySelector('.fw-caption');
-            document.querySelectorAll('.fw-media').forEach(btn => btn.addEventListener('click', () => {
+            document.querySelectorAll('.fw-media[data-full]').forEach(btn => btn.addEventListener('click', () => {
                 const item = btn.closest('.fw-item');
                 img.src = btn.dataset.full; img.alt = btn.querySelector('img').alt;
                 cap.textContent = item.querySelector('h3').textContent + ' \u00b7 ' + item.querySelector('.fw-status').textContent;
