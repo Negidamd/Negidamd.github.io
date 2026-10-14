@@ -729,7 +729,7 @@
         .ch4x-controls input[type=range] { flex: 1; min-width: 0; accent-color: #fd8d3c; cursor: pointer; }
         .ch4x-zoom { all: unset; flex: none; cursor: pointer; font-size: .72rem; font-weight: 700; letter-spacing: .03em; color: #fed976; border: 1px solid rgba(254,217,118,.5); padding: .3rem .75rem; border-radius: 999px; transition: background .2s ease, color .2s ease, transform .2s var(--ease-out); }
         .ch4x-zoom:hover, .ch4x-zoom:focus-visible { background: #fed976; color: #1b1b1b; transform: translateY(-1px); }
-        .ch4x-src { font-size: .68rem; color: #7f8ca3; line-height: 1.55; margin-top: .8rem; position: relative; }
+        .ch4x-src { text-align: right; } .ch4x-src { font-size: .68rem; color: #7f8ca3; line-height: 1.55; margin-top: .8rem; position: relative; }
         .ch4x-tip { position: fixed; z-index: 1200; pointer-events: none; background: rgba(6,11,22,.92); color: #fff; border: 1px solid rgba(253,141,60,.6);
             font-size: .72rem; padding: .3rem .55rem; border-radius: 6px; transform: translate(14px, 14px); opacity: 0; transition: opacity .15s ease; white-space: nowrap; font-variant-numeric: tabular-nums; }
         .ch4x-tip.on { opacity: 1; }
@@ -1101,11 +1101,6 @@
 
             <!-- Interactive Ch4 explorer (MNI152 template) -->
             <div class="ch4x" id="ch4x">
-                <div class="ch4x-head">
-                    <span class="ch4x-kicker"><span class="ch4x-dot"></span> Interactive &middot; MNI152 standard brain</span>
-                    <h3>Explore the target: the nucleus basalis of Meynert (Ch4)</h3>
-                    <p>Hover to read Ch4 probability; use the slider or arrow keys to move through the basal forebrain.</p>
-                </div>
                 <div class="ch4x-grid">
                     <figure class="ch4x-view ch4x-main" data-view="coronal">
                         <canvas tabindex="0" aria-label="Coronal MNI152 slice with Ch4 probability overlay; use left and right arrow keys to change slice"></canvas>
@@ -1130,15 +1125,13 @@
                         </div>
                         <button type="button" class="ch4x-region" data-region="ch4">
                             <span class="ch4x-swatch ch4x-sw-ch4"></span>
-                            <span><strong>Ch4 &middot; nucleus basalis of Meynert</strong>
-                            <small>Supplies most cholinergic input to the cortex and modulates attention. Its degeneration is shared by PD, DLB, and AD.</small></span>
+                            <span><strong>Ch4 &middot; nucleus basalis of Meynert</strong></span>
                         </button>
                         <button type="button" class="ch4x-region" data-region="ch123">
                             <span class="ch4x-swatch ch4x-sw-ch123"></span>
-                            <span><strong>Ch1&ndash;3 &middot; medial septum &amp; diagonal band</strong>
-                            <small>Neighboring cholinergic cell groups that project mainly to the hippocampus and olfactory bulb.</small></span>
+                            <span><strong>Ch1&ndash;3 &middot; septum &amp; diagonal band</strong></span>
                         </button>
-                        <div class="ch4x-scale"><span>low</span><i></i><span>high probability</span></div>
+                        <div class="ch4x-scale"><span>low</span><i></i><span>high</span></div>
                     </aside>
                 </div>
                 <div class="ch4x-controls">
@@ -1148,7 +1141,7 @@
                     <span class="ch4x-end">anterior</span>
                     <button type="button" class="ch4x-zoom" id="ch4x-zoom" aria-pressed="false">Zoom to Ch4</button>
                 </div>
-                <p class="ch4x-src">Template: MNI152NLin2009cAsym T1 (1 mm). Ch4: Julich-Brain probabilistic cytoarchitectonic map of Ch 4, derived from 10 postmortem brains (Zaborszky et al., <em>NeuroImage</em> 2008). Ch1&ndash;3: Julich-Brain maximum probability map. Atlas data &copy; EBRAINS, CC BY-NC-SA 4.0. Ch4 voxels classified as CSF on the template (FSL FAST on the brain-masked T1, CSF partial volume &gt; 0.5) or outside the brain mask were removed (5,799 &rarr; 5,332 voxels); remaining probabilities are the original atlas values.</p>
+                <p class="ch4x-src">Julich-Brain Ch4 (Zaborszky et al., <em>NeuroImage</em> 2008) on MNI152 &middot; &copy; EBRAINS, CC BY-NC-SA 4.0</p>
             </div>
             <div class="fw-sub" id="featured-work">
                 <h3 class="subsection-title">Featured work</h3>
