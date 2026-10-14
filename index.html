@@ -1043,12 +1043,12 @@
         .mobile-menu span { background: #111 !important; }
         nav { border-color: #dcdcdc !important; }
         .rp-flow li:not(:last-child)::after { content: none; }
-        .rp-flow li:nth-child(-n+3)::after { content: "\2192"; position: absolute; right: -1.45rem; top: -0.8rem; font-size: 1rem; background: #fff; padding: 0 0.15rem; }
+        .rp-flow > li:nth-child(-n+3)::after { content: "\2192"; position: absolute; right: -1.45rem; top: -0.8rem; font-size: 1rem; background: #fff; padding: 0 0.15rem; }
         .rp-flow p + p { margin-top: 0.5rem; }
         .rp-flow .rp-branch { grid-column: 2; grid-row: 2; margin-top: 2rem; }
         .rp-flow .rp-branch::before { content: "\2193"; position: absolute; left: 0; top: -1.75rem; font-size: 1rem; }
         @media (max-width: 860px) {
-            .rp-flow li:nth-child(-n+3)::after { content: "\2193"; right: auto; left: 0; top: auto; bottom: -1.2rem; }
+            .rp-flow > li:nth-child(-n+3)::after { content: "\2193"; right: auto; left: 0; top: auto; bottom: -1.2rem; }
             .rp-flow .rp-branch { grid-column: auto; grid-row: auto; margin-top: 0.5rem; }
             .rp-flow .rp-branch::before { content: "\21B3  from Target"; position: static; display: block; font-size: 0.8rem; margin-bottom: 0.2rem; }
         }
@@ -1073,6 +1073,13 @@
         main .pub-cite { font-size: 0.9rem; line-height: 1.6; margin: 0; }
         :is(main) .pub-entry strong.me:not(#ch4x *) { font-weight: 700 !important; }
         main .pub-entry { padding: 0.6rem 0; }
+        .rp-flow > li { min-width: 0; }
+        .rp-flow .rp-sub { margin-top: 1.1rem; border-top: 1px solid #111; padding-top: 0.6rem; position: relative; }
+        .rp-flow .rp-down { position: absolute; left: 0; top: -1.45rem; background: #fff; padding-right: 0.2rem; }
+        .rp-flow .rp-list { list-style: none; margin: 0; padding: 0; }
+        .rp-flow .rp-list li { font-size: 0.88rem; line-height: 1.55; padding-left: 0.9rem; position: relative; margin-bottom: 0.35rem; border: none; }
+        .rp-flow .rp-list li::before { content: "\2013"; position: absolute; left: 0; }
+        .rp-flow .rp-list li::after { content: none !important; }
     </style>
 </head>
 <body>
@@ -1136,10 +1143,10 @@
 
             <ol class="rp-flow">
                 <li><h4>Problem</h4><p>Cholinesterase inhibitors are used across PD, DLB, and AD, but their benefit varies widely. Cholinergic vulnerability is variable between patients and could explain the differences in treatment responses.</p><p>Cholinergic therapies in development include muscarinic agonists (xanomeline&ndash;trospium; the M1 agonist NSC001), Ch4 deep brain stimulation, and regenerative tissue implanted into Ch4. These trials lack biomarkers for enrichment.</p></li>
-                <li><h4>Target</h4><p>The nucleus basalis of Meynert (Ch4) supplies most cortical cholinergic input and degenerates in all three diseases.</p></li>
-                <li><h4>Approach</h4><p>A multimodal MRI signature of Ch4 degeneration, now being extended across PD, DLB, and AD.</p></li>
+                <li><h4>Target</h4><p>The nucleus basalis of Meynert (Ch4) supplies most cortical cholinergic input and degenerates in all three diseases.</p>
+                    <div class="rp-sub"><span class="rp-down">&darr;</span><h4>Cognitive resilience</h4><p>Patients with similar Ch4 degeneration differ in cognition. Markers of resilience could refine prognosis and patient selection.</p></div></li>
+                <li><h4>Approach</h4><ul class="rp-list"><li>A multimodal MRI signature of Ch4 degeneration: structural, diffusion, and functional MRI</li><li>Benchmarking against cholinergic PET</li><li>Complementary EEG as a supportive biomarker</li><li>Disease subtyping and progression modeling</li></ul></li>
                 <li><h4>Application</h4><p>Patient selection for cholinergic trials; potentially prognosis, interpretation of treatment response, and assessment of remaining target tissue before Ch4 deep brain stimulation or gene therapy.</p></li>
-                <li class="rp-branch"><h4>Cognitive resilience</h4><p>Patients with similar Ch4 degeneration differ in cognition. Markers of resilience could refine prognosis and patient selection.</p></li>
             </ol>
 
 
