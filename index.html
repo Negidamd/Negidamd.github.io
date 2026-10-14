@@ -1015,6 +1015,33 @@
         .btn:hover, nav .nav-links a.nav-cv:hover { background: #f2f2f2 !important; }
         nav .nav-links a.active { background: #f2f2f2 !important; border-left-color: var(--ink) !important; }
         .pillar-kicker, .pillar-tools > span { color: var(--ink) !important; }
+
+        /* ===== Basic / senior-professor style (Oct 2026): no animation, no cards, no gradients ===== */
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+        .scroll-progress { display: none !important; }
+        .fade-in { opacity: 1 !important; transform: none !important; }
+        .pillar, .fw-item, .tool-grid .tool-entry { border: none !important; border-top: 1px solid #dcdcdc !important; border-radius: 0 !important;
+            box-shadow: none !important; background: none !important; padding: 1.1rem 0 !important; transform: none !important; }
+        .pillar::before, .tool-grid .tool-entry::before, .fw-media::after { display: none !important; }
+        .pillars, .fw-grid, .tool-grid { gap: 0 1.5rem !important; }
+        .fw-media { border-radius: 0 !important; border: 1px solid #e3e3e3 !important; }
+        .fw-media img, .profile-photo img { filter: none !important; transform: none !important; }
+        .btn, nav .nav-links a, nav .nav-links a.nav-cv { border-radius: 0 !important; }
+        .ptag, .fw-status { border: none !important; padding: 0 !important; background: none !important; border-radius: 0 !important; font-size: 0.8rem !important; }
+        .pub-tags { gap: 0 !important; }
+        .pub-tags .ptag + .ptag::before { content: " \00B7  "; white-space: pre; }
+        .ch4x { background: #0b0b0b !important; border-radius: 0 !important; box-shadow: none !important; }
+        .ch4x::before { display: none !important; }
+        /* Research program as four steps */
+        .rp-flow { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 2rem; margin: 0 0 2rem; padding: 0; counter-reset: rp; }
+        .rp-flow li { position: relative; border-top: 1px solid #111; padding-top: 0.6rem; }
+        .rp-flow li:not(:last-child)::after { content: "\2192"; position: absolute; right: -1.45rem; top: -0.8rem; font-size: 1rem; background: #fff; padding: 0 0.15rem; }
+        .rp-flow h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .rp-flow p { font-size: 0.88rem; line-height: 1.6; }
+        @media (max-width: 860px) { .rp-flow { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } .rp-flow li:not(:last-child)::after { content: "\2193"; right: auto; left: 0; top: auto; bottom: -1.2rem; } }
+        .cv-head { border-bottom: 1px solid #dcdcdc !important; }
+        .mobile-menu span { background: #111 !important; }
+        nav { border-color: #dcdcdc !important; }
     </style>
 </head>
 <body>
@@ -1076,9 +1103,12 @@
                 <p>Cholinergic vulnerability and cognition in Parkinson's disease and Alzheimer's disease and related dementias</p>
             </div>
 
-            <p class="research-vision-text">
-                PD, DLB, and AD are heterogeneous in their clinical features, pathology, and progression, and enrolling biologically diverse patients into trials of target-specific therapies can dilute treatment effects. Degeneration of the <strong>nucleus basalis of Meynert (Ch4)</strong>, which supplies most cholinergic input to the cortex, is shared by all three diseases and is the rationale for cholinesterase inhibitors, yet response to these drugs varies widely, and newer cholinergic therapies are still tested without target enrichment. I have developed a <strong>multimodal imaging signature of Ch4 degeneration</strong> and am extending it across PD, DLB, and AD to test whether it improves patient selection. A validated staging marker could also inform prognosis, interpretation of treatment response, and assessment of remaining target tissue before Ch4 deep brain stimulation or gene therapy.
-            </p>
+            <ol class="rp-flow">
+                <li><h4>Problem</h4><p>PD, DLB, and AD differ in pathology and progression. Enrolling biologically diverse patients into trials of targeted therapies dilutes treatment effects.</p></li>
+                <li><h4>Target</h4><p>The nucleus basalis of Meynert (Ch4) supplies most cortical cholinergic input and degenerates in all three diseases. It is the rationale for cholinesterase inhibitors, whose benefit varies widely.</p></li>
+                <li><h4>Approach</h4><p>A multimodal MRI signature of Ch4 degeneration, now being extended across PD, DLB, and AD.</p></li>
+                <li><h4>Application</h4><p>Patient selection for cholinergic trials; potentially prognosis, interpretation of treatment response, and assessment of remaining target tissue before Ch4 deep brain stimulation or gene therapy.</p></li>
+            </ol>
 
 
             <!-- Three research contributions -->
